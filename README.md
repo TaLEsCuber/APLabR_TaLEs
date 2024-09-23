@@ -1,2 +1,2 @@
-# APLabR_TaLREs
+# APLabR_TaLEs
 my APLabR
