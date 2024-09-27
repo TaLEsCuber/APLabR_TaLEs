@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  26 SEP 2024 22:28
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  26 SEP 2024 22:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1409,14 +1409,20 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `Lab1_D1Report.out' has not changed.
-(rerunfilecheck)             Checksum: FD9B7A4C3AA5C4FB516681998EF67D52;3199.
+
+Package rerunfilecheck Warning: File `Lab1_D1Report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Lab1_D1Report.out':
+(rerunfilecheck)             Before: 1A39EC91A582D4FA212853BD9D2F0578;3093
+(rerunfilecheck)             After:  B5D52B9E7FA25F6547692F01D9903622;3133.
  ) 
 Here is how much of TeX's memory you used:
- 39858 strings out of 474773
- 878241 string characters out of 5761289
+ 39870 strings out of 474773
+ 878981 string characters out of 5761289
  1961842 words of memory out of 5000000
- 61411 multiletter control sequences out of 15000+600000
+ 61423 multiletter control sequences out of 15000+600000
  567194 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,13n,116p,449b,1062s stack positions out of 10000i,1000n,20000p,200000b,200000s
