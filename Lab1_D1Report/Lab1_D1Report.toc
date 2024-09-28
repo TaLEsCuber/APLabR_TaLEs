@@ -5,13 +5,8 @@
 \contentsline {subsection}{\numberline {1.4}实验前思考题}{3}{subsection.1.4}%
 \contentsline {section}{\numberline {2}D1 \hskip 1em\relax 锁相放大器与弱信号测量——【实验1】锁相放大器工作原理、基本参数与基本操作 \hskip 1em\relax \heiti 实验记录}{10}{section.2}%
 \contentsline {subsection}{\numberline {2.1}实验内容、步骤和数据记录}{10}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}用示波器观察内部信号输出（与参考信号同频同相）}{10}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}测量信号 $R$、$\theta $、$X$以及$Y$值，并验证它们之间的关系}{11}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}相敏检波器工作原理——乘法器}{11}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.1.4}相敏检波器工作原理——乘法器+低通滤波器}{12}{subsubsection.2.1.4}%
-\contentsline {subsubsection}{\numberline {2.1.5}强噪声背景下的弱信号检测}{12}{subsubsection.2.1.5}%
-\contentsline {subsection}{\numberline {2.2}实验过程中遇到的问题记录}{13}{subsection.2.2}%
-\contentsline {section}{\numberline {3}D1 \hskip 1em\relax 锁相放大器与弱信号测量 \hskip 1em\relax \heiti 分析与讨论}{14}{section.3}%
-\contentsline {subsection}{\numberline {3.1}实验数据分析}{14}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}实验一 \hskip 1em\relax 选择合适电流量程，设置氩管工作电压}{14}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {2.2}实验过程中遇到的问题记录}{15}{subsection.2.2}%
+\contentsline {section}{\numberline {3}D1 \hskip 1em\relax 锁相放大器与弱信号测量 \hskip 1em\relax \heiti 分析与讨论}{16}{section.3}%
+\contentsline {subsection}{\numberline {3.1}实验数据分析}{16}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}实验报告思考题}{17}{subsection.3.2}%
 \contentsfinish 

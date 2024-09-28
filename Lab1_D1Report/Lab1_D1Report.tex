@@ -443,7 +443,7 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 \section{D1 \quad 锁相放大器与弱信号测量——【实验1】锁相放大器工作原理、基本参数与基本操作 \quad\heiti 实验记录}
 \subsection{实验内容、步骤和数据记录}
 
-	\subsubsection{用示波器观察内部信号输出（与参考信号同频同相）}
+	\subsubsection*{实验1.1 \quad 用示波器观察内部信号输出（与参考信号同频同相）}
 	
 	\begin{wrapfigure}{l}{0.5\textwidth}
 		\centering
@@ -452,17 +452,20 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 		\label{fig:D1-1-1}
 	\end{wrapfigure}
 
-	在锁相放大器的“SineOutput”中设置“Voltage = 80mVrms”，频率设置为1kHz，即可产生一个正弦波，图像如\cref{fig:D1-1-1}。
+	在锁相放大器的“SineOutput”中设置“Voltage = 80mVrms”，频率设置为1kHz，即可通过SINE OUT 功能输出一个正弦信号，如\cref{fig:D1-1-1}所示。
 
-	通过示波器测量到的信号确实为正弦波，测量的峰峰值$V_{pp} = 240.0 \text{mV}$，频率$f = 1.000 \text{kHz}$。
+	需要注意，当用三通分信号至示波器时，注意在示波器输入通道设置中选择输入阻抗$1\mathrm{M}\Omega$。通过示波器测量到的信号确实为正弦波，测量信号的峰峰值$V_{pp} = 240.0 \text{mV}$，频率$f = 1.000 \text{kHz}$。
 
 	% 即测量的有效值为$$V_{rms} = \frac{V_{pp}}{2\sqrt{2}} = 84.85 \text{mV}$$ 与设定值$80 \text{mV}$之间有一定误差；
 
 
 
 	\clearpage
-	\subsubsection{测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系}
+	\subsubsection*{实验1.2 \quad 测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系}
 
+	在实验一的基础上，用一条BNC-BNC 信号线连接 OE1022 前面板 SINE OUT 输出接口和 SIGNAL IN 的 A/I接口，并设置合适的数字信号发生器输出幅值和量程灵敏度值，确保不会发生前级输出溢出和放大溢出的情况。具体实验时，设置量程灵敏度为100mV。
+	
+	通过前面板DISPLAY按键，测量实时显示的$R$、$\theta$、$X$、$Y$值，结果如\cref{tbl:D1-2-1}。
 
 	\begin{table}[htbp]
 		\centering
@@ -477,21 +480,21 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 		\label{tbl:D1-2-1}
 	\end{table}
 
-	通过前面板DISPLAY按键，测量实时显示的$R$、$\theta$、$X$、$Y$值，结果如\cref{tbl:D1-2-1}
 
 
 
 
+	\subsubsection*{实验1.3 \quad 相敏检波器工作原理——乘法器}
+
+	将锁相放大器设置为内部参考信号，耦合方式设置为DC，将滤波器带宽调至最大（即$TC = 10 \mu\text{s}, \text{Slope} = 6 \text{dB/cot}$）。设置一个幅值为320mVrms，频率为1kHz的正弦波信号输入锁相放大器，量程灵敏度设置为500mV。
+	
+	通过示波器观察锁相放大器的模拟输出的$R$信号的波形，如\cref{fig:D1-3-1}所示；同时观察$X$，$Y$信号的波形，如\cref{fig:D1-3-2}所示。
 
 
-
-	\subsubsection{相敏检波器工作原理——乘法器}
-
-	将锁相放大器设置为内部参考信号，耦合方式设置为DC，将滤波器带宽调至最大（即$TC = 10 \mu\text{s}, \text{Slope} = 6 \text{dB/cot}$），观察锁相放大器的模拟输出的$R$信号的波形，如\cref{fig:D1-3-1}所示；同时观察$X$，$Y$信号的波形，如\cref{fig:D1-3-2}所示。
 
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.6\textwidth]{D1-3-1.jpg}
+		\includegraphics[width=0.45\textwidth]{D1-3-1.jpg}
 		\caption{乘法器输出的$R$的图像}
 		\label{fig:D1-3-1}
 	\end{figure}
@@ -510,32 +513,121 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 
 
 
-	\subsubsection{相敏检波器工作原理——乘法器+低通滤波器}
-
-	对锁相放大器的滤波器设置不同的时间常数和陡降，通过示波器观察锁相放大器的输入信号波形、乘法器输出的$R$，$X$，$Y$波形，同时记录锁相放大器的$R$，$X$，$Y$读数。
 
 
+	\subsubsection*{实验1.4 \quad 相敏检波器工作原理——乘法器+低通滤波器}
 
-
+	对锁相放大器的滤波器设置不同的时间常数和陡降，通过示波器观察锁相放大器的输入信号波形、乘法器输出的$R$，$X$，$Y$波形，同时记录锁相放大器的$R$，$X$，$Y$读数，如\cref{tbl:D1-4-1}所示。
 
 
 
+	不断增大陡降，观察输出的滤波波形，图像如\cref{fig:D1-4-1-1}、\cref{fig:D1-4-1-2}、\cref{fig:D1-4-1-3}、\cref{fig:D1-4-1-4}所示
 
+	\begin{table}[htbp]
+		\centering
+		\begin{tblr}{
+		  cells = {c},
+		  cell{1}{1} = {r=2}{},
+		  cell{1}{2} = {r=2}{},
+		  cell{1}{3} = {c=3}{},
+		  cell{1}{6} = {c=3}{},
+		  cell{3}{1} = {r=6}{},
+		  vline{1,2,3,6,9} = {1,2}{},
+		%   vline{1,2,3,6,9} = {2}{},
+		%   vline{1-3,9} = {3}{},
+		  vline{1,2,3,6,9} = {3-8}{},
+		  hline{1,3,9} = {-}{},
+		  hline{2} = {3-8}{},
+		}
+		陡降(dB/oct) & 时间常数   & 示波器读数  &         &         & 锁相放大器读数 &         &        \\
+		   &        & $R$      & $X$       & $Y$       & $R$       & $X$       & $Y$      \\
+		6  & 10$\mu$s  &        &         &         &         &         &        \\
+		   & 100$\mu$s & 2.11V  & 2.17V   & 2.15V   & 55.0mV  & 50.0mV  & 3.0mV  \\
+		   & 1ms    & 278mV  & 222.0mV & 280.0mV & 50.0mV  & 49.0mV  & 2.0mV  \\
+		   & 10ms   & 28.0mV & 27.0mV  & 28.0mV  & 50.0mV  & 50.0mV  & 1.6mV  \\
+		   & 100ms  & 5V     & 5V      & 160mV   & 50.16mV & 50.13mV & 1.67mV \\
+		   & 1s     & 5.04V  & 5.03mV  & 158mV   & 50.16mV & 50.13mV & 1.67mV 
+		\end{tblr}
+		\caption{不同时间常数下的示波器和锁相放大器读数}
+		\label{tbl:D1-4-1}
+	\end{table}
 
-
-
-
-
-	\subsubsection{强噪声背景下的弱信号检测}
-
-	实验过程中，首先测量噪声发生器的噪声信号有效值约为120.1mV，如\cref{fig:D1-8-1}所示。通过该值
 
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.6\textwidth]{D1-8-1.jpg}
+		% 第一行左图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope6.jpg} % 替换为你的图片路径
+			\caption{$Slope = 6 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-1}
+		\end{minipage}
+		\hspace{0.05\textwidth} % 两列之间的水平间距
+		% 第一行右图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope12.jpg} % 替换为你的图片路径
+			\caption{$Slope = 12 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-2}
+		\end{minipage}
+		
+		\vspace{0.01\textwidth} % 两行之间的垂直间距
+	
+		% 第二行左图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope18.jpg} % 替换为你的图片路径
+			\caption{$Slope = 18 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-3}
+		\end{minipage}
+		\hspace{0.05\textwidth} % 两列之间的水平间距
+		% 第二行右图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope24.jpg} % 替换为你的图片路径
+			\caption{$Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-4}
+		\end{minipage}
+		\caption*{不同陡降的滤波效果}
+		\label{fig:D1-4-1}
+	\end{figure}
+
+
+
+
+
+
+
+
+
+	\clearpage
+	\subsubsection*{实验1.8 \quad 强噪声背景下的弱信号检测}
+
+	\begin{wrapfigure}{l}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.5\textwidth]{D1-8-1.jpg}
 		\caption{噪声发生器的噪声信号测量}
 		\label{fig:D1-8-1}
-	\end{figure}
+	\end{wrapfigure}
+
+	通过白噪声发生器产生约100mVrms的白噪声，将其与不同幅值的正弦信号相加，得到不同信噪比的待测信号。
+	
+	实验过程中，首先测量噪声发生器的噪声信号有效值，通过拉长时间轴的方法，让噪声幅值在长时间下取平均，使有效值的数值稳定，如\cref{fig:D1-8-1}所示。
+
+	然后基于测量得到的噪声有效值，设置不同的信号幅值，得到不同的输入信号信噪比。信噪比为0的情况，即设置正弦波幅值$V_{in} = V_{noise}$；信噪比-30的情况，即通过理论计算得到，在噪声有效值一定的情况下，所需的正弦波幅值；信噪比-80的情况，可通过噪声发生器的衰减功能直接在信噪比为0的情况的基础上得到。测量数据如\cref{tbl:D1-8-1}所示。
+
+
+
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	\includegraphics[width=0.4\textwidth]{D1-8-1.jpg}
+	% 	\caption{噪声发生器的噪声信号测量}
+	% 	\label{fig:D1-8-1}
+	% \end{figure}
+
+	\vspace{0.05\textwidth} % 两行之间的垂直间距
+
 
 	\begin{table}[htbp]
 		\centering
@@ -591,7 +683,7 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 %\subsection{原始数据记录}
 
 
-
+\clearpage
 \subsection{实验过程中遇到的问题记录}
 
 \begin{enumerate}
@@ -609,7 +701,7 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 	\hline
 	姓名： & 戴鹏辉 & 学号：& 22344016\\
 	\hline
-    日期：& 2024/5/12 & 评分： &\\
+    日期：& 2024/09/28 & 评分： &\\
 	\hline
 	\end{tabularx}
 \end{table}
@@ -619,11 +711,141 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 \subsection{实验数据分析}
 
 
-	\subsubsection{实验一 \quad 选择合适电流量程，设置氩管工作电压}
+	\subsubsection*{实验1.1 \quad 用示波器观察内部信号输出（与参考信号同频同相）}
 		
-		
+		【问题 1】 示波器是否显示出正弦波？其测量的信号参数值是否与锁相放大器的信号设置值一致？
+
+		由\cref{fig:D1-1-1}可知，示波器显示的是正弦波，测量的峰峰值为 $V_{pp} = 240.0 \mathrm{mV}$，即测量的有效值为
+		\[
+			V_{rms} = \frac{V_{pp}}{2 \sqrt{2}} = \frac{240.0 \mathrm{mV}}{2 \sqrt{2}} \approx 84.85 \mathrm{mV}
+		\]
+
+		与锁相放大器的设置值$V_{set} = 80 \mathrm{mV}$相比，可认为一致。
+
+		同时，测量的频率$f = 1.000 \mathrm{kHz}$，与设定值一致。
 
 
+
+
+	\subsubsection*{实验1.2 \quad 测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系}
+
+		【问题 2】 请比较示波器的读数和锁相放大器的$R$值，以理解$R$值的确切含义。
+
+		由\cref{fig:D1-1-1}可知，锁相放大器测量的$R = 81.42 \mathrm{mV}$，与示波器测量的有效值相近，说明锁相放大器测量的$R$值为信号的有效值。
+
+
+		\vspace{0.05\textwidth} % 两行之间的垂直间距
+
+
+		【问题 3】 测量数据反映出$R$、$X$、$Y$及$\theta$的之间是什么关系？是否与式(D1- 22)、式(D1- 25)和(D1- 26)符合？
+
+		由\cref{tbl:D1-2-1}的数据，有如下计算：
+		\[
+			R \cos\theta = 81.43 \mathrm{mV} \cdot \cos(177.33°) = -81.342 \mathrm{mV} \approx X 
+		\]
+		\[
+			R \sin\theta = 81.43 \mathrm{mV} \cdot \sin(177.33°) = 3.793 \mathrm{mV} \approx Y 
+		\]
+		\[
+			\sqrt{X^2 + Y^2} = \sqrt{(-81.34 \mathrm{mV})^2 + (3.79 \mathrm{mV})^2} = 81.428 \mathrm{mV} \approx R
+		\]
+
+		上式计算说明，$R$、$X$、$Y$及$\theta$的之间的关系与式(D1- 22)、式(D1- 25)和(D1- 26)符合。
+
+
+		\vspace{0.05\textwidth} % 两行之间的垂直间距
+
+
+		【问题 4】 你使用的 OE1022 是双锁相放大器吗？为什么？
+
+		是双锁相放大器。因为由\cref{tbl:D1-2-1}可知，该锁相放大器可同时测量完整的输入信号信息（即信号的有效值$R$和相位角$\theta$）。
+
+
+
+	\subsubsection*{实验1.3 \quad 相敏检波器工作原理——乘法器}
+
+		【问题 5】 示波器上看到什么波形？$X$、$Y$是正弦波吗？其相位差为多少度？$X$、$Y$的平均值为零吗？平均值是否会随滤波器参数而改变？参照式(D1-19)和式(D1-23)讨论；$R$值波形是否呈现全波整流的正弦信号，其频率为多少？与$X$或$Y$的频率存在什么关系？请对比式(D1- 28)讨论此波形。
+
+		式(D1-19)和式(D1-23)为
+		\begin{align*}
+			u_{px}(t) &= \frac{1}{2} A_I s(t) \{ [ \cos((\omega_m - \omega_r)t + \theta) - \cos((\omega_m + \omega_r)t + \theta) + n(t)\sin(\omega_r t) ]\} \\
+			u_{py}(t) &= \frac{1}{2} A_I s(t) [ \sin((\omega_m - \omega_r)t + \theta) + \sin((\omega_m + \omega_r)t + \theta) ]
+		\end{align*}
+
+		式(D1- 28)为
+		\begin{align*}
+			R(t) = s(t) \sin(\omega_m t + \theta)
+		\end{align*}
+
+
+
+
+
+		
+	\subsubsection*{实验1.4 \quad 相敏检波器工作原理——乘法器+低通滤波器}
+
+		【问题 6】 当调大时间常数后，输出$R$是否越来越稳定？直流分量（信号平均值）是否有改变？
+
+
+
+		【问题 7】 观察示波器波形，并给出在某一陡降值下，时间常数为多少个信号周期时，才能观察到稳定的直流输出？提示：注意调节示波器$Y$轴量程以提高测量振幅变化的精度。并结合式(D1-32)讨论。
+
+
+
+		【问题 8】为何在 1 阶（6dB/oct）时还没怎么起滤波效果，而到 4 阶（24dB/oct）时，则可看见明显的效果？
+
+	\subsubsection*{实验1.8 \quad 强噪声背景下的弱信号检测}
+
+		【问题 12】如何获得幅值为 0.1mVrms 的正弦波输入信号？
+
+
+		【问题 13】对低信噪比信号或非周期噪声测量，能否用示波器的“auto”键？若通过手动调节，示波器屏宽（时间轴范围）应为多少个信号周期为宜？
+
+
+		【问题 14】在用示波器观察、测量信号有效值时，请注意屏幕时间轴范围应达到待观测信号完整周期的整数倍；为什么？
+
+
+		【问题 15】用锁相放大器测量 $R$ 值时，读数应保留几位有效数字？调节锁相放大器的什么参数设置可以得到？调节锁相放大器的什么参数可以获得稳定的读数。
+
+
+\subsection{实验报告思考题}
+
+
+% 思考题1
+\begin{question}
+	描述用教学实验箱配制不同信噪比信号的原理；实验箱生成的噪声是否为白噪声？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+% 思考题2
+\begin{question}
+	随着信噪比的改变，信号 $R$ 和相位差$\theta$的测量值会有什么影响？
+\end{question}
+
+
+
+
+
+% 思考题3
+\begin{question}
+	所有的噪声都可以用锁相放大器消除吗？锁相放大器的理论检测极限是多少？受什么限制？
+\end{question}
+
+
+
+
+% 思考题4
+\begin{question}
+	请比较锁相放大器与示波器（经过带通滤波后）测量不同信噪比信号的结果，分析两种测量仪器（方法）的优势与劣势。选择锁相放大器窄带宽的 LPF 可以降低式(D1- 34)中的$n_{\omega_r}$，从而提高测量值的信噪比吗？信噪比的提高与 LPF 带宽有何关系？参考式(D1-10)讨论。
+\end{question}
 
 
 

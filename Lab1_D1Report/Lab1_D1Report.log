@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  26 SEP 2024 22:40
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  29 SEP 2024 00:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1290,44 +1290,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [10
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\theta' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 464.
-
-
-Overfull \hbox (2.56894pt too wide) in paragraph at lines 490--491
+Overfull \hbox (2.56894pt too wide) in paragraph at lines 489--490
 []\TU/SimSun(0)/m/n/10.95 将 锁 相 放 大 器 设 置 为 内 部 参 考 信 号，|  耦 合 方 式 设 置 为 \TU/lmr/m/n/10.95 DC\TU/SimSun(0)/m/n/10.95 ，|  将 滤 波 器 带 宽 调 至 最 大  |（即 $\OML/cmm/m/it/10.95 TC \OT1/cmr/m/n/10.95 = 10\OML/cmm/m/it/10.95 ^^V[]; [] \OT1/cmr/m/n/10.95 =
  []
 
@@ -1345,6 +1308,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [11
 
 ]
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+File: ./images/APL1_1_question8_slope6.jpg Graphic file (type bmp)
+<./images/APL1_1_question8_slope6.jpg>
+File: ./images/APL1_1_question8_slope12.jpg Graphic file (type bmp)
+<./images/APL1_1_question8_slope12.jpg>
+File: ./images/APL1_1_question8_slope18.jpg Graphic file (type bmp)
+<./images/APL1_1_question8_slope18.jpg>
+File: ./images/APL1_1_question8_slope24.jpg Graphic file (type bmp)
+<./images/APL1_1_question8_slope24.jpg>
+
+
+LaTeX Warning: Float too large for page by 17.92413pt on input line 593.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13]
 File: ./images/D1-8-1.jpg Graphic file (type bmp)
 <./images/D1-8-1.jpg>
 > Step: init table outer spec.
@@ -1363,44 +1362,59 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[12]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[13]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 617.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 617.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 617.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 622.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [14
 
-] (./Lab1_D1Report.aux)
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 709.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 709.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 709.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[17]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[18] (./Lab1_D1Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1409,22 +1423,16 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `Lab1_D1Report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Lab1_D1Report.out':
-(rerunfilecheck)             Before: 1A39EC91A582D4FA212853BD9D2F0578;3093
-(rerunfilecheck)             After:  B5D52B9E7FA25F6547692F01D9903622;3133.
+Package rerunfilecheck Info: File `Lab1_D1Report.out' has not changed.
+(rerunfilecheck)             Checksum: AF741B3B30187EC1AE7AE17B00346096;1931.
  ) 
 Here is how much of TeX's memory you used:
- 39870 strings out of 474773
- 878981 string characters out of 5761289
- 1961842 words of memory out of 5000000
- 61423 multiletter control sequences out of 15000+600000
- 567194 words of font info for 93 fonts, out of 8000000 for 9000
+ 40046 strings out of 474773
+ 885795 string characters out of 5761289
+ 1968842 words of memory out of 5000000
+ 61595 multiletter control sequences out of 15000+600000
+ 569081 words of font info for 96 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,13n,116p,449b,1062s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,13n,116p,449b,1052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lab1_D1Report.pdf (14 pages).
+Output written on Lab1_D1Report.pdf (18 pages).
