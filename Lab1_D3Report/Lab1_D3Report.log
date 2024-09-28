@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  27 SEP 2024 19:24
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  28 SEP 2024 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1360,14 +1360,8 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `Lab1_D3Report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Lab1_D3Report.out':
-(rerunfilecheck)             Before: 0CCC198A9B98F40D6DE38167D1F56ECE;2259
-(rerunfilecheck)             After:  168E84DCD484943FF7874ED3A3190974;2905.
+Package rerunfilecheck Info: File `Lab1_D3Report.out' has not changed.
+(rerunfilecheck)             Checksum: 168E84DCD484943FF7874ED3A3190974;2905.
  ) 
 Here is how much of TeX's memory you used:
  39331 strings out of 474773
