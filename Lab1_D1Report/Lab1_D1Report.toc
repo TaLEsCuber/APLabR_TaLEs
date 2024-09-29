@@ -5,8 +5,8 @@
 \contentsline {subsection}{\numberline {1.4}实验前思考题}{3}{subsection.1.4}%
 \contentsline {section}{\numberline {2}D1 \hskip 1em\relax 锁相放大器与弱信号测量——【实验1】锁相放大器工作原理、基本参数与基本操作 \hskip 1em\relax \heiti 实验记录}{10}{section.2}%
 \contentsline {subsection}{\numberline {2.1}实验内容、步骤和数据记录}{10}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}实验过程中遇到的问题记录}{15}{subsection.2.2}%
-\contentsline {section}{\numberline {3}D1 \hskip 1em\relax 锁相放大器与弱信号测量 \hskip 1em\relax \heiti 分析与讨论}{16}{section.3}%
-\contentsline {subsection}{\numberline {3.1}实验数据分析}{16}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}实验报告思考题}{17}{subsection.3.2}%
+\contentsline {subsection}{\numberline {2.2}实验过程中遇到的问题记录}{16}{subsection.2.2}%
+\contentsline {section}{\numberline {3}D1 \hskip 1em\relax 锁相放大器与弱信号测量 \hskip 1em\relax \heiti 分析与讨论}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}实验数据分析}{17}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}实验报告思考题}{19}{subsection.3.2}%
 \contentsfinish 
