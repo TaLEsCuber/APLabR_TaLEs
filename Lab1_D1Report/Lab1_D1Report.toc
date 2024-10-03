@@ -8,5 +8,5 @@
 \contentsline {subsection}{\numberline {2.2}实验过程中遇到的问题记录}{16}{subsection.2.2}%
 \contentsline {section}{\numberline {3}D1 \hskip 1em\relax 锁相放大器与弱信号测量 \hskip 1em\relax \heiti 分析与讨论}{17}{section.3}%
 \contentsline {subsection}{\numberline {3.1}实验数据分析}{17}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}实验报告思考题}{19}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}实验报告思考题}{20}{subsection.3.2}%
 \contentsfinish 

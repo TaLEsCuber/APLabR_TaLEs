@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  29 SEP 2024 20:39
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  4 OCT 2024 02:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1428,16 +1428,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 728.
+(hyperref)                replaced by space on input line 729.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 728.
+(hyperref)                replaced by space on input line 729.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 728.
+(hyperref)                removing `\heiti' on input line 729.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1449,7 +1449,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [17
 
 ]
-Overfull \hbox (10.08243pt too wide) in paragraph at lines 834--835
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[18]
+Overfull \hbox (10.08243pt too wide) in paragraph at lines 886--887
 []\TU/SimSun(0)/m/n/10.95 由 于 信 号 发 生 器 最 低 只 能 设 置 \TU/lmr/m/n/10.95 0.7mVrms \TU/SimSun(0)/m/n/10.95 的 正 弦 波 输 入 信 号，|  所 以 需 要 考 虑 其 他 方 式 获 得 幅 值 为 \TU/lmr/m/n/10.95 0.1mVrms
  []
 
@@ -1460,7 +1468,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[18]
+[19]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1468,7 +1476,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[19] (./Lab1_D1Report.aux)
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[21]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[22] (./Lab1_D1Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1481,12 +1505,12 @@ Package rerunfilecheck Info: File `Lab1_D1Report.out' has not changed.
 (rerunfilecheck)             Checksum: AF741B3B30187EC1AE7AE17B00346096;1931.
  ) 
 Here is how much of TeX's memory you used:
- 40423 strings out of 474773
- 892336 string characters out of 5761289
- 1968842 words of memory out of 5000000
- 61957 multiletter control sequences out of 15000+600000
- 569081 words of font info for 96 fonts, out of 8000000 for 9000
+ 40574 strings out of 474773
+ 900921 string characters out of 5761289
+ 1967842 words of memory out of 5000000
+ 62106 multiletter control sequences out of 15000+600000
+ 569097 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,16n,116p,449b,1056s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lab1_D1Report.pdf (19 pages).
+Output written on Lab1_D1Report.pdf (22 pages).
