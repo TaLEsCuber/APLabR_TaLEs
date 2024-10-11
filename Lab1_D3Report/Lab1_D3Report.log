@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  11 OCT 2024 16:30
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  11 OCT 2024 17:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -958,7 +958,14 @@ Package: tabularray 2024-02-16 v2024A Typeset tabulars and arrays with LaTeX3
 \l__tblr_cell_wd_dim=\dimen388
 \l__tblr_cell_ht_dim=\dimen389
 \l__tblr_diag_box=\box119
-) (./Lab1_D3Report.aux)
+) (./Lab1_D3Report.aux
+
+LaTeX Warning: Label `fig:D3-1-3' multiply defined.
+
+
+LaTeX Warning: Label `fig:D3-1-3@cref' multiply defined.
+
+)
 \openout1 = `Lab1_D3Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -1370,6 +1377,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15]
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16]
+
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
 (hyperref)                replaced by space on input line 769.
@@ -1401,15 +1416,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[16]
+[17
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[17]
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1418,16 +1427,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [18]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[19
-
-]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
@@ -1454,7 +1453,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[20
+[19
 
 ]
 File: ./images/D3-1-1.png Graphic file (type bmp)
@@ -1467,7 +1466,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[21]
+[20]
 File: ./images/D3-1-3.png Graphic file (type bmp)
 <./images/D3-1-3.png>
 
@@ -1493,6 +1492,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
+[21]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
 [22]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1502,14 +1509,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [23]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
@@ -1524,6 +1523,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\heiti' on input line 1130.
 
+File: ./images/D3-Sum-1.png Graphic file (type bmp)
+<./images/D3-Sum-1.png>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1531,9 +1532,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[25
+[24
 
-] (./Lab1_D3Report.aux)
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[25] (./Lab1_D3Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1543,19 +1552,16 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-Package rerunfilecheck Warning: File `Lab1_D3Report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `Lab1_D3Report.out':
-(rerunfilecheck)             Before: 6A850BDBAB659890A1051BA016063ADB;3177
-(rerunfilecheck)             After:  8B2CF7ADD0F22AF2BC27F7A39012AE37;3267.
+Package rerunfilecheck Info: File `Lab1_D3Report.out' has not changed.
+(rerunfilecheck)             Checksum: BF38FB2CFF5652E9C7BAF8E2D546A06E;3357.
  ) 
 Here is how much of TeX's memory you used:
- 40287 strings out of 474773
- 890425 string characters out of 5761289
+ 40299 strings out of 474773
+ 890700 string characters out of 5761289
  2028842 words of memory out of 5000000
- 61831 multiletter control sequences out of 15000+600000
+ 61842 multiletter control sequences out of 15000+600000
  575184 words of font info for 105 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,12n,116p,449b,1422s stack positions out of 10000i,1000n,20000p,200000b,200000s
