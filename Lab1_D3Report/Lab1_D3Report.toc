@@ -6,16 +6,18 @@
 \contentsline {section}{\numberline {2}D3 \hskip 1em\relax 量子密钥分发 \hskip 1em\relax \heiti 实验记录}{10}{section.2}%
 \contentsline {subsection}{\numberline {2.1}实验内容和步骤}{10}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}实验一 \hskip 1em\relax 光的偏振的测量和控制}{10}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{13}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}实验三 \hskip 1em\relax 单光子的标定}{14}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{14}{subsubsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.2}实验数据记录}{15}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}实验过程中遇到的问题记录}{15}{subsection.2.3}%
-\contentsline {section}{\numberline {3}D3 \hskip 1em\relax 量子密钥分发 \hskip 1em\relax \heiti 分析与讨论}{18}{section.3}%
-\contentsline {subsection}{\numberline {3.1}实验数据分析}{18}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}实验一 \hskip 1em\relax 光的偏振的测量和控制}{18}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{21}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}实验三 \hskip 1em\relax 单光子的标定}{21}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{21}{subsubsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.2}实验后思考题}{22}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {2.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{14}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}实验三 \hskip 1em\relax 单光子的标定}{15}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{16}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.2}实验数据记录}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}实验过程中遇到的问题记录}{19}{subsection.2.3}%
+\contentsline {section}{\numberline {3}D3 \hskip 1em\relax 量子密钥分发 \hskip 1em\relax \heiti 分析与讨论}{20}{section.3}%
+\contentsline {subsection}{\numberline {3.1}实验数据分析}{20}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}实验一 \hskip 1em\relax 光的偏振的测量和控制}{20}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{22}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}实验三 \hskip 1em\relax 单光子的标定}{22}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{22}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}实验后思考题}{23}{subsection.3.2}%
+\contentsline {section}{\numberline {4}D3 \hskip 1em\relax 量子密钥分发 \hskip 1em\relax \heiti 实验总结}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}实验分工}{25}{subsection.4.1}%
 \contentsfinish 
