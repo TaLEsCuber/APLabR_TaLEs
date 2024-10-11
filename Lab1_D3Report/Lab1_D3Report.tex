@@ -461,10 +461,201 @@
 \subsection{实验内容和步骤}
 
 	\subsubsection{实验一 \quad 光的偏振的测量和控制}
+
+		% dBm为分贝毫瓦，计算公式为
+		% \[
+		% 	x \equiv 10 \log \frac{P(\mathrm{mW})}{1 \mathrm{mW}}
+		% \]
 	
+		\begin{enumerate}
+			\item 将光学元件按照“Laser - PBS1 - 光功率计”的顺序摆放，测量激光器通过PBS1后的反射功率和透射功率。测量数据如\cref{tbl:D3-1-1}所示。
+			
+				\begin{table}[htbp]
+					\centering
+					\begin{tabular}{|c|c|cc|} 
+					\hline
+					序号 & 名称              & 数据    & 单位   \\ 
+					\hline
+					1  & Laser+PBS1 反射功率 & 9.12  & dBm  \\
+					2  & Laser+PBS1 透射功率 & 15.05 & dBm  \\
+					\hline
+					\end{tabular}
+					\caption{激光器通过PBS1后的反射功率和透射功率}
+					\label{tbl:D3-1-1}
+				\end{table}
+
+
+			
+			\item 在上一步的基础上，在“Laser”和“PBS1”之间加入一个半波片“HWP1”,旋转HWP1，测量激光器通过PBS1后的最大、最小透射功率和最大、最小的反射功率，结果如\cref{tbl:D3-1-2}所示。
+				
+				\begin{table}[htbp]
+					\centering
+					\begin{tabular}{|c|c|cc|} 
+					\hline
+					序号 & 名称                       & 数据    & 单位   \\ 
+					\hline
+					1  & Laser + HWP1+PBS1 最大反射功率 & 15.88 & dBm  \\
+					2  & Laser + HWP1+PBS1 最大透射功率 & 15.8  & dBm  \\
+					3  & Laser + HWP1+PBS1 最小反射功率 & -1.66 & dBm  \\
+					4  & Laser + HWP1+PBS1 最小透射功率 & -8.42 & dBm  \\
+					\hline
+					\end{tabular}
+					\caption{加入半波片后，激光器通过PBS1后的反射功率和透射功率}
+					\label{tbl:D3-1-2}
+				\end{table}
+			
+			\item 将光学元件按照“Laser - PBS1 - HWP1 - PBS2 - 光功率计”的顺序摆放，旋转HWP1，测量激光器通过PBS2后的功率变化，结果如\cref{tbl:D3-1-3}所示。
+			
+				\begin{table}[htbp]
+					\centering
+					\begin{tblr}{
+					cells = {c},
+					cell{1}{2} = {c=2}{},
+					vline{1-4,6} = {1}{},
+					vline{1-2,4,6} = {2-18}{},
+					hline{1-2,19} = {-}{},
+					}
+					序号 & 名称              &           & 数据     & 单位  \\
+					1  & 半波片 1 转动 0°     & PBS2 透射功率 & -28.79 & dBm \\
+					2  & 半波片 1 转动 22.5°  & PBS2 透射功率 & -5.44  & dBm \\
+					3  & 半波片 1 转动 45°    & PBS2 透射功率 & -2.36  & dBm \\
+					4  & 半波片 1 转动 67.5°  & PBS2 透射功率 & -5.72  & dBm \\
+					5  & 半波片 1 转动 90°    & PBS2 透射功率 & -24.06 & dBm \\
+					6  & 半波片 1 转动 112.5° & PBS2 透射功率 & -5.65  & dBm \\
+					7  & 半波片 1 转动 135°   & PBS2 透射功率 & -2.55  & dBm \\
+					8  & 半波片 1 转动 157.5° & PBS2 透射功率 & -4.88  & dBm \\
+					9  & 半波片 1 转动 180°   & PBS2 透射功率 & -24.6  & dBm \\
+					10 & 半波片 1 转动 202.5° & PBS2 透射功率 & -5.02  & dBm \\
+					11 & 半波片 1 转动 225°   & PBS2 透射功率 & -2.35  & dBm \\
+					12 & 半波片 1 转动 247.5° & PBS2 透射功率 & -6.53  & dBm \\
+					13 & 半波片 1 转动 270°   & PBS2 透射功率 & -21.65 & dBm \\
+					14 & 半波片 1 转动 292.5° & PBS2 透射功率 & -5.68  & dBm \\
+					15 & 半波片 1 转动 315°   & PBS2 透射功率 & -2.03  & dBm \\
+					16 & 半波片 1 转动 337.5° & PBS2 透射功率 & -5.13  & dBm \\
+					17 & 半波片 1 转动 360°   & PBS2 透射功率 & -27.92 & dBm 
+					\end{tblr}
+					\caption{透射功率随HWP1的变化}
+					\label{tbl:D3-1-3}
+				\end{table}
+			  
+			
+			
+			\item 将光学元件按照“Laser - PBS1 - HWP1 - HWP2 - PBS2 - 光功率计”的顺序摆放，光路图如\cref{fig:D3-1-2}所示。首先将HWP1调整至光轴竖直（在上一步以确定光轴位置），然后旋转HWP2，测量激光器通过PBS2后的功率变化，结果如\cref{tbl:D3-1-4}所示。
+			
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.9\textwidth]{D3-1-2.png}
+					\caption{第四步的光路图}
+					\label{fig:D3-1-2}
+				\end{figure}
+				
+				
+
+				
+				\begin{table}[htbp]
+					\centering
+					\begin{tblr}{
+					cells = {c},
+					cell{1}{2} = {c=2}{},
+					vline{1-4,6} = {1}{},
+					vline{1-2,4,6} = {2-18}{},
+					hline{1-2,19} = {-}{},
+					}
+					序号 & 名称              &           & 数据     & 单位  \\
+					1  & 半波片 2 转动 0°     & PBS2 透射功率 & -25.32 & dBm \\
+					2  & 半波片 2 转动 22.5°  & PBS2 透射功率 & 10.56  & dBm \\
+					3  & 半波片 2 转动 45°    & PBS2 透射功率 & 13.65  & dBm \\
+					4  & 半波片 2 转动 67.5°  & PBS2 透射功率 & 11.68  & dBm \\
+					5  & 半波片 2 转动 90°    & PBS2 透射功率 & -11.2  & dBm \\
+					6  & 半波片 2 转动 112.5° & PBS2 透射功率 & 10.74  & dBm \\
+					7  & 半波片 2 转动 135°   & PBS2 透射功率 & 14.07  & dBm \\
+					8  & 半波片 2 转动 157.5° & PBS2 透射功率 & 9.49   & dBm \\
+					9  & 半波片 2 转动 180°   & PBS2 透射功率 & -24.2  & dBm \\
+					10 & 半波片 2 转动 202.5° & PBS2 透射功率 & 11.16  & dBm \\
+					11 & 半波片 2 转动 225°   & PBS2 透射功率 & 14.03  & dBm \\
+					12 & 半波片 2 转动 247.5° & PBS2 透射功率 & 11.02  & dBm \\
+					13 & 半波片 2 转动 270°   & PBS2 透射功率 & -12.71 & dBm \\
+					14 & 半波片 2 转动 292.5° & PBS2 透射功率 & 11.06  & dBm \\
+					15 & 半波片 2 转动 315°   & PBS2 透射功率 & 14.13  & dBm \\
+					16 & 半波片 2 转动 337.5° & PBS2 透射功率 & 10.77  & dBm \\
+					17 & 半波片 2 转动 360°   & PBS2 透射功率 & -18.45 & dBm 
+					\end{tblr}
+					\caption{透射功率随HWP2的变化}
+					\label{tbl:D3-1-4}
+				\end{table}
+
+		\end{enumerate}
+
 	\subsubsection{实验二 \quad 单光子的探测及相应探测器效率的测量}
 
+		\begin{enumerate}
+			\item 理论计算，当到达单光子探测器的平均光子数为 0.1 光子/脉冲时，$\mathrm{LD_M}$ 和 $\mathrm{SPD_M}$ 之间需要多少衰减，计算过程如下：
+				\begin{itemize}
+					\item 单个 404 nm 光子的能量为：
+						$$ E = h \nu = \frac{h c}{\lambda} = 6.626 \times 10^{-34} \times \frac{3 \times 10^{8}}{404 \times 10^{-9}} \mathrm{J} = 4.92 \times 10^{-19} \mathrm{J} $$
+
+					\item 由于采用的 404nm 激光器的发光重复频率为 10MHz，因此，当到达$\mathrm{SPD_M}$的每个脉冲平均光子数为 0.1 个光子时，$\mathrm{SPD_M}$ 所探测到的功率为：
+						\begin{align*}
+							P = \mu \cdot f \cdot E = 0.1 \times 10 \times 10^{6} \times 4.92 \times 10^{-19} \mathrm{W} = 4.92 \times 10^{-13} \mathrm{W}	\\
+							= 10 \lg \frac{4.92 \times 10^{-13} \mathrm{W}}{1 \times 10^{-3} \mathrm{W}} \mathrm{dBm} = -93.08 \mathrm{dBm}
+						\end{align*}
+					其中 $\mu$ 为平均光子数脉冲，$f$ 为光触发频率，$P$ 即为光功率。
+
+					\item 使用手持光功率计测量 $\mathrm{LD_M}$ 的光功率为 $P_0 = 10.7 \mathrm{dBm}$，所以为制备每个脉冲平均光子数为 0.1 个光子，在路径中需要加的总衰减为：
+						$$ A = P_0 - P = 103.78 \mathrm{dB} $$
+						
+						路径中元件的固定衰减为：
+						\begin{align*}
+							A_1 &= 24.6 \mathrm{dB} + 3.7 \mathrm{dB} + 0.1 \mathrm{dB} + 3.3 \mathrm{dB} + 29.2 \mathrm{dB} + 29.4 \mathrm{dB} + 3.2 \mathrm{dB} + 0.1 \mathrm{dB} + 0.1 \mathrm{dB} + 10 \lg \frac{1}{48\%} \\
+							&= 93.70 \mathrm{dB} + 3.19 \mathrm{dB} \\
+							&= 96.89 \mathrm{dB}
+						\end{align*}
+
+						其中前9项来自路径中的固定元件提供的衰减；最后一项来自光纤耦合器 $\mathrm{OC_M}$ 的光纤耦合效率所提供的衰减 48\% 。
+
+					\item 所以可调衰减片应提供衰减值为：
+						$$ A_2 = A - A_1 = 103.78 \mathrm{dB} - 96.89 \mathrm{dB} = 6.89 \mathrm{dB} $$
+
+				\end{itemize}
+			
+			\item 调整可调衰减片的衰减值至理论值后，通过空间偏振 QKD 系统可以得到单光子探测器的扫描计数 N 为 353000。
+			
+			\item 由 $ N = f \cdot \mu \cdot \eta $，得单光子探测器的探测效率为：
+				$$ \eta = \frac{N}{f \cdot \mu} = \frac{353000}{10 \times 10^{6} \times 0.1} = 35.3 \% $$
+
+		\end{enumerate}
+		
+
 	\subsubsection{实验三 \quad 单光子的标定}
+
+		\begin{enumerate}
+			\item 理论计算当公共信道平均光子数为 0.2 光子/脉冲时，经过接收端光路衰减到达单光子探测器的探测计数 N；（以 M 路光路为例计算），下面是计算过程：
+				\begin{itemize}
+					\item 当公共信道处的平均光子数为 0.2 光子/脉冲时，该处的光功率为
+						\begin{align*}
+							P_{pc} = 0.2 \times 10 \times 10^{6} \times 4.92 \times 10^{-19} \mathrm{W} = 9.84 \times 10^{-13} \mathrm{W}	\\
+							= 10 \lg \frac{9.84 \times 10^{-13} \mathrm{W}}{1 \times 10^{-3} \mathrm{W}} \mathrm{dBm} = -90.07 \mathrm{dBm} 
+						\end{align*}
+
+					\item 公共信道处的光子到达 $\mathrm{OC_M}$ 后，又经过了4个衰减，最后的功率为
+						\begin{align*}
+							P = -90.07 \mathrm{dBm} - 3.2 \mathrm{dBm} - 0.1 \mathrm{dBm} - 0.1 \mathrm{dBm} - 3.19 \mathrm{dBm} = -96.66 \mathrm{dBm}	\\
+							= 10^{\frac{-96.66}{10}} \mathrm{mW} = 2.16 \times 10^{-10} \mathrm{mW} = 2.16 \times 10^{-13} \mathrm{W}
+						\end{align*}
+
+					\item 所以，到达 $\mathrm{OC_M}$ 的每脉冲平均光子数为 
+						$$ \mu = \frac{P}{f \cdot E} = \frac{2.16 \times 10^{-13}}{10 \times 10^{6} \times 4.92 \times 10^{-19}} = 0.044 \ \text{光子/脉冲} $$
+
+					\item 所以单光子探测器的探测计数 N 为：
+						$$ N = f \cdot \mu \cdot \eta = 10 \times 10^{6} \times 0.044 \times 35.3 \% = 155320 $$
+				\end{itemize}
+
+			\item 分别选择 M、H、V、P 路扫描，调节对应的可调衰减片，使得对应的探测器扫描计数接近 N，即完成单光子的标定。
+		\end{enumerate}
+
+
+
+
 
 	\subsubsection{实验四 \quad 密钥分发过程数据处理}
 
@@ -521,7 +712,116 @@
 
 
 	\subsubsection{实验一 \quad 光的偏振的测量和控制}
+
+		对于偏振分光棱镜（PBS），它是一个分光棱镜，根据光的偏振态进行分光，当一束光垂直入射面入射，水平分量的光将会透射，垂直分量的光将会反射；即透射端口为水平偏振光，反射端口为垂直透射光。
 		
+		\begin{enumerate}
+			\item 首先测量了激光通过 PBS1 后的反射和透射功率，如\cref{tbl:D3-1-1}所示，下面计算“假设其是线偏振光，其偏振方向与水平方向的夹角$\theta$”：
+				% \begin{align*}
+				% 	\text{设该线偏振光的光场为} \ \vec{E} = E_0 \cos\theta \vec{e_x} + E_0 \sin\theta \vec{e_y}	\\
+				% 	\text{透射功率与反射功率之比为} \ \frac{P_t}{P_r} = \frac{(E_0 \cos\theta)^2}{(E_0 \sin\theta)^2} = \cot^2\theta = \frac{10^{\frac{15.05}{10}}}{10^{\frac{9.12}{10}}} = 3.9174		\\
+				% 	\Rightarrow \theta = 0.468 \mathrm{rad}
+				% \end{align*}
+
+				\begin{align}
+					\text{设该线偏振光的光场为} \ & \vec{E} = E_0 \cos\theta \vec{e_x} + E_0 \sin\theta \vec{e_y} \nonumber \\
+					\text{透射功率与反射功率之比为} \ & \frac{P_t}{P_r} = \frac{(E_0 \cos\theta)^2}{(E_0 \sin\theta)^2} = \cot^2\theta = \frac{10^{\frac{15.05}{10}}}{10^{\frac{9.12}{10}}} = 3.9174 \nonumber \\
+					& \Rightarrow \theta = 0.468 \, \mathrm{rad} \nonumber
+				\end{align}
+
+			即该偏振光与水平方向的夹角为 0.468 rad.
+
+			\item 在“Laser”和“PBS1”之间加入一个半波片“HWP1”,旋转HWP1，测量激光器通过PBS1后的最大、最小透射功率和最大、最小的反射功率，结果如\cref{tbl:D3-1-2}所示，下面分析其是否为完美的线偏振光：
+				\begin{itemize}
+					\item 若其是线偏振光，在经过 HWP1 、旋转HWP1，后，其反射功率和透射功率应呈现周期性变化：
+					
+					设该线偏振光的光场为 
+					$$ \vec{E} = E_0 \cos\theta \vec{e_x} + E_0 \sin\theta \vec{e_y} = E_0
+					\begin{pmatrix}
+						\cos\theta	\\
+						\sin\theta
+					\end{pmatrix} 
+					$$
+
+					设半波片的琼斯矩阵如下所示，其中$\alpha$为半波片光轴与水平方向的夹角 
+					$$ \begin{pmatrix}
+					 		\cos2\alpha		&\sin2\alpha	\\
+							\sin2\alpha		&-\cos2\alpha
+					 	\end{pmatrix} 
+					$$
+
+					当半波片作用在线偏振光后，有
+					$$
+						\vec{E'} = E_0 
+						\begin{pmatrix}
+							\cos2\alpha		&\sin2\alpha	\\
+						   \sin2\alpha		&-\cos2\alpha
+						\end{pmatrix}
+						\begin{pmatrix}
+							\cos\theta	\\
+							\sin\theta
+						\end{pmatrix} 
+						= 
+						\begin{pmatrix}
+							\cos(2 \alpha - \theta)		\\
+							\sin(2 \alpha - \theta)
+						\end{pmatrix}
+					$$
+
+					所以，反射功率 $P_r = E_0^2 \cos^2(2 \alpha - \theta)$，透射功率 $P_t = E_0^2 \sin^2(2 \alpha - \theta)$
+
+					即反射功率和透射功率都是周期性变化；且反射功率最大时，透射功率最小，反射功率最小时，透射功率最大；且最大反射光功率等于最大透射功率，最小反射功率等于最小透射功率。
+
+					\item 由\cref{tbl:D3-1-2}所示，最小反射功率和最小透射功率之间差距较大，但都较小，可以认为是0，近似认为二者相等。两者差距较大可能是因为反射光与透射光受到不同方向的环境背景噪声的影响。
+					
+					但是最大反射功率和最大投射功率有$ P_{r,max} \approx P_{t,max} $，说明在高功率下，不同方向的环境背景噪声的影响可忽略不计。
+
+					\item 综上所述，可认为其实完美的线偏振光。
+
+				\end{itemize}
+
+			
+			\item 激光器后依次放置 PBS1，HWP1 和 PBS2。转动 HWP1 的角度 360 度，记下转动
+			不同角度时，PBS2 出射端的功率变化，数据如\cref{tbl:D3-1-3}所示。
+
+			由上面的计算，线偏振光经过半波片后的透射功率应满足公式 $P_t = E_0^2 \sin^2(2 \alpha - \theta)$，下面使用公式$ P_t = P_0 \sin^2(2\alpha - \theta) + C $对\cref{tbl:D3-1-3}进行拟合，图像如\cref{fig:D3-1-1}。
+
+			由于$R^2 = 0.9816$，说明实验数据相当符合理论公式。
+
+			由于我们将 半波片刻度的 29° 定义为数据列中的 0°，该刻度即为半波片的光轴。
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{D3-1-1.png}
+				\caption{透射功率与理论计算拟合}
+				\label{fig:D3-1-1}
+			\end{figure}
+
+
+
+			\item 使用上述 \cref{fig:D3-1-2} 的实验装置，将 HWP1 的角度调至光轴位置来制备偏振态 D（或与态D 垂直的态）。转动 HWP2，记录透过 PBS2 的光功率随着 HWP2 角度的变化。
+			
+		\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	\subsubsection{实验二 \quad 单光子的探测及相应探测器效率的测量}
 
 	\subsubsection{实验三 \quad 单光子的标定}
@@ -534,6 +834,41 @@
 			p_{16} = 1 - (1 - p_{2})^8 \approx 1 - (1 - 8p_{2}) = 8p_{2}
 		\]
 
+
+
+	
+\subsection{实验后思考题}
+
+% 思考题1
+\begin{question}
+	是否可以通过直接衰减任意的光源（比如白炽灯）的强度到单光子级别来得到真正的单光子源？（真正的单光子源是指每次触发可以确定性的得到一个仅包含一个光子的光脉冲信号）
+\end{question}
+
+
+
+
+
+
+
+
+
+% 思考题2
+\begin{question}
+	了解单光子探测器暗计数的原理，并设计实验装置测量探测器的暗计数率。
+\end{question}
+
+
+
+
+
+
+
+
+
+% 思考题3
+\begin{question}
+	量子密钥分发实验中对基后的数据，为什么会有误码出现，如何降低误码？
+\end{question}
 
 
 
