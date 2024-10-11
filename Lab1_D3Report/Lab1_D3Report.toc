@@ -9,13 +9,13 @@
 \contentsline {subsubsection}{\numberline {2.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{13}{subsubsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {2.1.3}实验三 \hskip 1em\relax 单光子的标定}{14}{subsubsection.2.1.3}%
 \contentsline {subsubsection}{\numberline {2.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{14}{subsubsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.2}实验数据记录}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}实验过程中遇到的问题记录}{14}{subsection.2.3}%
-\contentsline {section}{\numberline {3}D3 \hskip 1em\relax 量子密钥分发 \hskip 1em\relax \heiti 分析与讨论}{15}{section.3}%
-\contentsline {subsection}{\numberline {3.1}实验数据分析}{15}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}实验一 \hskip 1em\relax 光的偏振的测量和控制}{15}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{17}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}实验三 \hskip 1em\relax 单光子的标定}{17}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{17}{subsubsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.2}实验后思考题}{17}{subsection.3.2}%
+\contentsline {subsection}{\numberline {2.2}实验数据记录}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}实验过程中遇到的问题记录}{16}{subsection.2.3}%
+\contentsline {section}{\numberline {3}D3 \hskip 1em\relax 量子密钥分发 \hskip 1em\relax \heiti 分析与讨论}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}实验数据分析}{17}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}实验一 \hskip 1em\relax 光的偏振的测量和控制}{17}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}实验二 \hskip 1em\relax 单光子的探测及相应探测器效率的测量}{19}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}实验三 \hskip 1em\relax 单光子的标定}{19}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}实验四 \hskip 1em\relax 密钥分发过程数据处理}{19}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}实验后思考题}{19}{subsection.3.2}%
 \contentsfinish 
