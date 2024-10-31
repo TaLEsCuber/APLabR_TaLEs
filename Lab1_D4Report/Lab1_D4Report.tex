@@ -1,0 +1,439 @@
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+% ----------------------------------------------------
+%   中山大学物理与天文学院本科实验报告模板
+%   作者：Huanyu Shi，2019级
+%   知乎：https://www.zhihu.com/people/za-ran-zhu-fu-liu-xing
+%   Github：https://github.com/huanyushi/SYSU-SPA-Labreport-Template
+%   Last update : 2023.4.10
+% ----------------------------------------------------
+
+\input{Settings} % 导入模板的相关设置
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{longtable}
+\setlist[enumerate]{label=\textup{(\arabic*)}}
+
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+\begin{document}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{
+		|X|X|X|X
+		|X|X|X|X|}
+	\hline
+	\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+	\hline
+	\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	\hline
+	日期：& 2024/10/30 & 教师签名：& \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\begin{center}
+	\LARGE D4-1 \quad 电子自旋共振实验
+\end{center}
+
+\textbf{【实验报告注意事项】}
+\begin{enumerate}
+	\item 实验报告由三部分组成：
+	\begin{enumerate}
+		\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+	    \item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+	    \item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+	\end{enumerate}
+	\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+	% \item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\item 实验安全注意事项
+		\begin{enumerate}[label=\roman*.]
+			\item 磁极间隙在仪器出厂前已经调整好，实验时最好不要自行调节，以免偏离共振磁场过大。
+			\item 双 T 调配器和短路活塞不宜在螺纹范围之外用力调节，避免出现滑丝。
+			\item 保护好高斯计探头，避免弯折和挤压。
+			\item 励磁电压要缓慢调节，同时仔细注意波形变化，才能辨认出共振吸收峰。
+			\item 样品使用时要轻拿轻放，使用完后记得放回样品盒，避免丢失和损坏。
+			\item 实验结束后，励磁电压和扫场电压调节到零，再关闭电源，并将所有仪器恢复原状。
+		\end{enumerate}
+\end{enumerate}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\setcounter{section}{0}
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 预习报告}
+	
+\subsection{实验目的}
+\begin{enumerate}
+	\item 了解和掌握各个微波波导器件的功能和调节方法。
+	\item 了解电子自旋共振的基本原理，比较电子自旋共振与核磁共振各自的特点。
+	\item 观察在微波段电子自旋共振现象，测量 DPPH 样品自由基中电子的朗德因子。
+	\item 理解谐振腔中 $\mathrm{TE}_{10}$ 波形成驻波的情况，调节样品腔长，测量不同的共振点，确定波导波长。
+	\item 学会利用 DPPH 样品 EPR 共振吸收信号数据拟合法和谱宽直接估测法，获得样品的横向弛豫时间。
+	
+\end{enumerate}
+
+\subsection{仪器用具}
+
+% \begin{table}[htbp]
+% 	\centering
+% 	\renewcommand\arraystretch{1.6}
+% 	% \setlength{\tabcolsep}{10mm}
+% 	\caption{电子自旋共振实验仪器用具}
+% 	\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+% 		\hline
+% 		编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+% 		\hline
+% 		1	&	控制主机 	& 1 & 	\\
+
+% 		2	&	组合式电磁铁 	& 1 & 	 \\
+		
+% 		3	&	支撑座 & 1 &	 	\\
+		
+% 		4	&	微波系统	& 1 &  	\\
+		
+% 		5	&	DPPH 实验样品	& 1 & 玻璃管装	\\
+
+% 		6	&	高斯计探头	& 1 &   \\
+
+% 		7	&	微波源连接线（高频）	& 1 &  	\\
+
+% 		8	&	磁铁电源连接线	& 1 & 红黑各一根	\\
+
+% 		9	&	Q9 连接线	& 1 &  	\\
+
+% 		10	&	三芯航空连接线	& 1 &  	\\
+
+% 		11	&	主机电源线	& 1 &  	\\
+
+% 		11	&	主机电源线	& 1 &  	\\
+
+% 		11	&	主机电源线	& 1 &  	\\
+
+% 		12	&	 短路活塞	& 1 & 属微波系统 	\\
+
+% 		13	&	直波导样品腔	& 1 & 属微波系统 	\\
+
+% 		14	&	扭波导	& 1 & 属微波系统 	\\
+
+% 		15	&	微波频率计	& 1 & 属微波系统 	\\
+
+% 		16	&	双 T 阻抗匹配器	& 1 & 属微波系统 	\\
+
+% 		17	&	环形器	& 1 & 属微波系统 	\\
+
+% 		18	&	检波器	& 1 & 属微波系统 	\\
+
+% 		19	&	隔离器	& 1 & 属微波系统 	\\
+
+% 		20	&	固体微波源	& 1 & 属微波系统 	\\
+
+% 		\hline
+% 	\end{tabular}
+% 	\label{tbl:电子自旋共振实验仪器用具}
+% \end{table}
+
+\begin{longtable}[htbp]{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+	\caption{电子自旋共振实验仪器用具} \label{tbl:电子自旋共振实验仪器用具} \\
+	\hline
+	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+	\hline
+	\endhead
+	
+	\hline
+	\multicolumn{4}{r}{续下页} \\
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	1 & 控制主机 & 1 &  \\
+	2 & 组合式电磁铁 & 1 &  \\
+	3 & 支撑座 & 1 &  \\
+	4 & 微波系统 & 1 &  \\
+	5 & DPPH 实验样品 & 1 & 玻璃管装 \\
+	6 & 高斯计探头 & 1 &  \\
+	7 & 微波源连接线（高频） & 1 &  \\
+	8 & 磁铁电源连接线 & 1 & 红黑各一根 \\
+	9 & Q9 连接线 & 1 &  \\
+	10 & 三芯航空连接线 & 1 &  \\
+	11 & 主机电源线 & 1 &  \\
+	12 & 短路活塞 & 1 & 属微波系统 \\
+	13 & 直波导样品腔 & 1 & 属微波系统 \\
+	14 & 扭波导 & 1 & 属微波系统 \\
+	15 & 微波频率计 & 1 & 属微波系统 \\
+	16 & 双 T 阻抗匹配器 & 1 & 属微波系统 \\
+	17 & 环形器 & 1 & 属微波系统 \\
+	18 & 检波器 & 1 & 属微波系统 \\
+	19 & 隔离器 & 1 & 属微波系统 \\
+	20 & 固体微波源 & 1 & 属微波系统 \\
+	
+\end{longtable}
+
+
+
+
+\clearpage
+
+\subsection{原理概述}
+
+	\begin{itemize}
+		\item \textbf{实验样品：}
+
+			本实验测量的标准样品为含有自由基的有机物 DPPH（Di-phenyl-picryl-Hydrazyl），称为二苯基苦酸基联氨，分子式为$ (C_6 H_5)_2 N - NC_6H_2 (NO_2)_3$ ，结构式如图 1 所示。
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.4\textwidth]{D4-1-1.png}
+				\caption{DPPH 的分子结构式}
+				\label{fig:D3-1-1}
+			\end{figure}
+
+			它的第二个 N 原子少了一个共价键，有一个未配对的“自由电子”，是一个稳定的有机自由基。对于这种自由电子，它只有自旋角动量而没有轨道角动量，所以在实验中能够容易地观察到电子自旋共振现象。由于 DPPH 中的“自由电子”并不是完全自由的，其 g 因子标准值为 2.0036，标准线宽为 $2.7 \times 10^{-4} T$。
+		\item 
+
+	\end{itemize}
+	
+
+
+
+
+\subsection{实验前思考题}
+
+% 思考题1
+\begin{question}
+	简述电子自旋共振的基本原理，并与核磁共振作比较。
+\end{question}
+
+
+	
+
+
+
+
+
+% 思考题2
+\begin{question}
+	电子自旋共振的必要条件有哪些？
+\end{question}
+
+	
+
+
+	
+
+
+
+
+% 思考题3
+\begin{question}
+	在恒定磁场上叠加交变磁场的目的是什么？如果不加扫场，能否观测到 ESR 信号？
+\end{question}
+
+	
+
+
+
+
+
+% 思考题4
+\begin{question}
+	在电子自旋共振实验中，如何测定共振磁场的大小？测定共振磁场时，应将共振信号调成什么状态？
+\end{question}
+
+	
+
+
+
+
+
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级 \\
+	\hline
+	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	\hline
+	室温：& 26℃ & 实验地点： & A413 \\
+	\hline
+	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	\hline
+	实验时间：& 2024/10/31& 教师签名：&\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 实验记录}
+
+\subsection{实验内容和步骤}
+
+
+		
+
+
+
+
+		
+
+
+	\subsection{实验过程中遇到的问题记录}
+
+		\begin{enumerate}
+			\item 
+				
+		\end{enumerate}
+
+
+
+\subsection{实验数据记录}
+
+	见\cref{fig:data}
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	% 第一行的三张图片
+	% 	\subfloat[原始数据1]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-1.jpg}\label{fig:data1}}
+	% 	\quad
+	% 	\subfloat[原始数据2]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-2.jpg}\label{fig:data2}}
+	% 	\quad
+	% 	\subfloat[原始数据3]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-3.jpg}\label{fig:data3}}
+	% 	\newline
+	% 	% 第二行的两张图片
+	% 	\subfloat[原始数据4]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-4.jpg}\label{fig:data4}}
+	% 	\quad
+	% 	\subfloat[原始数据5]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-5.jpg}\label{fig:data5}}
+	% 	\caption{原始数据}
+	% 	\label{fig:data}
+	% \end{figure}
+	
+
+
+
+%\subsection{原始数据记录}
+
+
+% \clearpage
+
+	
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名： & 戴鹏辉 & 学号：& 22344016\\
+	\hline
+    日期：& 2024// & 评分： &\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 分析与讨论}
+
+\subsection{实验数据分析}
+
+
+	\subsubsection{实验一 \quad 光的偏振的测量和控制}
+
+		
+
+
+	\subsubsection{实验二 \quad 单光子的探测及相应探测器效率的测量}
+
+
+
+	\subsubsection{实验三 \quad 单光子的标定}
+
+
+
+
+	\subsubsection{实验四 \quad 密钥分发过程数据处理}
+
+
+		
+
+	
+\subsection{实验后思考题}
+
+% 思考题1
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+	
+% 思考题2
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+
+
+
+
+
+
+
+% 思考题3
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+\clearpage
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 实验总结}
+
+	\subsection{实验分工}
+
+		
+
+
+	\subsection{实验心得}
+
+	
+
+	
+	
+
+
+\end{document}
