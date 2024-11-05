@@ -1,0 +1,368 @@
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+% ----------------------------------------------------
+%   中山大学物理与天文学院本科实验报告模板
+%   作者：Huanyu Shi，2019级
+%   知乎：https://www.zhihu.com/people/za-ran-zhu-fu-liu-xing
+%   Github：https://github.com/huanyushi/SYSU-SPA-Labreport-Template
+%   Last update : 2023.4.10
+% ----------------------------------------------------
+
+\input{Settings} % 导入模板的相关设置
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{longtable}
+\setlist[enumerate]{label=\textup{(\arabic*)}}
+
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+\begin{document}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{
+		|X|X|X|X
+		|X|X|X|X|}
+	\hline
+	\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+	\hline
+	\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	\hline
+	日期：& 2024/11/5 & 教师签名：& \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\begin{center}
+	\LARGE D5 \quad $\alpha$粒子的能量损失
+\end{center}
+
+\textbf{【实验报告注意事项】}
+\begin{enumerate}
+	\item 实验报告由三部分组成：
+	\begin{enumerate}
+		\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+	    \item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+	    \item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+	\end{enumerate}
+	\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+	% \item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\item 实验安全注意事项
+		\begin{enumerate}[label=\roman*.]
+			\item 使用真实放射源进行实验时（本实验使用电脑模拟），使用镊子放置和移除放射源，实验完毕后将放射源放回源库，并洗手。
+			% \item 
+		\end{enumerate}
+\end{enumerate}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\setcounter{section}{0}
+\section{D5 \quad $\alpha$粒子的能量损失 \quad\heiti 预习报告}
+	
+\subsection{实验目的}
+\begin{enumerate}
+	\item 了解核辐射安全以及防护
+	\item 了解金硅面 $\alpha$ 谱仪的工作原理及其特性；
+	\item 通过测量分析两种 $\alpha$ 放射源 $^{241}\mathrm{Am}$ 和 $^{239}\mathrm{Pu}$ 的能谱形状（如：作能量刻度、求能峰和能量分辨率），掌握基本的 $\alpha$ 射线能谱的测量方法和能量刻度定标方法；
+	\item 通过利用 $\alpha$ 粒子测量箔膜的厚度；了解天然射性 $\alpha$ 粒子与物质的相互作用过程；
+	\item 通过观察和数据处理，理解随机性在微观世界的普遍存在，以及统计方法的实验意义。
+	
+\end{enumerate}
+
+\subsection{仪器用具}
+
+\begin{table}[htbp]
+	\centering
+	\renewcommand\arraystretch{1.6}
+	% \setlength{\tabcolsep}{10mm}
+	\caption{虚拟 $\alpha$ 粒子能量测量实验的用具}
+	\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+		\hline
+		编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+		\hline
+		1	&	核信号发生器 	& 1 & NMS-6014-SIG，输出信号电压范围 0-5V	\\
+
+		2	&	通用核信息采集 	& 1 & NMS-6014-GD，采样频率 250MHz，带宽100MHz；输入范围 0-5V，8192 道，最大计数率10M/s，死时间 100ns；	 \\
+		
+		3	&	计算机 & 1 & 安装有 Labview2014 及虚拟核数据采集软件	 	\\
+		
+		4	&	示波器	& 1 &  RIGOL DS2202A，带宽 200MHZ，双通道，采样频率 1GSa/s	\\
+		
+		\hline
+	\end{tabular}
+	\label{tbl:虚拟a粒子能量测量实验的用具}
+\end{table}
+
+
+
+
+
+
+% \clearpage
+
+\subsection{原理概述}
+
+
+	
+
+
+
+
+\subsection{实验前思考题}
+
+% 思考题1
+\begin{question}
+	$^{64}\mathrm{Cu}$ 可以发生 $\alpha$ 粒子衰变吗？为什么呢？
+\end{question}
+
+
+
+
+
+
+
+% 思考题2
+\begin{question}
+	（选）预测同一个放射源测得的能谱峰位值的随偏压的变化趋势，为什么？
+\end{question}
+
+
+
+
+	
+
+
+
+
+% 思考题3
+\begin{question}
+	简述探测器能谱标定的方法以及能量分辨率的计算方法。
+\end{question}
+
+
+
+
+
+
+
+
+
+% 思考题4
+\begin{question}
+	预估使用 $^{239}\mathrm{Pu}$，$^{241}\mathrm{Am}$ 两种放射源能测量的铝箔和 mylar 膜的厚度大约在什么量级（请用 $g/\mathrm{cm}^2$ 表示箔（膜）的厚度）；为何在计算化合物的截止本领时，只需考虑化合物所含的元素及比例，而无需考虑元素的结合方式（化学键）？
+\end{question}
+
+
+
+
+
+
+
+
+% 思考题5
+\begin{question}
+	（选）实验过程中，若金硅面垒探测器的样品腔不抽真空，会对能量谱产生怎样的影响？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+% 思考题6
+\begin{question}
+	实验前确定探测器最佳工作条件的原理是什么？
+\end{question}
+
+
+
+
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级 \\
+	\hline
+	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	\hline
+	室温：& 26℃ & 实验地点： & A413 \\
+	\hline
+	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	\hline
+	实验时间：& 2024/10/31& 教师签名：&\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D5 \quad $\alpha$粒子的能量损失 \quad\heiti 实验记录}
+
+\subsection{实验内容和步骤}
+
+
+		
+
+
+
+
+		
+
+
+	\subsection{实验过程中遇到的问题记录}
+
+		\begin{enumerate}
+			\item 
+				
+		\end{enumerate}
+
+
+
+\subsection{实验数据记录}
+
+	见\cref{fig:data}
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	% 第一行的三张图片
+	% 	\subfloat[原始数据1]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-1.jpg}\label{fig:data1}}
+	% 	\quad
+	% 	\subfloat[原始数据2]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-2.jpg}\label{fig:data2}}
+	% 	\quad
+	% 	\subfloat[原始数据3]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-3.jpg}\label{fig:data3}}
+	% 	\newline
+	% 	% 第二行的两张图片
+	% 	\subfloat[原始数据4]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-4.jpg}\label{fig:data4}}
+	% 	\quad
+	% 	\subfloat[原始数据5]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-5.jpg}\label{fig:data5}}
+	% 	\caption{原始数据}
+	% 	\label{fig:data}
+	% \end{figure}
+	
+
+
+
+%\subsection{原始数据记录}
+
+
+% \clearpage
+
+	
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名： & 戴鹏辉 & 学号：& 22344016\\
+	\hline
+    日期：& 2024// & 评分： &\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D5 \quad $\alpha$粒子的能量损失 \quad\heiti 分析与讨论}
+
+\subsection{实验数据分析}
+
+
+	\subsubsection{实验一 \quad XXXXXXXXXXXXXXXXXXXX}
+
+		
+
+
+	\subsubsection{实验二 \quad XXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+
+
+
+	\subsubsection{实验三 \quad XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+
+
+
+
+	\subsubsection{实验四 \quad XXXXXXXXXXXXXXXXXXXXXXXXX}
+
+
+		
+
+	
+\subsection{实验后思考题}
+
+% 思考题1
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+	
+% 思考题2
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+
+
+
+
+
+
+
+% 思考题3
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+\clearpage
+\section{D5 \quad $\alpha$粒子的能量损失 \quad\heiti 实验总结}
+
+	\subsection{实验分工}
+
+		
+
+
+	\subsection{实验心得}
+
+	
+
+	
+	
+
+
+\end{document}

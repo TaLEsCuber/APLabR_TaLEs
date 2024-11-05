@@ -1,0 +1,746 @@
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+% ----------------------------------------------------
+%   中山大学物理与天文学院本科实验报告模板
+%   作者：Huanyu Shi，2019级
+%   知乎：https://www.zhihu.com/people/za-ran-zhu-fu-liu-xing
+%   Github：https://github.com/huanyushi/SYSU-SPA-Labreport-Template
+%   Last update : 2023.4.10
+% ----------------------------------------------------
+
+\input{Settings} % 导入模板的相关设置
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{longtable}
+\setlist[enumerate]{label=\textup{(\arabic*)}}
+
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+\begin{document}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{
+		|X|X|X|X
+		|X|X|X|X|}
+	\hline
+	\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+	\hline
+	\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	\hline
+	日期：& 2024/11/5 & 教师签名：& \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\begin{center}
+	\LARGE D6 \quad $\gamma$能谱测量实验
+\end{center}
+
+\textbf{【实验报告注意事项】}
+\begin{enumerate}
+	\item 实验报告由三部分组成：
+	\begin{enumerate}
+		\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+	    \item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+	    \item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+	\end{enumerate}
+	\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+	% \item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\item 实验安全注意事项
+		\begin{enumerate}[label=\roman*.]
+			\item 使用真实放射源进行实验时，使用镊子放置和移除放射源，实验完毕后将放射源放回源库，并洗手。
+		\end{enumerate}
+\end{enumerate}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\setcounter{section}{0}
+\section{D6 \quad $\gamma$能谱测量实验 \quad\heiti 预习报告}
+	
+\subsection{实验目的}
+\begin{enumerate}
+	\item 测定 $\gamma$ 谱仪的能量分辨率以及能量线性；
+	\item 测定已知源的 $\gamma$ 能谱，并作能谱分析；
+	\item 随机数据处理；
+	
+\end{enumerate}
+
+\subsection{仪器用具}
+
+% \begin{table}[htbp]
+% 	\centering
+% 	\renewcommand\arraystretch{1.6}
+% 	% \setlength{\tabcolsep}{10mm}
+% 	\caption{电子自旋共振实验仪器用具}
+% 	\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+% 		\hline
+% 		编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+% 		\hline
+% 		1	&	控制主机 	& 1 & 	\\
+
+% 		2	&	组合式电磁铁 	& 1 & 	 \\
+		
+% 		3	&	支撑座 & 1 &	 	\\
+		
+% 		4	&	微波系统	& 1 &  	\\
+		
+% 		5	&	DPPH 实验样品	& 1 & 玻璃管装	\\
+
+% 		6	&	高斯计探头	& 1 &   \\
+
+% 		7	&	微波源连接线（高频）	& 1 &  	\\
+
+% 		8	&	磁铁电源连接线	& 1 & 红黑各一根	\\
+
+% 		9	&	Q9 连接线	& 1 &  	\\
+
+% 		10	&	三芯航空连接线	& 1 &  	\\
+
+% 		11	&	主机电源线	& 1 &  	\\
+
+% 		11	&	主机电源线	& 1 &  	\\
+
+% 		11	&	主机电源线	& 1 &  	\\
+
+% 		12	&	 短路活塞	& 1 & 属微波系统 	\\
+
+% 		13	&	直波导样品腔	& 1 & 属微波系统 	\\
+
+% 		14	&	扭波导	& 1 & 属微波系统 	\\
+
+% 		15	&	微波频率计	& 1 & 属微波系统 	\\
+
+% 		16	&	双 T 阻抗匹配器	& 1 & 属微波系统 	\\
+
+% 		17	&	环形器	& 1 & 属微波系统 	\\
+
+% 		18	&	检波器	& 1 & 属微波系统 	\\
+
+% 		19	&	隔离器	& 1 & 属微波系统 	\\
+
+% 		20	&	固体微波源	& 1 & 属微波系统 	\\
+
+% 		\hline
+% 	\end{tabular}
+% 	\label{tbl:电子自旋共振实验仪器用具}
+% \end{table}
+
+\begin{longtable}[htbp]{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+	\caption{电子自旋共振实验仪器用具} \label{tbl:电子自旋共振实验仪器用具} \\
+	\hline
+	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+	\hline
+	\endhead
+	
+	\hline
+	\multicolumn{4}{r}{续下页} \\
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	1 & 控制主机 & 1 &  \\
+	2 & 组合式电磁铁 & 1 &  \\
+	3 & 支撑座 & 1 &  \\
+	4 & 微波系统 & 1 &  \\
+	5 & DPPH 实验样品 & 1 & 玻璃管装 \\
+	6 & 高斯计探头 & 1 &  \\
+	7 & 微波源连接线（高频） & 1 &  \\
+	8 & 磁铁电源连接线 & 1 & 红黑各一根 \\
+	9 & Q9 连接线 & 1 &  \\
+	10 & 三芯航空连接线 & 1 &  \\
+	11 & 主机电源线 & 1 &  \\
+	12 & 短路活塞 & 1 & 属微波系统 \\
+	13 & 直波导样品腔 & 1 & 属微波系统 \\
+	14 & 扭波导 & 1 & 属微波系统 \\
+	15 & 微波频率计 & 1 & 属微波系统 \\
+	16 & 双 T 阻抗匹配器 & 1 & 属微波系统 \\
+	17 & 环形器 & 1 & 属微波系统 \\
+	18 & 检波器 & 1 & 属微波系统 \\
+	19 & 隔离器 & 1 & 属微波系统 \\
+	20 & 固体微波源 & 1 & 属微波系统 \\
+	
+\end{longtable}
+
+
+
+
+\clearpage
+
+\subsection{原理概述}
+
+	\begin{itemize}
+		\item \textbf{实验样品：}
+
+			本实验测量的标准样品为含有自由基的有机物 DPPH（Di-phenyl-picryl-Hydrazyl），称为二苯基苦酸基联氨，分子式为$ (C_6 H_5)_2 N - NC_6H_2 (NO_2)_3$ ，结构式如图 1 所示。
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.4\textwidth]{D4-1-1.png}
+				\caption{DPPH 的分子结构式}
+				\label{fig:D3-1-1}
+			\end{figure}
+
+			它的第二个 N 原子少了一个共价键，有一个未配对的“自由电子”，是一个稳定的有机自由基。对于这种自由电子，它只有自旋角动量而没有轨道角动量，所以在实验中能够容易地观察到电子自旋共振现象。由于 DPPH 中的“自由电子”并不是完全自由的，其 g 因子标准值为 2.0036，标准线宽为 $2.7 \times 10^{-4} T$。
+
+		\item \textbf{电子自旋共振（ESR）与核磁共振（NMR）的比较：}
+			
+			电子自旋共振（ESR）与核磁共振（NMR）之间的比较主要体现在研究对象、灵敏度和适用范围等方面。ESR 主要关注未偶电子的共振跃迁，而 NMR 则研究磁性核（如质子）的共振跃迁。由于玻尔磁子与核磁子之比，核塞曼能级的裂距较小，使得在相同磁场下，ESR 的频率范围位于微波段。这也导致 ESR 在灵敏度上优于 NMR，能够检测到低至 $10^{-4}$ mol 的样品，尤其适合于半导体中的微量杂质。
+		
+			在弛豫时间方面，由于电子的磁矩大于核的磁矩，ESR 的顺磁弛豫相互作用较强，导致纵向弛豫时间 $T_1$ 和横向弛豫时间 $T_2$ 较短，从而使谱线通常较宽。虽然 ESR 只能研究与未偶电子相关的局部结构信息，尤其在固体材料的研究中表现突出，但 NMR 在有机化合物分析方面更为优越。值得一提的是，ESR 是唯一直接检测物质中未偶电子的方法，通过吸附、电解、热解等化学反应可以产生顺磁中心，从而实现相关研究。
+
+
+		\item \textbf{电子自旋共振条件：}
+		
+			原子中电子的轨道角动量 $P_l$ 和自旋角动量 $P_s$ 会引起相应的轨道磁矩 $\mu_l$ 和自旋磁矩 $\mu_s$，而 $P_l$ 和 $P_s$ 的总角动量 $P_j $ 引起相应的电子总磁矩为 
+			\[
+				\mu_j = -g \frac{e}{m_e} P_j
+			\]
+			
+			朗德因子 $g$ 由下式计算得到：
+			\[
+				g = 1 + \frac{J(J + 1) + S(S + 1) - L(L + 1)}{2J(J + 1)}
+			\]
+			式中 L , S 分别为对原子角动量 J 有贡献的各电子所合成的总轨道角动量和自旋角动量
+			量子数。
+
+			通常原子磁矩的单位用波尔磁子 $\mu_B$ 表示，这样原子中的电子的磁矩可以写成
+			\[
+				\mu_j = -g \frac{\mu_B}{\hbar} P_j = \gamma P_j
+			\]
+
+			$\gamma$ 为磁旋比。在外磁场中角动量 $P_j$ 和磁矩 $\mu_j$ 在空间的取向是量子化的。在外磁场方向（Z 轴）的投影为
+			\[
+				P_z = m \hbar
+			\]
+			\[
+				\mu_z = \gamma m \hbar
+			\]
+
+			式中 m 为磁量子数，$m = j, j - 1, ..., - j$ 。当原子磁矩不为零的顺磁物质置于恒定外磁场 $B_0$ 中时，其相互作用能也是不连续的，其相应的能量为
+			\[
+				E = - \mu_j B_0 = - \gamma m \hbar B_0 = - m g \mu_B B_0
+			\]
+
+			不同磁量子数 m 所对应的状态上的电子具有不同的能量。各磁能及是等距分裂的，两相邻磁能级之间的能量差为
+			\[
+				\Delta E = g \mu_B B_0 = \omega_0 \hbar
+			\]
+			
+			若在垂直于恒定外磁场 $B_0$ 方向上加一交变电磁场，其频率满足 $\omega \hbar = \Delta E $，当 $\omega = \omega_0$ 时，电子在相邻能级间就有跃迁。这种在交变磁场作用下，电子自旋磁矩与外磁场相互作用所产生的能级间的共振吸收（和辐射）现象，称为电子自旋共振（ESR）。
+
+			共振条件可表示为：
+			\[
+				\omega = g \frac{\mu_B}{\hbar} B_0
+			\]
+
+			对于样品 DPPH 来说，朗德因子参考值为 $g = 2.0036$，可得 $f = 2.8043 B_0$，在此 $B_0$ 的单位为高斯，f 的单位为兆赫兹（MHz）。
+
+			% 共振吸收的另一个必要条件是在平衡状态下，低能态 $E_1$ 的粒子数 $N_1$ 比高能态 $E_2$ 的粒子数 $N_2$ 多，这样才能够显示出宏观（总体）共振吸收。
+
+			% 因为热平衡时粒子数分布服从玻尔兹曼分布
+			% \[
+			% 	\frac{N_1}{N_2} = e^{- \frac{E_2 - E_1}{k T}}
+			% \]
+
+			% 因为 $E_2 > E_1$ ，显然有 $N_1 > N_2$ ，即吸收跃迁（ $E_1 \rightarrow E_2$ ）占优势，然而随着时间推移以及 $E_2 \rightarrow E_1$ 过程的充分进行，势必使 $N_2$ 与 $N_1$ 之差趋于减小，甚至可能反转，于是吸收效应会减少甚至停止，但实际并非如此，因为包含大量原子或离子的顺磁体系中，自旋磁矩之间随时都在相互作用而交换能量，同时自旋磁矩又与周围的其他质点（晶格）相互作用而交换能量，这使处在高能态的电子自旋有机会把它的能量传递出去而回到低能态，这个过程称为弛豫过程，正是弛豫过程的存在，才能维持着连续不断的磁共振吸收效应。
+
+
+
+			共振吸收的另一个必要条件是在平衡状态下，低能态 $E_1$ 的粒子数 $N_1$必须大于高能态 $E_2$ 的粒子数 $N_2$。根据玻尔兹曼分布，在热平衡时，粒子数分布遵循关系
+			\[
+				\frac{N_1}{N_2} = e^{- \frac{E_2 - E_1}{k T}}
+			\]
+			
+			因此当 $E_2 > E_1$ 时，必然有 $N_1 > N_2$ 。这表明吸收跃迁（$E_1 \rightarrow E_2$ ）占优势。然而，随着时间推移，高能态到低能态的跃迁也会进行，导致 $N_2$ 与 $N_1$的差值减小，甚至可能反转。尽管如此，在包含大量原子或离子的顺磁体系中，自旋磁矩之间会相互作用并交换能量，同时也与周围的晶格相互作用。这种能量传递使得高能态的电子自旋能够将能量释放回到低能态，从而维持连续的磁共振吸收效应。因此，弛豫过程的存在是保证共振吸收持续进行的重要因素。
+
+			弛豫过程所需的时间称为弛豫时间 T，可证明
+			\[
+				T = \frac{1}{2 T_1} + \frac{1}{T_2}
+			\]
+
+			$T_1$ 称为“自旋－晶格弛豫时间”，也称为“纵向弛豫时间”，$T_2$ 称为“自旋－自旋弛豫时间”，也称为“横向弛豫时间”。
+
+
+
+
+
+		\item \textbf{谱线宽度：}
+		
+			ESR 谱线具有一定的宽度，用频宽 $\delta \nu $ 表示，与能量差 $\Delta E$ 相关，公式为 $\delta \nu = \frac{\Delta E}{h}$ 。根据测不准原理，能级寿命 $\tau$ 与能量的不确定量 $\delta E$ 存在关系 $\tau \delta E \sim h $，因此 $\tau \delta \nu \sim 1$，这表明粒子在高能级的寿命缩短会导致谱线加宽。
+		
+			谱线宽度的主要原因是自旋－晶格相互作用和自旋－自旋相互作用，其中对于大多数自由基，自旋－自旋相互作用起主导作用。这种相互作用涉及未偶电子与相邻原子核自旋之间的相互作用，以及两个分子间未偶电子的相互作用。因此，谱线宽度反映了粒子间相互作用的信息，成为电子自旋共振谱的重要参数。
+		
+			通过移相器信号作为示波器扫描信号，可以测定吸收峰的半高宽 $\Delta B$（谱线宽度）。若谱线呈洛伦兹型，可以用公式 $\Delta B = \frac{2 \gamma }{T}$ 计算，其中 $\gamma$ 为旋磁比，进而求得共振样品的横向弛豫时间 $T_2$。
+
+		
+
+		\item \textbf{微波基础知识与微波套件：}
+		
+			\begin{enumerate}
+				\item \textbf{微波及其传输}
+				\begin{enumerate}
+					\item 由于微波的波长短，频率高，它已经成为一种电磁辐射，所以传输微波就不能用一般的金属导线。
+					\item 常用的微波传输器件有同轴线、波导管、带状线和微带线等，引导电磁波传播的空心金属管称为波导管。
+					\item 常见的波导管有矩形波导管和圆柱形波导管两种。
+					\item 在波导中只能存在下列两种电磁波：
+					\begin{itemize}
+						\item TE 波，即横电波，它的电场只有横向分量而磁场有纵向分量；
+						\item TM 波，即横磁波，它的磁场只有横向分量而电场存在纵横分量。
+					\end{itemize}
+					\item TE10 波是矩形波导中最简单和最常使用的一种波型，也称为主波型。
+					\item 沿 z 方向传播的 TE10 波的各分量为：
+					\begin{align}
+						E_y &= E_0 \sin\left(\frac{\pi x}{a}\right) e^{i(\omega t - \beta z)} \\
+						H_x &= \frac{E_0}{\omega \mu} \sin\left(\frac{\pi x}{a}\right) e^{i(\omega t - \beta z)} \\
+						H_z &= \frac{E_0}{\omega \mu} \cos\left(\frac{\pi x}{a}\right) e^{i(\omega t - \beta z)}
+					\end{align}
+					\item 其中 $\beta = \frac{2\pi}{\lambda_g}$ 称为相位常数，$\lambda_g$ 称为波导波长，$\lambda_c = 2a$ 为截止波长。
+					\item TE10 波的特性包括：
+					\begin{itemize}
+						\item 只有波长 $\lambda < \lambda_c$ 的电磁波才能在波导管中传播；
+						\item 电场矢量垂直于波导宽壁，沿 $x$ 方向两边为 0，中间最强，沿 $y$ 方向是均匀的。
+					\end{itemize}
+				\end{enumerate}
+			
+				\item \textbf{微波器件}
+				\begin{enumerate}
+					\item \textbf{固态微波信号源}
+					\begin{itemize}
+						\item 常用的微波振荡器有反射式速调管振荡器和耿式二极管振荡器。
+						\item 耿式二极管的核心是基于 n 型砷化镓的导带双谷结构。
+					\end{itemize}
+					
+					\item \textbf{隔离器}
+					\begin{itemize}
+						\item 隔离器是一种不可逆的衰减器，正方向衰减量小，反方向衰减量大。
+						\item 可避免因负载变化使微波源的频率及输出功率发生变化。
+					\end{itemize}
+			
+					\item \textbf{环行器}
+					\begin{itemize}
+						\item 三端口环行器用于定向传输电磁波。
+						\item 内装有圆柱形铁氧体柱，并施加恒磁场以产生场移效应。
+					\end{itemize}
+			
+					\item \textbf{晶体检波器}
+					\begin{itemize}
+						\item 使用半导体点接触二极管检波微波信号。
+					\end{itemize}
+			
+					\item \textbf{双 T 调配器}
+					\begin{itemize}
+						\item 用于使微波部件调成匹配，避免反射。
+						\item 具有宽频带和驻波匹配范围的优点。
+					\end{itemize}
+			
+					\item \textbf{频率计}
+					\begin{itemize}
+						\item 吸收式谐振频率计用于测量微波频率。
+					\end{itemize}
+			
+					\item \textbf{扭波导}
+					\begin{itemize}
+						\item 用于改变电磁波的偏振方向以便于机械安装。
+					\end{itemize}
+			
+					\item \textbf{矩形谐振腔}
+					\begin{itemize}
+						\item 由一段矩形波导和封闭金属片组成，形成反射式谐振腔。
+					\end{itemize}
+			
+					\item \textbf{短路活塞}
+					\begin{itemize}
+						\item 接在传输系统终端的单臂微波元件，用于形成驻波状态。
+					\end{itemize}
+				\end{enumerate}
+			\end{enumerate}
+
+
+
+
+
+
+
+
+
+	\end{itemize}
+	
+
+
+
+
+\subsection{实验前思考题}
+
+% 思考题1
+\begin{question}
+	简述电子自旋共振的基本原理，并与核磁共振作比较。
+\end{question}
+
+\begin{enumerate}
+    \item \textbf{电子自旋共振的基本原理}
+    \begin{enumerate}
+        \item \textbf{自旋与磁矩}：
+        \begin{itemize}
+            \item 电子具有自旋量子数为 \( \frac{1}{2} \)，自旋导致电子产生一个磁矩。
+            \item 在外磁场 \( B_0 \) 的作用下，电子的自旋态会分裂为两个能级，能量差与外磁场强度成正比。
+        \end{itemize}
+
+        \item \textbf{激发与共振}：
+        \begin{itemize}
+            \item 当施加一个与自旋能级差相匹配的电磁辐射（通常在微波范围）时，电子可以从低能态跃迁到高能态，产生共振。
+            \item 共振频率 \( \nu \) 与外磁场强度 \( B_0 \) 之间的关系由朗德公式给出：
+            \[
+            \nu = g \frac{e}{2\pi m_e} B_0
+            \]
+            其中 \( g \) 是朗德因子，\( e \) 是电子电荷，\( m_e \) 是电子质量。
+        \end{itemize}
+
+        \item \textbf{应用}：
+        \begin{itemize}
+            \item ESR 常用于研究自由基、金属离子及其与环境的相互作用等。
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{与核磁共振的比较}
+    \begin{enumerate}
+        \item \textbf{探测对象}：
+        \begin{itemize}
+            \item \textbf{ESR}：探测电子的自旋状态，适用于研究具有未成对电子的物质。
+            \item \textbf{NMR}：探测原子核的自旋状态，适用于研究含有核磁性原子（如氢、碳、氮等）的物质。
+        \end{itemize}
+
+        \item \textbf{频率范围}：
+        \begin{itemize}
+            \item \textbf{ESR}：通常在微波频率范围（几 GHz）。
+            \item \textbf{NMR}：通常在射频频率范围（几十 MHz到几 GHz）。
+        \end{itemize}
+
+        \item \textbf{外磁场强度}：
+        \begin{itemize}
+            \item \textbf{ESR}：所需的外磁场强度相对较小，一般在几百高斯（0.01 T 左右）。
+            \item \textbf{NMR}：需要较强的外磁场，通常在几特斯拉（T）范围。
+        \end{itemize}
+
+        \item \textbf{信号强度}：
+        \begin{itemize}
+            \item \textbf{ESR}：由于电子的磁矩大于核的磁矩，因此信号通常较强。
+            \item \textbf{NMR}：信号较弱，通常需要增强技术（如核自旋极化）来提高信号强度。
+        \end{itemize}
+
+        \item \textbf{应用领域}：
+        \begin{itemize}
+            \item \textbf{ESR}：广泛应用于化学、物理和生物学等领域，特别是自由基和缺陷的研究。
+            \item \textbf{NMR}：广泛应用于化学结构解析、生物分子研究及医学成像（MRI）。
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+	
+
+
+
+
+
+% 思考题2
+\begin{question}
+	电子自旋共振的必要条件有哪些？
+\end{question}
+
+\begin{enumerate} 
+	\item \textbf{共振频率条件}： 
+		\begin{itemize} 
+			\item 交变磁场的频率需满足共振条件： 
+			\[
+				\omega = g \frac{\mu_B}{\hbar} B_0
+			\]
+	  	\end{itemize}
+
+	\item \textbf{粒子数分布条件}：
+		\begin{itemize}
+			\item 在平衡状态下，低能态 $E_1$ 的粒子数 $N_1$ 必须大于高能态 $E_2$ 的粒子数 $N_2$，即 $N_1 > N_2$，确保吸收跃迁占优势：
+			\[
+			\frac{N_1}{N_2} = e^{- \frac{E_2 - E_1}{k T}}
+			\]
+		\end{itemize}
+
+	\item \textbf{弛豫过程存在}：
+		\begin{itemize}
+			\item 需存在弛豫过程，以维持高能态电子自旋向低能态的能量传递，保证连续的磁共振吸收效应，弛豫时间 $T$ 需满足：
+			\[
+			T = \frac{1}{2 T_1} + \frac{1}{T_2}
+			\]
+		\end{itemize}
+
+\end{enumerate}
+
+
+	
+
+
+
+
+% 思考题3
+\begin{question}
+	在恒定磁场上叠加交变磁场的目的是什么？如果不加扫场，能否观测到 ESR 信号？
+\end{question}
+
+在恒定磁场上叠加交变磁场的目的主要包括：
+
+\begin{enumerate} 
+	\item \textbf{提高信号强度}： 
+		\begin{itemize} 
+			\item 交变磁场可以增强电子自旋与微波辐射之间的相互作用，从而提高信号强度。 
+		\end{itemize}
+
+	\item \textbf{促进能级间跃迁}：
+		\begin{itemize}
+			\item 交变磁场的存在有助于满足共振条件，使得电子能级间的跃迁更为有效。
+		\end{itemize}
+		
+	\item \textbf{改善谱线分辨率}：
+		\begin{itemize}
+			\item 通过调节交变磁场的频率，可以优化信号的分辨率，帮助更清晰地识别不同的自旋状态。
+		\end{itemize}
+		
+	\item \textbf{增加对比度}：
+		\begin{itemize}
+			\item 交变磁场能使不同自旋状态的信号分离，增加谱图的对比度，便于分析。
+		\end{itemize}
+
+\end{enumerate}
+
+如果不加扫场，\textbf{通常无法观测到 ESR 信号}。没有交变磁场，电子自旋跃迁的可能性降低，导致信号强度减弱，甚至完全无法产生可检测的信号。
+
+
+
+
+
+
+
+% 思考题4
+\begin{question}
+	在电子自旋共振实验中，如何测定共振磁场的大小？测定共振磁场时，应将共振信号调成什么状态？
+\end{question}
+
+在电子自旋共振实验中，测定共振磁场的大小可以通过以下步骤进行：
+
+\begin{enumerate} 
+	\item \textbf{调节恒定磁场}： 
+		\begin{itemize} 
+			\item 通过调节实验装置中的恒定磁场，使其逐渐变化。 
+		\end{itemize}
+
+	\item \textbf{施加交变磁场}：
+		\begin{itemize}
+			\item 施加交变磁场，以便能够与电子自旋进行相互作用，激发共振跃迁。
+		\end{itemize}
+
+	\item \textbf{监测信号强度}：
+		\begin{itemize}
+			\item 使用检测器监测随磁场变化而变化的共振信号强度，寻找信号的峰值。
+		\end{itemize}
+
+	\item \textbf{确定共振磁场}：
+		\begin{itemize}
+			\item 当信号强度达到最大值时，对应的磁场值即为共振磁场的大小。
+		\end{itemize}
+
+\end{enumerate}
+
+在测定共振磁场时，应将共振信号调成\textbf{最大状态}。这意味着在该磁场值下，电子自旋的能级间跃迁达到最佳条件，从而产生最强的共振信号。
+
+
+
+
+
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级 \\
+	\hline
+	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	\hline
+	室温：& 26℃ & 实验地点： & A413 \\
+	\hline
+	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	\hline
+	实验时间：& 2024/10/31& 教师签名：&\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 实验记录}
+
+\subsection{实验内容和步骤}
+
+
+		
+
+
+
+
+		
+
+
+	\subsection{实验过程中遇到的问题记录}
+
+		\begin{enumerate}
+			\item 
+				
+		\end{enumerate}
+
+
+
+\subsection{实验数据记录}
+
+	见\cref{fig:data}
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	% 第一行的三张图片
+	% 	\subfloat[原始数据1]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-1.jpg}\label{fig:data1}}
+	% 	\quad
+	% 	\subfloat[原始数据2]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-2.jpg}\label{fig:data2}}
+	% 	\quad
+	% 	\subfloat[原始数据3]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-3.jpg}\label{fig:data3}}
+	% 	\newline
+	% 	% 第二行的两张图片
+	% 	\subfloat[原始数据4]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-4.jpg}\label{fig:data4}}
+	% 	\quad
+	% 	\subfloat[原始数据5]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-5.jpg}\label{fig:data5}}
+	% 	\caption{原始数据}
+	% 	\label{fig:data}
+	% \end{figure}
+	
+
+
+
+%\subsection{原始数据记录}
+
+
+% \clearpage
+
+	
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名： & 戴鹏辉 & 学号：& 22344016\\
+	\hline
+    日期：& 2024// & 评分： &\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 分析与讨论}
+
+\subsection{实验数据分析}
+
+
+	\subsubsection{实验一 \quad 光的偏振的测量和控制}
+
+		
+
+
+	\subsubsection{实验二 \quad 单光子的探测及相应探测器效率的测量}
+
+
+
+	\subsubsection{实验三 \quad 单光子的标定}
+
+
+
+
+	\subsubsection{实验四 \quad 密钥分发过程数据处理}
+
+
+		
+
+	
+\subsection{实验后思考题}
+
+% 思考题1
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+	
+% 思考题2
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+
+
+
+
+
+
+
+% 思考题3
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+\clearpage
+\section{D4-1 \quad 电子自旋共振实验 \quad\heiti 实验总结}
+
+	\subsection{实验分工}
+
+		
+
+
+	\subsection{实验心得}
+
+	
+
+	
+	
+
+
+\end{document}
