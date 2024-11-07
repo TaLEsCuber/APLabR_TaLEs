@@ -13,6 +13,8 @@
 \usepackage{enumitem}
 \usepackage{tabularray}  % 绘制表格时可以更加方便添加框线
 \usepackage{diagbox}	% 方便给表格添加对角线
+% \usepackage{subfig}
+% \usepackage{caption}
 \setlist[enumerate]{label=\textup{(\arabic*)}}
 
 
@@ -77,7 +79,7 @@
 \clearpage
 
 \setcounter{section}{0}
-\section{D1-A \quad 电阻热噪声及玻尔兹曼常量测量 预习报告}
+\section{D1-A \quad 电阻热噪声及玻尔兹曼常量测量 \ 预习报告}
 	
 \subsection{实验目的}
 \begin{enumerate}
@@ -111,494 +113,13 @@
 \end{tabular}
 \end{table}
 
-\subsection{原理概述}
 
-	
+\subsection{实验方案}
 
-
-
-
-
+	\textbf{实验方案先前已提交至seelight，故在此不作展示}
 
 
 	
-
-
-
-
-\subsection{原理部分思考题}
-
-% 思考题1
-\begin{question}
-	市频 50Hz 干扰通常通过电源耦合，影响仪器的测量结果；对于 997Hz 的待测信号，50Hz 干扰是噪声吗？对锁相放大器的测量会有影响吗？
-\end{question}
-
-市频 50Hz 干扰主要通过电源线或其他电磁耦合路径引入到测量系统中，表现为一种低频的正弦信号。由于 50Hz 是非常常见的环境噪声源，许多实验仪器在测量过程中都会受到此频率的干扰。
-
-待测信号的频率为 997Hz，而 50Hz 干扰频率与待测信号相差很大。理论上，锁相放大器会根据设置的参考频率（997Hz）来进行锁定，因此 50Hz 干扰会被滤除，并不会直接影响测量结果；但是，50Hz 干扰可能会产生 100Hz、150Hz 等谐波成分，这些频率成分接近或落在待测信号附近时，可能会引起较小的干扰，尤其是当谐波频率接近参考频率时，滤波器的效果会降低。50Hz 干扰可能引入低频的基线漂移，增加测量的不稳定性。
-
-	
-
-
-% 思考题2
-\begin{question}
-	如何用锁相放大器检测到待测的直流信号或慢变信号？(图 D1-9 中的$v(t)$为直流或慢变信号)
-\end{question}
-
-锁相放大器的主要功能是从噪声背景中提取特定频率的信号。它通过将输入信号与参考信号（通常是一个正弦波）相乘，生成调制信号。然后，低通滤波器滤除与参考频率不同的成分，只保留同频率且相位一致的部分。这使锁相放大器在高噪声环境中非常有效，尤其是对于交流（AC）信号的提取。然而，锁相放大器的这种原理主要是为交流信号设计的，因此对于直流（DC）信号或缓慢变化的信号（低频信号），需要采取一些额外措施来适应其检测。
-
-要检测直流或慢变信号，常用的方法是对信号进行调制，将其变为交流信号，然后使用锁相放大器检测调制后的信号。
-
-斩波调制（Chopping modulation）是一种常见的方法，尤其在光学检测中。例如，假设你要测量某个光电探测器的输出信号，该输出信号可能是缓慢变化的或接近直流。通过使用一个机械或电子斩波器，信号可以被调制为一个周期性的方波或正弦波。斩波器的频率通常设置在数百赫兹到千赫兹的范围内，这个频率同时作为锁相放大器的参考频率。经过调制后的信号从直流或慢变信号变成了一个与参考信号相匹配的交流信号，锁相放大器可以通过对调制频率进行锁定，检测出该调制后的信号。调制的优点是将低频或直流信号从低频噪声（如 1/f 噪声）中分离出来，显著提高信噪比。
-
-另一种方法是引入一个外部调制器，使信号周期性地变化。例如，给待测的直流信号添加一个已知频率的小振幅交流调制。这个交流调制信号将与直流信号一起被输入到锁相放大器中，通过锁相放大器锁定该已知频率，可以提取出信号的幅度和相位信息。该方法广泛应用于许多领域，比如在激光光学系统中，通过给激光源施加调制，可以从背景噪声中提取目标信号。
-
-对于慢变信号，虽然其频率较低，但仍是一个交流信号，可以通过适当的锁相放大器设置进行检测。锁相放大器的参考频率应与待测慢变信号的频率相匹配。由于信号变化缓慢，因此可以将参考频率设定得较低，甚至可以是毫赫兹级别。这样可以确保信号与参考信号的相位匹配，锁相放大器仍能有效检测到信号。对于慢变信号，锁相放大器的低通滤波器时间常数应适当增加。较长的时间常数可以减少高频噪声干扰，稳定慢变信号的检测。
-
-
-
-
-% 思考题3
-\begin{question}
-	如用斩波器调制直流信号（如光强），被斩制后的信号（图 D1-9 中的$u_m(t)$信号）仍然包含有直流分量（即平均值不为零），但该直流分量随交流信号输入锁相放大器后不会被锁相放大器检测，请从数学推导上说明。
-\end{question}
-
-首先，直流信号（例如光强）经过斩波器调制，变成了一个周期性的交流信号。斩波器通常会将信号切换为一个方波或其他周期性波形。
-
-设原始直流信号为：
-
-\[
-S_{\text{DC}}(t) = A
-\]
-
-其中，\( A \) 是直流信号的幅度。
-
-斩波器的调制函数 \( M(t) \) 可以表示为一个方波，其值在 0 和 1 之间变化，频率为 \( f_{\text{chop}} \)：
-
-\[
-M(t) = \dfrac{1}{2} + \dfrac{2}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \sin(2\pi n f_{\text{chop}} t)
-\]
-
-因此，经过斩波器后的信号 \( S_{\text{chop}}(t) \) 为：
-
-\[
-S_{\text{chop}}(t) = S_{\text{DC}}(t) \cdot M(t) = A \cdot M(t)
-\]
-
-将 \( M(t) \) 展开为傅里叶级数后，发现它包含一个直流分量和一系列谐波分量。
-
-斩波信号 \( S_{\text{chop}}(t) \) 可表示为：
-
-\[
-S_{\text{chop}}(t) = A \left( \dfrac{1}{2} + \dfrac{2}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \sin(2\pi n f_{\text{chop}} t) \right)
-\]
-
-其中，直流分量为\( \dfrac{A}{2} \)，交流分量包含频率为 \( f_{\text{chop}} \) 的基波和其奇数次谐波。
-
-参考信号 \( R(t) \) 通常是一个与斩波器同步的正弦波：
-
-\[
-R(t) = \sin(2\pi f_{\text{ref}} t + \phi)
-\]
-
-由于斩波器的频率就是我们希望检测的信号频率，所以 \( f_{\text{ref}} = f_{\text{chop}} \)。
-
-为了简化，设相位差 \( \phi = 0 \)：
-
-\[
-R(t) = \sin(2\pi f_{\text{chop}} t)
-\]
-
-将 \( S_{\text{chop}}(t) \) 与 \( R(t) \) 相乘，得到乘法器输出信号 \( S_{\text{mix}}(t) \)：
-
-\[
-S_{\text{mix}}(t) = S_{\text{chop}}(t) \cdot R(t) = A \cdot M(t) \cdot \sin(2\pi f_{\text{chop}} t)
-\]
-
-将 \( M(t) \) 展开并代入：
-
-\[
-S_{\text{mix}}(t) = A \left( \dfrac{1}{2} + \dfrac{2}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \sin(2\pi n f_{\text{chop}} t) \right) \sin(2\pi f_{\text{chop}} t)
-\]
-
-展开后：
-
-\[
-S_{\text{mix}}(t) = \dfrac{A}{2} \sin(2\pi f_{\text{chop}} t) + \dfrac{2A}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \sin(2\pi n f_{\text{chop}} t) \sin(2\pi f_{\text{chop}} t)
-\]
-
-利用三角恒等式：
-
-\[
-\sin A \sin B = \dfrac{1}{2} [\cos(A - B) - \cos(A + B)]
-\]
-
-对第二项进行展开：
-
-\[
-\sin(2\pi n f_{\text{chop}} t) \sin(2\pi f_{\text{chop}} t) = \dfrac{1}{2} \left[ \cos(2\pi (n - 1) f_{\text{chop}} t) - \cos(2\pi (n + 1) f_{\text{chop}} t) \right]
-\]
-
-因此，乘法器输出可表示为：
-
-\[
-\begin{aligned}
-	S_{\text{mix}}(t) = & \dfrac{A}{2} \sin(2\pi f_{\text{chop}} t) \\
-	& + \dfrac{2A}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \cdot \dfrac{1}{2} \left[ \cos(2\pi (n - 1) f_{\text{chop}} t) - \cos(2\pi (n + 1) f_{\text{chop}} t) \right] \\
-	= & \dfrac{A}{2} \sin(2\pi f_{\text{chop}} t) + \dfrac{A}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \left[ \cos(2\pi (n - 1) f_{\text{chop}} t) - \cos(2\pi (n + 1) f_{\text{chop}} t) \right]
-\end{aligned}
-\]
-
-低通滤波器的输入信号是 \( S_{\text{mix}}(t) \)，其中包含以下频率分量：第一项，\( \dfrac{A}{2} \sin(2\pi f_{\text{chop}} t) \) —— 频率为 \( f_{\text{chop}} \) 的交流分量。第二项，由谐波生成的一系列余弦函数，频率为 \( (n \pm 1) f_{\text{chop}} \)。
-
-为了找到低通滤波器输出的直流分量，我们需要找出在 \( S_{\text{mix}}(t) \) 中频率为零的项。
-
-观察第二项中的 \( \cos(2\pi (n - 1) f_{\text{chop}} t) \)，当 \( n = 1 \) 时：
-
-\[
-\cos(2\pi (1 - 1) f_{\text{chop}} t) = \cos(0) = 1
-\]
-
-对应的系数为：
-
-\[
-\dfrac{A}{\pi} \cdot \dfrac{1}{1} = \dfrac{A}{\pi}
-\]
-
-因此，直流分量为：
-
-\[
-S_{\text{DC,out}} = \dfrac{A}{\pi}
-\]
-
-锁相放大器的输出电压 \( V_{\text{out}} \) 与输入信号中与参考信号同频且同相的分量成正比：
-
-\[
-V_{\text{out}} \propto \langle S_{\text{chop}}(t) \cdot R(t) \rangle
-\]
-
-其中 \( \langle \cdot \rangle \) 表示经过低通滤波器后的平均值。
-
-虽然在乘法器输出后出现了直流分量 \( \dfrac{A}{\pi} \)，但这个直流分量来源于高频信号的互相作用（例如 \( n = 1 \) 的谐波与参考信号相乘得到的结果）。这些直流分量与输入信号中我们关心的那部分（与参考信号同频且同相的分量）无关。
-
-锁相放大器的核心在于相敏检测，即它只对输入信号中与参考信号频率和相位匹配的分量敏感。
-
-我们可以计算锁相放大器输出对直流分量的响应：
-
-锁相放大器输出：
-
-\[
-V_{\text{out}} \propto \langle S_{\text{chop}}(t) \cdot R(t) \rangle = \langle A \cdot M(t) \cdot \sin(2\pi f_{\text{chop}} t) \rangle
-\]
-
-将 \( M(t) \) 代入：
-
-\[
-V_{\text{out}} \propto A \left\langle \left( \dfrac{1}{2} + \dfrac{2}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \sin(2\pi n f_{\text{chop}} t) \right) \sin(2\pi f_{\text{chop}} t) \right\rangle
-\]
-
-展开后：
-
-\[
-\begin{aligned}
-	V_{\text{out}} \propto & A \left\langle \dfrac{1}{2} \sin(2\pi f_{\text{chop}} t) \right\rangle \\
-	& + A \left\langle \dfrac{2}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \dfrac{1}{n} \sin(2\pi n f_{\text{chop}} t) \sin(2\pi f_{\text{chop}} t) \right\rangle
-\end{aligned}
-\]
-
-计算平均值（低通滤波）时，任何随时间振荡的项，其平均值为零。
-
-第一项平均值：
-
-\[
-\left\langle \dfrac{1}{2} \sin(2\pi f_{\text{chop}} t) \right\rangle = 0
-\]
-
-第二项平均值，对于每个 \( n \)：
-
-\[
-\left\langle \sin(2\pi n f_{\text{chop}} t) \sin(2\pi f_{\text{chop}} t) \right\rangle = \dfrac{1}{2} \left\langle \cos(2\pi (n - 1) f_{\text{chop}} t) - \cos(2\pi (n + 1) f_{\text{chop}} t) \right\rangle
-\]
-
-再次，由于余弦函数的平均值为零（除非频率为零的情况），因此，当 \( n = 1 \) 时：
-
-\[
-\cos(2\pi (1 - 1) f_{\text{chop}} t) = \cos(0) = 1
-\]
-
-对应的平均值为 1，但其他项的平均值均为零。因此，仅当 \( n = 1 \) 时，第二项对平均值有贡献。
-
-计算 \( n = 1 \) 时的贡献：
-
-\[
-V_{\text{out}} \propto A \cdot \dfrac{2}{\pi} \cdot \dfrac{1}{1} \cdot \dfrac{1}{2} \cdot 1 = \dfrac{A}{\pi}
-\]
-
-这是一个直流值。虽然数学上得到一个直流分量 \( \dfrac{A}{\pi} \)，但这个值是由于信号内部高频分量相互作用的结果，而不是原始信号中与参考信号同频且同相的分量。锁相放大器的设计目的是测量输入信号中与参考信号严格同步的分量。因此，它会忽略由于其他频率分量相互作用而产生的直流偏置。
-
-在实际测量中，直流偏置可能会引入仪器的零点漂移或偏置。然而，锁相放大器通常具有直流耦合和交流耦合模式，以及直流偏置调零功能，可以消除这些影响。锁相放大器通过同步检测，仅提取与参考信号频率和相位匹配的信号分量。其他频率（包括直流）和相位的信号分量会被滤除或平均为零。
-
-
-
-
-% 思考题4
-\begin{question}
-	相位以及相位差的含义是什么？锁相放大器输出的是待测信号的相位还是待测信号与参考信号之间的相位差？
-\end{question}
-
-在信号处理中，相位是描述正弦波形位置的一个参数，表示一个周期性信号在时间轴上的特定点。通常一个正弦信号可以表示为：
-
-\[
-V(t) = A \sin(2\pi f t + \phi)
-\]
-
-其中，\( A \) 是信号的幅度，\( f \) 是信号的频率，\( \phi \) 是信号的相位，即信号的初始相位角，决定了信号在时间 \( t = 0 \) 时的位置。
-
-相位 \( \phi \) 的单位是弧度或度数，它表示正弦波在时间零点相对于完整周期的位置。如果 \( \phi = 0 \)，则信号从零开始上升。如果 \( \phi = \frac{\pi}{2} \)，则信号从其最大值开始。
-
-相位差是两个正弦波形之间的相位角的差异，它表示一个信号相对于另一个信号的时间偏移。假设有两个正弦信号：
-
-\[
-V_1(t) = A_1 \sin(2\pi f t + \phi_1)
-\]
-\[
-V_2(t) = A_2 \sin(2\pi f t + \phi_2)
-\]
-
-那么这两个信号之间的相位差为：
-
-\[
-\Delta \phi = \phi_1 - \phi_2
-\]
-
-相位差可以正也可以负，表示一个信号相对于另一个信号是提前还是滞后。如果相位差为零，说明两个信号是同步的，波峰和波谷完全对齐；如果相位差为 \( \pi \)，则两个信号相位相反，即波峰对波谷。
-
-锁相放大器的相位测量涉及两个重要概念。待测信号的相位：待测信号是一个周期性信号，其相位 \( \phi_{\text{signal}} \) 表示它在时间轴上的特定位置。参考信号的相位：参考信号是锁相放大器内部生成的，通常与实验中某个已知的调制信号同步。它的相位 \( \phi_{\text{ref}} \) 由系统定义，并作为相位测量的基准。
-
-锁相放大器在测量过程中通过比较待测信号和参考信号的相位，输出两者的相位差：
-
-\[
-\Delta \phi = \phi_{\text{signal}} - \phi_{\text{ref}}
-\]
-
-锁相放大器会通过乘法器将待测信号与参考信号相乘，提取出同频率信号中的相位差信息。最终经过低通滤波器，得到一个与相位差 \( \Delta \phi \) 相关的输出。这个相位差 \( \Delta \phi \) 是锁相放大器测量的重要参数。
-
-锁相放大器输出的 θ 通常指的是待测信号与参考信号之间的相位差。具体地说，锁相放大器通过计算待测信号和参考信号在同频率下的相位差，输出一个相位角 \( \theta \)，这个值表示待测信号相对于参考信号的偏移程度。
-
-锁相放大器通过同时生成正交的两个参考信号，一个是与待测信号同步的正弦信号 \( \sin(2\pi f_{\text{ref}} t) \)，另一个是相位提前 \( \frac{\pi}{2} \) 的余弦信号 \( \cos(2\pi f_{\text{ref}} t) \)。然后，它分别将待测信号与这两个参考信号相乘：
-
-\[
-X = A_{\text{signal}} \cos(\phi_{\text{signal}} - \phi_{\text{ref}})
-\]
-\[
-Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
-\]
-
-这里 \( X \) 和 \( Y \) 分别是“同相分量”和“正交分量”。
-
-然后，锁相放大器可以根据这两个分量计算出相位差：
-
-\[
-\theta = \text{atan2}(Y, X) = \phi_{\text{signal}} - \phi_{\text{ref}}
-\]
-
-这个输出的 \( \theta \) 就是待测信号与参考信号之间的相位差。
-
-
-
-
-% % 思考题5
-% \begin{question}
-% 	锁相放大器的使用说明、操作视频和仿真软件另外给出，帮助预习。
-% \end{question}
-
-
-
-
-
-% % 思考题6
-% \begin{question}
-% 	（选）以上仅讨论了滤波器的幅频特性，那么其相频特性又会是怎样呢？在时域的时间响应特性又是怎样呢？感兴趣的同学可以自己推导。进一步，该相频特性会影响到相位角$\theta$的测量吗？
-% \end{question}
-
-
-
-\subsection{现场预习报告思考题}
-
-\begin{question}
-	如何用锁相放大器检测到待测的直流信号或慢变信号（图 D1- 7 中的$v(t)$） ？
-\end{question}
-
-锁相放大器的主要功能是从噪声背景中提取特定频率的信号。它通过将输入信号与参考信号（通常是一个正弦波）相乘，生成调制信号。然后，低通滤波器滤除与参考频率不同的成分，只保留同频率且相位一致的部分。这使锁相放大器在高噪声环境中非常有效，尤其是对于交流（AC）信号的提取。然而，锁相放大器的这种原理主要是为交流信号设计的，因此对于直流（DC）信号或缓慢变化的信号（低频信号），需要采取一些额外措施来适应其检测。
-
-要检测直流或慢变信号，常用的方法是对信号进行调制，将其变为交流信号，然后使用锁相放大器检测调制后的信号。
-
-斩波调制（Chopping modulation）是一种常见的方法，尤其在光学检测中。例如，假设你要测量某个光电探测器的输出信号，该输出信号可能是缓慢变化的或接近直流。通过使用一个机械或电子斩波器，信号可以被调制为一个周期性的方波或正弦波。斩波器的频率通常设置在数百赫兹到千赫兹的范围内，这个频率同时作为锁相放大器的参考频率。经过调制后的信号从直流或慢变信号变成了一个与参考信号相匹配的交流信号，锁相放大器可以通过对调制频率进行锁定，检测出该调制后的信号。调制的优点是将低频或直流信号从低频噪声（如 1/f 噪声）中分离出来，显著提高信噪比。
-
-另一种方法是引入一个外部调制器，使信号周期性地变化。例如，给待测的直流信号添加一个已知频率的小振幅交流调制。这个交流调制信号将与直流信号一起被输入到锁相放大器中，通过锁相放大器锁定该已知频率，可以提取出信号的幅度和相位信息。该方法广泛应用于许多领域，比如在激光光学系统中，通过给激光源施加调制，可以从背景噪声中提取目标信号。
-
-对于慢变信号，虽然其频率较低，但仍是一个交流信号，可以通过适当的锁相放大器设置进行检测。锁相放大器的参考频率应与待测慢变信号的频率相匹配。由于信号变化缓慢，因此可以将参考频率设定得较低，甚至可以是毫赫兹级别。这样可以确保信号与参考信号的相位匹配，锁相放大器仍能有效检测到信号。对于慢变信号，锁相放大器的低通滤波器时间常数应适当增加。较长的时间常数可以减少高频噪声干扰，稳定慢变信号的检测。
-
-
-
-\begin{question}
-	噪声有哪些类型？ 一般测量对象本身的噪声是哪来的？ 它有什么特征？
-\end{question}
-
-	噪声的类型可以大致分为以下几类：
-
-	\begin{enumerate} 
-		\item \textbf{热噪声（Thermal Noise）}： 
-			\begin{itemize} 
-				\item 热噪声是由导体中电子的随机热运动引起的。 
-				\item 其特征为白噪声，功率谱密度与频率无关。 
-			\end{itemize}
-
-		\item \textbf{散粒噪声（Shot Noise）}：
-			\begin{itemize}
-				\item 由电流中载流子的离散性引起，尤其在半导体器件中显著。
-				\item 它的功率谱密度与电流强度成正比，且呈现白噪声特性。
-			\end{itemize}
-
-		\item \textbf{1/f噪声（闪烁噪声）}：
-			\begin{itemize}
-				\item 1/f噪声的功率谱密度与频率成反比，通常在低频段显著。
-				\item 常见于晶体管和电阻中，随时间缓慢波动的噪声源。
-			\end{itemize}
-
-		\item \textbf{相位噪声（Phase Noise）}：
-			\begin{itemize}
-				\item 表现为信号相位的随机波动，常见于振荡器和时钟源。
-				\item 其特征为在频谱上表现为基频旁边的侧带噪声。
-			\end{itemize}
-
-		\item \textbf{干扰噪声（Interference Noise）}：
-			\begin{itemize}
-				\item 外部电磁信号通过电磁耦合引入系统，如市电50Hz干扰。
-				\item 这种噪声一般频率明确，可以通过屏蔽和滤波来抑制。
-			\end{itemize}
-
-		\item \textbf{量化噪声（Quantization Noise）}：
-			\begin{itemize}
-				\item 在数字信号处理系统中，由有限的分辨率引起的噪声。
-				\item 特征为在采样或模数转换时出现的误差，随信号量化位数减少而增大。
-			\end{itemize}
-
-	\end{enumerate}
-
-	测量对象本身的噪声一般来源于其材料特性、结构或工作状态，如电阻中的热噪声或半导体器件中的散粒噪声。其特征通常是与频率相关或随温度、电流等参数变化，具体表现取决于测量对象的物理性质和环境条件。
-
-
-
-
-
-
-\begin{question}
-	是否可以用RIGOL DG4162信号发生器产生白噪声取代教学实验箱产生的白噪声？ 如何将它与信号混合？
-\end{question}
-
-	RIGOL DG4162信号发生器支持生成多种波形，包括白噪声，因此它可以很好地模拟实验中所需要的噪声信号。
-
-	使用 RIGOL DG4162 产生白噪声的步骤如下：
-	\begin{enumerate}
-		\item \textbf{选择白噪声波形：}
-			\begin{itemize}
-				\item 在信号发生器的波形菜单中，选择“Noise”选项来生成噪声信号。
-				\item 通常白噪声的频谱是均匀分布的，功率密度在整个频率范围内保持一致。
-			\end{itemize}
-			
-		\item \textbf{设置白噪声的参数：}
-			\begin{itemize}
-				\item 设置白噪声的幅度，以控制噪声的强度。
-				\item 设置白噪声的带宽，可以通过频率范围选项进行设置。如果实验需要特定带宽的噪声，可以在菜单中调整频率范围。
-			\end{itemize}
-			
-	\end{enumerate}
-
-	将白噪声与信号进行混合的常见方法是使用电路或电子设备将两个信号叠加。可以通过以下两种常见的方式进行信号混合：
-	\begin{enumerate}
-		\item \textbf{电阻网络进行模拟叠加：}
-			\begin{itemize}
-				\item 将信号源（例如教学实验中的待测信号）和白噪声源的输出端通过适当的电阻网络连接。可以通过将两个信号的输出端接入电阻，汇合在一起，利用简单的叠加原理混合信号和噪声。
-				\item 这种方法的具体连接方式是：将信号发生器的输出端（包括RIGOL DG4162的白噪声输出）分别接入电阻网络的各端，然后将电阻网络的输出引导到测量设备或锁相放大器。
-			\end{itemize}
-
-		\item \textbf{使用加法器电路（Sum Circuit）：}
-			\begin{itemize}
-				\item 也可以使用加法器电路（例如运算放大器配置成加法器电路），将两个信号电压进行加法运算，从而混合输入的白噪声和待测信号。加法器电路可以将两个输入信号（一个是待测信号，另一个是白噪声）进行电压加法叠加，输出混合信号。
-				\item 在加法器电路中，需要确保两个信号的相对幅度合适，以避免一种信号的幅度过大而淹没另一个信号。
-			\end{itemize}
-	\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{question}
-	复习用示波器测量信号的实验步骤， 学习用数字示波器中的带通滤波器过滤噪声。
-\end{question}
-
-	使用数字示波器中的带通滤波器过滤噪声的基本步骤如下：
-	\begin{enumerate} 
-		% \item \textbf{准备实验设备}： 
-		% 	\begin{itemize} 
-		% 		\item 确保数字示波器正常工作，并且探头已连接。 
-		% 		\item 准备待测信号源（如信号发生器）和必要的连接线。 
-		% 	\end{itemize}
-
-		\item \textbf{连接信号源}：
-			\begin{itemize}
-				\item 将信号源输出连接到示波器的输入通道。
-				\item 确保连接牢固，避免接触不良。
-			\end{itemize}
-
-		\item \textbf{设置示波器}：
-			\begin{itemize}
-				\item 打开示波器，选择对应的输入通道。
-				\item 设置 \textbf{时间基准}（Time/Div），调整到合适的时间范围，以便完整显示信号周期。
-				\item 设置 \textbf{垂直灵敏度}（Volts/Div），确保信号幅度在显示范围内。
-			\end{itemize}
-
-		\item \textbf{观察波形}：
-			\begin{itemize}
-				\item 调整示波器的触发设置，确保波形稳定显示。
-				\item 观察并记录信号的波形特征（如频率、幅度、波形形状等）。
-			\end{itemize}
-
-		\item \textbf{使用带通滤波器过滤噪声}：
-			\begin{itemize}
-				\item 在示波器菜单中找到 \textbf{滤波器}（Filter）选项，选择带通滤波器（Bandpass Filter）。
-				\item 设置带通滤波器的 \textbf{通带频率范围}，根据待测信号的频率选择合适的低频和高频截止点。
-					\begin{itemize}
-						\item 例如，如果待测信号的频率为 1 kHz，可以设置通带范围为 100 Hz 至 10 kHz。
-					\end{itemize}
-			\end{itemize}
-
-		\item \textbf{再次观察波形}：
-			\begin{itemize}
-				\item 观察经过带通滤波器后的信号波形，确认噪声是否被有效过滤。
-				\item 记录清晰的信号波形，并与未过滤的波形进行比较。
-			\end{itemize}
-
-		% \item \textbf{数据分析}：
-		% 	\begin{itemize}
-		% 		\item 使用示波器提供的测量工具分析信号特征，例如频率、峰值电压等。
-		% 		\item 记录测量结果，并进行总结与讨论。
-		% 	\end{itemize}
-
-	\end{enumerate}
-
-	% 总结
-
-	% 通过上述步骤，可以有效地使用示波器测量信号，并通过带通滤波器过滤噪声，从而提高测量精度。理解带通滤波器的作用对于处理复杂信号及其噪声至关重要。
 
 
 \clearpage
@@ -615,220 +136,110 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 	\hline
 	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
 	\hline
-	实验时间：& 2024/9/20 & 教师签名：&\\
+	实验时间：& 2024/10/25 & 教师签名：&\\
 	\hline
 	\end{tabularx}
 \end{table}
 
-\section{D1 \quad 锁相放大器与弱信号测量——【实验1】锁相放大器工作原理、基本参数与基本操作 \quad\heiti 实验记录}
+\section{D1 \quad 电阻热噪声及玻尔兹曼常量测量 \quad\heiti 实验记录}
 \subsection{实验内容、步骤和数据记录}
 
-	\subsubsection*{实验1.1 \quad 用示波器观察内部信号输出（与参考信号同频同相）}
+	\subsubsection*{实验1.6 \quad 滤波器带宽对输出信号响应的影响}
 	
-	\begin{wrapfigure}{l}{0.5\textwidth}
-		\centering
-		\includegraphics[width=0.5\textwidth]{D1-1-1.jpg}
-		\caption{用示波器观察内部信号输出}
-		\label{fig:D1-1-1}
-	\end{wrapfigure}
-
-	在锁相放大器的“SineOutput”中设置“Voltage = 80mVrms”，频率设置为1kHz，即可通过SINE OUT 功能输出一个正弦信号，如\cref{fig:D1-1-1}所示。
-
-	需要注意，当用三通分信号至示波器时，注意在示波器输入通道设置中选择输入阻抗$1\mathrm{M}\Omega$。通过示波器测量到的信号确实为正弦波，测量信号的峰峰值$V_{pp} = 240.0 \text{mV}$，频率$f = 1.000 \text{kHz}$。
-
-	% 即测量的有效值为$$V_{rms} = \frac{V_{pp}}{2\sqrt{2}} = 84.85 \text{mV}$$ 与设定值$80 \text{mV}$之间有一定误差；
-
-
-
-	\clearpage
-	\subsubsection*{实验1.2 \quad 测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系}
-
-	在实验一的基础上，用一条BNC-BNC 信号线连接 OE1022 前面板 SINE OUT 输出接口和 SIGNAL IN 的 A/I接口，并设置合适的数字信号发生器输出幅值和量程灵敏度值，确保不会发生前级输出溢出和放大溢出的情况。具体实验时，设置量程灵敏度为100mV。
-	
-	通过前面板DISPLAY按键，测量实时显示的$R$、$\theta$、$X$、$Y$值，结果如\cref{tbl:D1-2-1}。
-
-	\begin{table}[htbp]
-		\centering
-		\begin{tabular}{|llll|} 
-		\hline
-		$R/\text{mV}$  & $X/\text{mV}$   & $Y/\text{mV}$ & $\theta/°$  \\ 
-		\hline
-		81.43 & -81.34 & 3.79 & 177.33   \\
-		\hline
-		\end{tabular}
-		\caption{测量信号的 $R$、$\theta$、$X$、$Y$值}
-		\label{tbl:D1-2-1}
-	\end{table}
-
-
-
-
-
-	\subsubsection*{实验1.3 \quad 相敏检波器工作原理——乘法器}
-
-	将锁相放大器设置为内部参考信号，耦合方式设置为DC，将滤波器带宽调至最大（即$TC = 10 \mu\text{s}, \text{Slope} = 6 \text{dB/cot}$）。设置一个幅值为80mVrms，频率为1kHz的正弦波信号输入锁相放大器，量程灵敏度设置为500mV。
-	
-	通过示波器观察锁相放大器的模拟输出的$R$信号的波形，如\cref{fig:D1-3-1}所示；同时观察$X$，$Y$信号的波形，如\cref{fig:D1-3-3}所示。
-	
-	% 设置相同的陡降（slope = 6 dB/oct），不同的时间常数（即改变示波器参数），观察示波器记录的$X$，$Y$信号的平均值的变化情况，如\cref{tbl:D1-3-1}所示。
-
-	在相同的陡降（6dB/oct）下，设置不同的时间常数，观察其对$X$、$Y$信号平均值的影响，结果如\cref{tbl:D1-3-1}所示。
-
-
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	\includegraphics[width=0.45\textwidth]{D1-3-1.jpg}
-	% 	\caption{乘法器输出的$R$的图像}
-	% 	\label{fig:D1-3-1}
-	% \end{figure}
-
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	\includegraphics[width=0.45\textwidth]{D1-3-3.jpg}
-	% 	\caption{乘法器输出的$X$，$Y$的图像}
-	% 	\label{fig:D1-3-3}
-	% \end{figure}
-
-	\begin{figure}[htbp]
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{D1-3-1.jpg}
-			\caption{乘法器输出的$R$的图像}
-			\label{fig:D1-3-1}
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{D1-3-3.jpg}
-			\caption{乘法器输出的$X$，$Y$的图像}
-			\label{fig:D1-3-3}
-		\end{minipage}
-	\end{figure}
-	
-
-
-	\begin{table}[htbp]
-		\centering
-		\begin{tabular}{|c|cc|} 
-		\hline
-		\diagbox{时间常数}{平均值}{信号} & $X/ \mathrm{mV}$     & $Y/ \mathrm{mV}$      \\ 
-		\hline
-		10$\mu$s                           & 1.692 & 50.07  \\
-		100$\mu$s                              & 1.692 & 53.59  \\
-		1ms                                & 1.690 & 51.13  \\
-		10ms                               & 1.690 & 48.65  \\
-		100ms                              & 1.692 & 49.82  \\
-		1s                                 & 1.691 & 49.47  \\
-		\hline
-		\end{tabular}
-		\caption{相同的陡降、不同的时间常数对$X$、$Y$信号平均值的影响}
-		\label{tbl:D1-3-1}
-	\end{table}
-
-
-
-
-
-
-	\subsubsection*{实验1.4 \quad 相敏检波器工作原理——乘法器+低通滤波器}
-
-	对锁相放大器的滤波器设置不同的时间常数和陡降，通过示波器观察锁相放大器的输入信号波形、乘法器输出的$R$，$X$，$Y$波形，同时记录锁相放大器的$R$，$X$，$Y$读数，如\cref{tbl:D1-4-1}所示。
-
-	% \begin{table}[htbp]
-	% 	\centering
-	% 	\begin{tblr}{
-	% 	  cells = {c},
-	% 	  cell{1}{1} = {r=2}{},
-	% 	  cell{1}{2} = {r=2}{},
-	% 	  cell{1}{3} = {c=3}{},
-	% 	  cell{1}{6} = {c=3}{},
-	% 	  cell{3}{1} = {r=6}{},
-	% 	  vline{1,2,3,6,9} = {1,2}{},
-	% 	%   vline{1,2,3,6,9} = {2}{},
-	% 	%   vline{1-3,9} = {3}{},
-	% 	  vline{1,2,3,6,9} = {3-8}{},
-	% 	  hline{1,3,9} = {-}{},
-	% 	  hline{2} = {3-8}{},
-	% 	}
-	% 	陡降(dB/oct) & 时间常数   & 示波器读数  &         &         & 锁相放大器读数 &         &        \\
-	% 	   &        & $R$      & $X$       & $Y$       & $R$       & $X$       & $Y$      \\
-	% 	6  & 10$\mu$s  &        &         &         &         &         &        \\
-	% 	   & 100$\mu$s & 2.11V  & 2.17V   & 2.15V   & 55.0mV  & 50.0mV  & 3.0mV  \\
-	% 	   & 1ms    & 278mV  & 222.0mV & 280.0mV & 50.0mV  & 49.0mV  & 2.0mV  \\
-	% 	   & 10ms   & 28.0mV & 27.0mV  & 28.0mV  & 50.0mV  & 50.0mV  & 1.6mV  \\
-	% 	   & 100ms  & 5V     & 5V      & 160mV   & 50.16mV & 50.13mV & 1.67mV \\
-	% 	   & 1s     & 5.04V  & 5.03mV  & 158mV   & 50.16mV & 50.13mV & 1.67mV 
-	% 	\end{tblr}
-	% 	\caption{不同时间常数下的示波器和锁相放大器读数}
-	% 	\label{tbl:D1-4-1}
-	% \end{table}
-
-	\begin{table}[htbp]
-		\centering
-		\begin{tblr}{
-		  cells = {c},
-		  cell{2}{1} = {r=6}{},
-		  vline{1-3,6} = {1-2}{},
-		  vline{1-3,6} = {3-7}{},
-		  hline{1-2,8} = {-}{},
-		}
-		陡降(dB/oct) & 时间常数   & R       & X       & Y      \\
-		6  & 10$\mu$s  & 63.2mV  & 58.8mV  & 5.0mV  \\
-		   & 100$\mu$s & 55.0mV  & 50.0mV  & 3.0mV  \\
-		   & 1ms    & 50.0mV  & 49.0mV  & 2.0mV  \\
-		   & 10ms   & 50.0mV  & 50.0mV  & 1.6mV  \\
-		   & 100ms  & 50.16mV & 50.13mV & 1.67mV \\
-		   & 1s     & 50.16mV & 50.13mV & 1.67mV 
-		\end{tblr}
-		\caption{不同时间常数下的示波器和锁相放大器读数}
-		\label{tbl:D1-4-1}
-	\end{table}
-
-	不断增大陡降，观察输出的滤波波形，图像如\cref{fig:D1-4-1-1}、\cref{fig:D1-4-1-2}、\cref{fig:D1-4-1-3}、\cref{fig:D1-4-1-4}所示
-
-
-
-	\begin{figure}[htbp]
+	\begin{figure}[H]
 		\centering
 		% 第一行左图
-		\begin{minipage}[b]{0.45\textwidth}
+		\begin{minipage}[b]{0.40\textwidth}
 			\centering
-			\includegraphics[width=\textwidth]{APL1_1_question8_slope6.jpg} % 替换为你的图片路径
-			\caption{$Slope = 6 \mathrm{dB/oct}$}
-			\label{fig:D1-4-1-1}
+			\includegraphics[width=\textwidth]{30us 24.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 30 \mu s \ Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-1}
 		\end{minipage}
 		\hspace{0.05\textwidth} % 两列之间的水平间距
 		% 第一行右图
-		\begin{minipage}[b]{0.45\textwidth}
+		\begin{minipage}[b]{0.40\textwidth}
 			\centering
-			\includegraphics[width=\textwidth]{APL1_1_question8_slope12.jpg} % 替换为你的图片路径
-			\caption{$Slope = 12 \mathrm{dB/oct}$}
-			\label{fig:D1-4-1-2}
+			\includegraphics[width=\textwidth]{100us 24.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 100 \mu s \ Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-2}
 		\end{minipage}
 		
 		\vspace{0.01\textwidth} % 两行之间的垂直间距
 	
 		% 第二行左图
-		\begin{minipage}[b]{0.45\textwidth}
+		\begin{minipage}[b]{0.40\textwidth}
 			\centering
-			\includegraphics[width=\textwidth]{APL1_1_question8_slope18.jpg} % 替换为你的图片路径
-			\caption{$Slope = 18 \mathrm{dB/oct}$}
-			\label{fig:D1-4-1-3}
+			\includegraphics[width=\textwidth]{300us 24.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 300 \mu s \ Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-3}
 		\end{minipage}
 		\hspace{0.05\textwidth} % 两列之间的水平间距
 		% 第二行右图
-		\begin{minipage}[b]{0.45\textwidth}
+		\begin{minipage}[b]{0.40\textwidth}
 			\centering
-			\includegraphics[width=\textwidth]{APL1_1_question8_slope24.jpg} % 替换为你的图片路径
-			\caption{$Slope = 24 \mathrm{dB/oct}$}
-			\label{fig:D1-4-1-4}
+			\includegraphics[width=\textwidth]{1ms 24.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 1 ms \ Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-4}
 		\end{minipage}
-		\caption*{不同陡降的滤波效果}
-		\label{fig:D1-4-1}
+		\caption{相同陡降、不同时间常数的信号响应}
+		\label{fig:D1-6-1}
 	\end{figure}
+
+
+	
+	由\cref{fig:D1-6-1}，在保持陡降不变的情况下，随着时间常数从30µs增加到1ms，信号变化的幅度会逐渐减小。
+	
+	这是因为较大的时间常数使低通滤波器的通带变窄，从而抑制了高频成分，导致输出信号对快速变化的输入信号响应变得迟缓。
+	
+	
+	
+
+	
+	\begin{figure}[H]
+		\centering
+		% 第一行左图
+		\begin{minipage}[b]{0.40\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{100us 6.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 100 \mu s \ Slope = 6 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-1}
+		\end{minipage}
+		\hspace{0.05\textwidth} % 两列之间的水平间距
+		% 第一行右图
+		\begin{minipage}[b]{0.40\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{100us 12.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 100 \mu s \ Slope = 12 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-2}
+		\end{minipage}
+		
+		\vspace{0.01\textwidth} % 两行之间的垂直间距
+	
+		% 第二行左图
+		\begin{minipage}[b]{0.40\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{100us 18.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 100 \mu s \ Slope = 18 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-3}
+		\end{minipage}
+		\hspace{0.05\textwidth} % 两列之间的水平间距
+		% 第二行右图
+		\begin{minipage}[b]{0.40\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{100us 24.jpg} % 替换为你的图片路径
+			\caption*{$\tau = 1 \mu s \ Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-6-1-4}
+		\end{minipage}
+		\caption{相同时间常数、不同陡降的信号响应}
+		\label{fig:D1-6-2}
+	\end{figure}
+
+	由\cref{fig:D1-6-2}，在保持时间常数不变的情况下，当陡降从6dB/oct增加到24dB/oct时，信号变化的幅度逐渐减小。因为陡降的增加会对高频噪声的抑制更加显著。
+	
+	
+	对于不同变化特性的待测信号，应合理选择时间常数和陡降值，以达到最佳的信号捕捉和处理效果。增大时间常数有助于提高信号的稳定性，但并非越大越好，合适的时间常数能保证系统具备足够的响应能力，准确捕捉$R(t)$的变化。同时，适当的陡降设置能够有效抑制噪声，并确保信号变化过程的准确显示，避免过高的陡降导致系统对快速信号变化的敏感度降低，影响测量精度。因此，在时间常数和陡降之间找到平衡至关重要。
+
+
 
 
 
@@ -839,130 +250,66 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 
 
 	\clearpage
-	\subsubsection*{实验1.8 \quad 强噪声背景下的弱信号检测}
+	\subsubsection*{电阻热噪声及玻尔兹曼常量测量}
 
-	\begin{wrapfigure}{l}{0.5\textwidth}
-		\centering
-		\includegraphics[width=0.45\textwidth]{D1-8-1.jpg}
-		\caption{噪声发生器的噪声信号测量}
-		\label{fig:D1-8-1}
-	\end{wrapfigure}
-
-	通过白噪声发生器产生约100mVrms的白噪声，将其与不同幅值的正弦信号相加，得到不同信噪比的待测信号。
-	
-	实验过程中，首先测量噪声发生器的噪声信号有效值，通过拉长时间轴的方法，让噪声幅值在长时间下取平均，使有效值的数值稳定，如\cref{fig:D1-8-1}所示。
-
-	然后基于测量得到的噪声有效值，设置不同的信号幅值，得到不同的输入信号信噪比。信噪比为0的情况，即设置正弦波幅值$V_{in} = V_{noise}$；信噪比-30的情况，即通过理论计算得到，在噪声有效值一定的情况下，所需的正弦波幅值；信噪比-80的情况，可通过噪声发生器的衰减功能直接在信噪比为0的情况的基础上得到。不同信噪比情形下的待测信号波形图如\cref{fig:D1-8-2}、\cref{fig:D1-8-3}、\cref{fig:D1-8-4}所示，其中紫色线即是通过示波器滤波后的结果，测量数据如\cref{tbl:D1-8-1}所示（画横线的空是由于信号强度过小，示波器难以测量）。
+		我们参照实验方案，分别在常温（298K）、和低温（74.3K）下，测量了电阻的热噪声，并由此计算了玻尔兹曼常数。得到的数据如\cref{tbl:D1-A-1}：
 
 
 
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	\includegraphics[width=0.4\textwidth]{D1-8-2.jpg}
-	% 	\caption{信噪比为0的待测信号}
-	% 	\label{fig:D1-8-2}
-	% \end{figure}
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	\includegraphics[width=0.4\textwidth]{D1-8-3.jpg}
-	% 	\caption{信噪比为-30的待测信号}
-	% 	\label{fig:D1-8-3}
-	% \end{figure}
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	\includegraphics[width=0.4\textwidth]{D1-8-4.jpg}
-	% 	\caption{信噪比为-80的待测信号}
-	% 	\label{fig:D1-8-4}
-	% \end{figure}
-
-
-	\begin{figure}[htbp]
-		\centering
-		\begin{minipage}{0.4\textwidth}
+		\begin{table}[htbp]
 			\centering
-			\includegraphics[width=\textwidth]{D1-8-2.jpg}
-			\caption{信噪比为0的待测信号}
-			\label{fig:D1-8-2}
-		\end{minipage}
-		\begin{minipage}{0.4\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{D1-8-3.jpg}
-			\caption{信噪比为-30的待测信号}
-			\label{fig:D1-8-3}
-		\end{minipage}
-		
-		\begin{minipage}{0.4\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{D1-8-4.jpg}
-			\caption{信噪比为-80的待测信号}
-			\label{fig:D1-8-4}
-		\end{minipage}
-	\end{figure}
-	
-	\vspace{0.05\textwidth} % 两行之间的垂直间距
+			\begin{tblr}{
+			  cells = {c},
+			  vline{1-2,4,7} = {-}{},
+			  hline{1-2,10} = {-}{},
+			}
+			频率/Hz     & 时间常数/ms & 陡降/(dB/oct) & 本底数据存储文件名 & 热噪声数据储文件名 & 备注  \\
+			6666  & 10   & 18 & DataB1    & Data1    & 常温1 \\
+			1145  & 10   & 18 & DataB2    & Data2    & 常温2 \\
+			11451 & 10   & 18 & DataB3    & Data3    & 常温3 \\
+			20486 & 10   & 18 & DataB4    & Data4    & 常温4 \\
+			666   & 10   & 18 & DataB5    & Data5    & 低温1 \\
+			6666  & 10   & 18 & DataB6    & Data6    & 低温2 \\
+			66666 & 10   & 18 & DataB7    & Data7    & 低温3 \\
+			36666 & 10   & 18 & DataB8    & Data8    & 低温4 
+			\end{tblr}
+			\caption{本底和热噪声测量结果记录表}
+			\label{tbl:D1-A-1}
+		\end{table}
+
+		在我们的实验过程中，我们选择保持时间常数和陡降不变，即$\tau = 10 \mathrm{ms}$，$Slope = 18 \mathrm{dB/oct}$，采样时间间隔取$\Delta t = 10 \tau = 100 \mathrm{ms}$
 
 
-	\begin{table}[htbp]
-		\centering
-		\begin{tblr}{
-		  cells = {c},
-		  cell{2}{1} = {r=7}{},
-		  cell{9}{1} = {r=7}{},
-		  vline{1-2,4,7} = {-}{},
-		  vline{4,7} = {3-7,9-14}{},
-		  hline{1-2,9,16} = {-}{},
-		}
-		仪器    & 输入信号信噪比    & dB     & 0            & -30          & -80      \\
-		示波器   & 正弦波$V_{in}$幅值 & mVrms  & 119.2        & 3.8          & -        \\
-			  & 噪声信号大小     & mVrms  & 120.7        & 120.7        & 120.7    \\
-			  & SNRi       & dB     & -0.11 & -30.04 & -80 \\
-			  & 待测信号$V_{in}$波形图 &	-	&\cref{fig:D1-8-2}	&	\cref{fig:D1-8-3}	&	\cref{fig:D1-8-4}	\\
-			  & 滤波器带宽      & Hz     & 1000         & 1000         & 1000     \\
-			  & 滤波后信号有效值   & mVrms  & 135          & 4.8          & -        \\
-			  & SNRo,os   & dB     & 0.97  & -28.01 & - \\
-		锁相放大器 & 量程灵敏度      & mV     & 200          & 20           & 20       \\
-			  & 时间常数       & ms     & 10           & 300          & 300      \\
-			  & 陡降         & dB/oct & 24           & 24           & 24       \\
-			  & LPF带宽      & Hz     &   7.8125           &  0.026            &  0.026       \\
-			  & 信号有效值R     & mVrms  & 120.1        & 3.77         & 12.1     \\
-			  & 噪声有效值N     & mVrms  & 0.02         & 0.028        & 0.106    \\
-			  & SNRo,lo    & dB     & 75.57  & 42.58  & 41.15  
-		\end{tblr}
-		\caption{强噪声背景下的弱信号检测数据}
-		\label{tbl:D1-8-1}
-	\end{table}
+		具体的分析讨论与数据处理过程见后文以及附件中的 jupyternotebook。
 
 
 
-% \subsection{实验数据记录}
-
-	% 见\cref{fig:data}
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	\subfloat[原始数据1]
-	% 	{\includegraphics[width=0.35\textwidth]{OriginalData1.jpg}\label{fig:data1}}
-	% 	\quad
-	% 	\subfloat[原始数据2]
-	% 	{\includegraphics[width=0.35\textwidth]{OriginalData2.jpg}\label{fig:data2}}
-	% 	\quad
 
 
-	% 	\caption{原始数据}
-	% 	\label{fig:data}
-	% \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 % \clearpage
 \subsection{实验过程中遇到的问题记录}
 
 \begin{enumerate}
-	\item 由于对锁相放大器的原理理解不够透彻，导致实验进度被拖慢。
-	\item 由于实验时使用的是双通道锁相放大器，而实际只用到了一条通道，需要注意设置参数时选择至实际使用的通道。
-	\item 实验时，不论锁相放大器使用内部参考模式还是外部参考模式，一定要保证待测信号和参考信号频率相同，以确保得到准确的测量结果。
+	\item 注意应当先完成常温条件下的测试，再完成低温条件下的测试，因为电阻的升温降温需要较长时间。
+	\item 注意每一次改变仪器参数的设置，都要重新测量本底噪声。
 	
 \end{enumerate}
 
@@ -970,15 +317,14 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 \clearpage
 \subsection{原始数据记录}
 
-	\begin{figure}[htbp]
+	\begin{figure}[H]
 		\centering
-		\subfloat[原始数据1]
-		{\includegraphics[width=0.45\textwidth]{APL1-1-OriData1.jpg}\label{fig:data1}}
+		\subfloat[原始数据1]{\includegraphics[width=0.35\textwidth]{APL1-1-OriData1.jpg}\label{fig:data1}}
 		\quad
-		\subfloat[原始数据2]
-		{\includegraphics[width=0.45\textwidth]{APL1-1-OriData2.jpg}\label{fig:data2}}
+		\subfloat[原始数据2]{\rotatebox{90}{\includegraphics[width=0.50\textwidth]{APL1-1-OriData2.jpg}}\label{fig:data2}}
 		\quad
-
+		\subfloat[原始数据3]{\includegraphics[width=0.35\textwidth]{APL1-1-OriData3.jpg}\label{fig:data3}}
+		\quad
 
 		\caption{原始数据}
 		\label{fig:data}
@@ -994,259 +340,560 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 	\hline
 	姓名： & 戴鹏辉 & 学号：& 22344016\\
 	\hline
-    日期：& 2024/09/28 & 评分： &\\
+    日期：& 2024/10/25 & 评分： &\\
 	\hline
 	\end{tabularx}
 \end{table}
 
-\section{D1 \quad 锁相放大器与弱信号测量——【实验1】锁相放大器工作原理、基本参数与基本操作 \quad\heiti 分析与讨论}
+\section{D1 \quad 电阻热噪声及玻尔兹曼常量测量 \quad\heiti 分析与讨论}
 
 \subsection{实验数据分析}
 
+	\subsection{数据的质量评定}
 
-	\subsubsection*{实验1.1 \quad 用示波器观察内部信号输出（与参考信号同频同相）}
+		首先我们对测量得到的原始数据进行质量评定，以保证所采集的每个数据是独立的并且不失真，在保证数据优质的情况下，再往下进行玻尔兹曼常数的计算。
+
+		数据分析如下，文件名对应的实验条件见\cref{tbl:D1-A-1}：
+		% \begin{figure}[htbp]
+		% 	\centering
+		% 	% 第一行图片
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data1.png}
+		% 		\caption{图片1}
+		% 		\label{fig:image1}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data2.png}
+		% 		\caption{图片2}
+		% 		\label{fig:image2}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data3.png}
+		% 		\caption{图片3}
+		% 		\label{fig:image3}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data4.png}
+		% 		\caption{图片4}
+		% 		\label{fig:image4}
+		% 	\end{subfigure}
+			
+		% 	% 第二行图片
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data5.png}
+		% 		\caption{图片5}
+		% 		\label{fig:image5}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data6.png}
+		% 		\caption{图片6}
+		% 		\label{fig:image6}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data7.png}
+		% 		\caption{图片7}
+		% 		\label{fig:image7}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-Data8.png}
+		% 		\caption{图片8}
+		% 		\label{fig:image8}
+		% 	\end{subfigure}
+			
+		% 	% 第三行图片
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB1.png}
+		% 		\caption{图片9}
+		% 		\label{fig:image9}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB2.png}
+		% 		\caption{图片10}
+		% 		\label{fig:image10}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB3.png}
+		% 		\caption{图片11}
+		% 		\label{fig:image11}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB4.png}
+		% 		\caption{图片12}
+		% 		\label{fig:image12}
+		% 	\end{subfigure}
+			
+		% 	% 第四行图片
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB5.png}
+		% 		\caption{图片13}
+		% 		\label{fig:image13}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB6.png}
+		% 		\caption{图片14}
+		% 		\label{fig:image14}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB7.png}
+		% 		\caption{图片15}
+		% 		\label{fig:image15}
+		% 	\end{subfigure}
+		% 	\hfill
+		% 	\begin{subfigure}[b]{0.23\textwidth}
+		% 		\includegraphics[width=\textwidth]{D1-A-3-DataB8.png}
+		% 		\caption{图片16}
+		% 		\label{fig:image16}
+		% 	\end{subfigure}
+			
+		% 	\caption{16张图片}
+		% 	\label{fig:images}
+		% \end{figure}
+
+
+		% \begin{figure}[htbp]
+		% 	\centering
+		% 	% 第一行图片
+		% 	\subfloat[图片1]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data1.png}\label{fig:image1}}
+		% 	\hfill
+		% 	\subfloat[图片2]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data2.png}\label{fig:image2}}
+		% 	\hfill
+		% 	\subfloat[图片3]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data3.png}\label{fig:image3}}
+		% 	\hfill
+		% 	\subfloat[图片4]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data4.png}\label{fig:image4}}
+			
+		% 	% 第二行图片
+		% 	\subfloat[图片5]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data5.png}\label{fig:image5}}
+		% 	\hfill
+		% 	\subfloat[图片6]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data6.png}\label{fig:image6}}
+		% 	\hfill
+		% 	\subfloat[图片7]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data7.png}\label{fig:image7}}
+		% 	\hfill
+		% 	\subfloat[图片8]{\includegraphics[width=0.23\textwidth]{D1-A-3-Data8.png}\label{fig:image8}}
+			
+		% 	% 第三行图片
+		% 	\subfloat[图片9]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB1.png}\label{fig:image9}}
+		% 	\hfill
+		% 	\subfloat[图片10]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB2.png}\label{fig:image10}}
+		% 	\hfill
+		% 	\subfloat[图片11]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB3.png}\label{fig:image11}}
+		% 	\hfill
+		% 	\subfloat[图片12]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB4.png}\label{fig:image12}}
+			
+		% 	% 第四行图片
+		% 	\subfloat[图片13]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB5.png}\label{fig:image13}}
+		% 	\hfill
+		% 	\subfloat[图片14]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB6.png}\label{fig:image14}}
+		% 	\hfill
+		% 	\subfloat[图片15]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB7.png}\label{fig:image15}}
+		% 	\hfill
+		% 	\subfloat[图片16]{\includegraphics[width=0.23\textwidth]{D1-A-3-DataB8.png}\label{fig:image16}}
+			
+		% 	\caption{16张图片}
+		% 	\label{fig:images}
+		% \end{figure}
+
+		% \begin{figure}[htbp]
+		% 	\centering
+		% 	% 第一行图片
+		% 	\subfloat[图片1]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data1.png}\label{fig:image1}}
+		% 	\hfill
+		% 	\subfloat[图片2]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data2.png}\label{fig:image2}}
+			
+		% 	% 第二行图片
+		% 	\subfloat[图片3]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data3.png}\label{fig:image3}}
+		% 	\hfill
+		% 	\subfloat[图片4]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data4.png}\label{fig:image4}}
+			
+		% 	% 第三行图片
+		% 	\subfloat[图片5]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data5.png}\label{fig:image5}}
+		% 	\hfill
+		% 	\subfloat[图片6]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data6.png}\label{fig:image6}}
+			
+		% 	% 第四行图片
+		% 	\subfloat[图片7]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data7.png}\label{fig:image7}}
+		% 	\hfill
+		% 	\subfloat[图片8]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data8.png}\label{fig:image8}}
+			
+		% 	% 第五行图片
+		% 	\subfloat[图片9]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB1.png}\label{fig:image9}}
+		% 	\hfill
+		% 	\subfloat[图片10]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB2.png}\label{fig:image10}}
+			
+		% 	% 第六行图片
+		% 	\subfloat[图片11]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB3.png}\label{fig:image11}}
+		% 	\hfill
+		% 	\subfloat[图片12]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB4.png}\label{fig:image12}}
+			
+		% 	% 第七行图片
+		% 	\subfloat[图片13]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB5.png}\label{fig:image13}}
+		% 	\hfill
+		% 	\subfloat[图片14]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB6.png}\label{fig:image14}}
+			
+		% 	% 第八行图片
+		% 	\subfloat[图片15]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB7.png}\label{fig:image15}}
+		% 	\hfill
+		% 	\subfloat[图片16]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB8.png}\label{fig:image16}}
+			
+		% 	\caption{16张图片}
+		% 	\label{fig:images}
+		% \end{figure}
+
+		% \begin{figure}[H]
+		% 	\centering
+		% 	% 第一行图片
+		% 	\subfloat[图片1]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data1.png}\label{fig:image1}}
+		% 	\hfill
+		% 	\subfloat[图片2]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data2.png}\label{fig:image2}}
+			
+		% 	% 第二行图片
+		% 	\subfloat[图片3]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data3.png}\label{fig:image3}}
+		% 	\hfill
+		% 	\subfloat[图片4]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data4.png}\label{fig:image4}}
+			
+		% 	% 第三行图片
+		% 	\subfloat[图片5]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data5.png}\label{fig:image5}}
+		% 	\hfill
+		% 	\subfloat[图片6]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data6.png}\label{fig:image6}}
+			
+		% 	% 第四行图片
+		% 	\subfloat[图片7]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data7.png}\label{fig:image7}}
+		% 	\hfill
+		% 	\subfloat[图片8]{\includegraphics[width=0.45\textwidth]{D1-A-3-Data8.png}\label{fig:image8}}
+			
+		% 	\caption{16张图片 - 第1部分}
+		% 	\label{fig:images_part1}
+		% \end{figure}
 		
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 1】]
-			示波器是否显示出正弦波？其测量的信号参数值是否与锁相放大器的信号设置值一致？
-		\end{tcolorbox}
-		% 【问题 1】 示波器是否显示出正弦波？其测量的信号参数值是否与锁相放大器的信号设置值一致？
+		% \begin{figure}[H]\ContinuedFloat
+		% 	\centering
+		% 	% 第五行图片
+		% 	\subfloat[图片9]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB1.png}\label{fig:image9}}
+		% 	\hfill
+		% 	\subfloat[图片10]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB2.png}\label{fig:image10}}
+			
+		% 	% 第六行图片
+		% 	\subfloat[图片11]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB3.png}\label{fig:image11}}
+		% 	\hfill
+		% 	\subfloat[图片12]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB4.png}\label{fig:image12}}
+			
+		% 	% 第七行图片
+		% 	\subfloat[图片13]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB5.png}\label{fig:image13}}
+		% 	\hfill
+		% 	\subfloat[图片14]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB6.png}\label{fig:image14}}
+			
+		% 	% 第八行图片
+		% 	\subfloat[图片15]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB7.png}\label{fig:image15}}
+		% 	\hfill
+		% 	\subfloat[图片16]{\includegraphics[width=0.45\textwidth]{D1-A-3-DataB8.png}\label{fig:image16}}
+			
+		% 	\caption{16张图片 - 第2部分}
+		% 	\label{fig:images_part2}
+		% \end{figure}
 
-		由\cref{fig:D1-1-1}可知，示波器显示的是正弦波，测量的峰峰值为 $V_{pp} = 240.0 \mathrm{mV}$，即测量的有效值为
-		\[
-			V_{rms} = \frac{V_{pp}}{2 \sqrt{2}} = \frac{240.0 \mathrm{mV}}{2 \sqrt{2}} \approx 84.85 \mathrm{mV}
-		\]
-
-		与锁相放大器的设置值$V_{set} = 80 \mathrm{mV}$相比，可认为一致。
-
-		同时，测量的频率$f = 1.000 \mathrm{kHz}$，与设定值一致。
-
-
-
-
-	\subsubsection*{实验1.2 \quad 测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系}
-
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 2】]
-			请比较示波器的读数和锁相放大器的$R$值，以理解$R$值的确切含义。
-		\end{tcolorbox}
-		% 【问题 2】 请比较示波器的读数和锁相放大器的$R$值，以理解$R$值的确切含义。
-
-		由\cref{fig:D1-1-1}可知，锁相放大器测量的$R = 81.42 \mathrm{mV}$，与示波器测量的有效值相近，说明锁相放大器测量的$R$值为信号的有效值。
-
-
-		\vspace{0.05\textwidth} % 两行之间的垂直间距
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 3】]
-			测量数据反映出$R$、$X$、$Y$及$\theta$的之间是什么关系？是否与式(D1- 22)、式(D1- 25)和(D1- 26)符合？
-		\end{tcolorbox}
-		% 【问题 3】 测量数据反映出$R$、$X$、$Y$及$\theta$的之间是什么关系？是否与式(D1- 22)、式(D1- 25)和(D1- 26)符合？
-
-		由\cref{tbl:D1-2-1}的数据，有如下计算：
-		\[
-			R \cos\theta = 81.43 \mathrm{mV} \cdot \cos(177.33°) = -81.342 \mathrm{mV} \approx X 
-		\]
-		\[
-			R \sin\theta = 81.43 \mathrm{mV} \cdot \sin(177.33°) = 3.793 \mathrm{mV} \approx Y 
-		\]
-		\[
-			\sqrt{X^2 + Y^2} = \sqrt{(-81.34 \mathrm{mV})^2 + (3.79 \mathrm{mV})^2} = 81.428 \mathrm{mV} \approx R
-		\]
-
-		以上计算说明，$R$、$X$、$Y$及$\theta$的之间的关系与式(D1- 22)、式(D1- 25)和(D1- 26)符合。
-
-
-		\vspace{0.05\textwidth} % 两行之间的垂直间距
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 4】]
-			你使用的 OE1022 是双锁相放大器吗？为什么？
-		\end{tcolorbox}
-		% 【问题 4】 你使用的 OE1022 是双锁相放大器吗？为什么？
-
-		是双锁相放大器。因为由\cref{tbl:D1-2-1}可知，该锁相放大器可同时测量完整的输入信号信息（即信号的有效值$R$、相位角$\theta$和频率）。
-
-
-
-	\subsubsection*{实验1.3 \quad 相敏检波器工作原理——乘法器}
-
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 5】]
-			示波器上看到什么波形？$X$、$Y$是正弦波吗？其相位差为多少度？$X$、$Y$的平均值为零吗？平均值是否会随滤波器参数而改变？参照式(D1-19)和式(D1-23)讨论；$R$值波形是否呈现全波整流的正弦信号，其频率为多少？与$X$或$Y$的频率存在什么关系？请对比式(D1- 28)讨论此波形。
-		\end{tcolorbox}
-		% 【问题 5】 示波器上看到什么波形？$X$、$Y$是正弦波吗？其相位差为多少度？$X$、$Y$的平均值为零吗？平均值是否会随滤波器参数而改变？参照式(D1-19)和式(D1-23)讨论；$R$值波形是否呈现全波整流的正弦信号，其频率为多少？与$X$或$Y$的频率存在什么关系？请对比式(D1- 28)讨论此波形。
-
-		由\cref{fig:D1-3-3}可知，$X$、$Y$的波形并不是纯正的正弦波，而是正弦波加上了一个直流偏置，且两者之间相位相差 90°。由式(D1-19)可知，$\cos\theta$项即是直流项，$\cos(2\omega_m t + \theta)$项即是正弦波项。
-
-		由\cref{tbl:D1-3-1}可知，增大时间常数（即改变了滤波器参数）,平均值有一定的波动。因为由于高频分量的存在，波形的平均值由直流项和高频项贡献。滤波器的参数（如带宽）会影响滤波效果，带宽越窄，滤波器对高频分量的抑制效果越好，输出波形的平均值越接近纯粹的直流分量。
-
-
-
-		式(D1-19)和式(D1-23)为
-		\begin{align*}
-			u_{px}(t) &= \frac{1}{2} A_I s(t) \{ [ \cos((\omega_m - \omega_r)t + \theta) - \cos((\omega_m + \omega_r)t + \theta) + n(t)\sin\omega_r t ]\} \\
-			&\approx \frac{1}{2} A_I s(t)\{ \cos\theta - \cos(2\omega_m t + \theta) + n(t)\sin\omega_m t\} \\
-			&\approx \frac{1}{2} A_I s(t)\{ \cos\theta - \cos(2\omega_m t + \theta) \} \\
-			u_{py}(t) &= \frac{1}{2} A_I s(t) [ \sin((\omega_m - \omega_r)t + \theta) + \sin((\omega_m + \omega_r)t + \theta) + n(t)\sin\omega_m t ] \\
-			&\approx \frac{1}{2} A_I s(t) [ \sin\theta + \sin(2\omega_m t + \theta) + n(t)\sin\omega_m t ] \\
-			&\approx \frac{1}{2} A_I s(t) [ \sin\theta + \sin(2\omega_m t + \theta) ]
-		\end{align*}
-
-
-		由\cref{fig:D1-3-1}可知，输出的双倍频正弦波类似于全波整流信号的形态。与输入信号相比，它的频率加倍。这是因为由式(D1- 28)可知，信号被$\left | \sin(\omega_m t + \theta) \right |$项调制，绝对值使得频率翻倍，造成波形有全波整流的形态，所以有$R$与$X$、$Y$波形的频率相同。
-
-		式(D1- 28)为
-		\begin{align*}
-			R(t) &= s(t) \left | \sin(\omega_m t + \theta) \right | 
-			% &= (\sin(\omega_m t + \theta))^2 \\
-			% &= \frac{1 - \cos(2\omega_m t + 2\theta)}{2}
-		\end{align*}
-
-		% $R$与$X$、$Y$的关系为：
-		% \begin{align*}
-		% 	R &= \sqrt{X^2 + Y^2} \\
-		% 	&= \sqrt{(\frac{1}{2} A_I s(t) [\cos\theta - \cos(2\omega_m t + \theta)])^2 + (\frac{1}{2} A_I s(t) [ \sin\theta + \sin(2\omega_m t + \theta) ])^2} \\
-		% 	&= \frac{1}{2} A_I s(t) \sqrt{([\cos\theta - \cos(2\omega_m t + \theta)])^2 + ([ \sin\theta + \sin(2\omega_m t + \theta) ])^2}
-		% \end{align*}
-
-
-
+		\begin{figure}[H]
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data1]{\includegraphics[width=\linewidth]{D1-A-3-Data1.png}\label{fig:image1}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[data2]{\includegraphics[width=\linewidth]{D1-A-3-Data2.png}\label{fig:image2}}
+			\end{minipage}
+			
+			\vspace{1em} % 控制图片上下间距
+			
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data3]{\includegraphics[width=\linewidth]{D1-A-3-Data3.png}\label{fig:image3}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data4]{\includegraphics[width=\linewidth]{D1-A-3-Data4.png}\label{fig:image4}}
+			\end{minipage}
+			
+			\caption{原始数据质量评定 - 第1部分}
+			\label{fig:images_part1}
+		\end{figure}
 		
-	\subsubsection*{实验1.4 \quad 相敏检波器工作原理——乘法器+低通滤波器}
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 6】]
-			当调大时间常数后，输出$R$是否越来越稳定？直流分量（信号平均值）是否有改变？
-		\end{tcolorbox}
-		% 【问题 6】 当调大时间常数后，输出$R$是否越来越稳定？直流分量（信号平均值）是否有改变？
-
-		由\cref{tbl:D1-4-1}数据可知，调大时间常数后，输出逐渐趋于稳定。
+		\clearpage % 强制换页
 		
-		由于增大时间常数使得锁相放大器的低通滤波器带宽减小，能够更有效地抑制高频噪声和不相关的频率成分，从而让$R$信号中的高频成分被滤除。所以时间常数越大，信号平均值越稳定。
+		% 第二部分
+		\begin{figure}[H]\ContinuedFloat
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data5]{\includegraphics[width=\linewidth]{D1-A-3-Data5.png}\label{fig:image5}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data6]{\includegraphics[width=\linewidth]{D1-A-3-Data6.png}\label{fig:image6}}
+			\end{minipage}
+			
+			\vspace{1em}
+			
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data7]{\includegraphics[width=\linewidth]{D1-A-3-Data7.png}\label{fig:image7}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[Data8]{\includegraphics[width=\linewidth]{D1-A-3-Data8.png}\label{fig:image8}}
+			\end{minipage}
+			
+			\caption{原始数据质量评定 - 第2部分}
+			\label{fig:images_part2}
+		\end{figure}
+		
+		\clearpage
+		
+		% 第三部分
+		\begin{figure}[H]\ContinuedFloat
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB1]{\includegraphics[width=\linewidth]{D1-A-3-DataB1.png}\label{fig:image9}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB2]{\includegraphics[width=\linewidth]{D1-A-3-DataB2.png}\label{fig:image10}}
+			\end{minipage}
+			
+			\vspace{1em}
+			
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB3]{\includegraphics[width=\linewidth]{D1-A-3-DataB3.png}\label{fig:image11}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB4]{\includegraphics[width=\linewidth]{D1-A-3-DataB4.png}\label{fig:image12}}
+			\end{minipage}
+			
+			\caption{原始数据质量评定 - 第3部分}
+			\label{fig:images_part3}
+		\end{figure}
+		
+		\clearpage
+		
+		% 第四部分
+		\begin{figure}[H]\ContinuedFloat
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB5]{\includegraphics[width=\linewidth]{D1-A-3-DataB5.png}\label{fig:image13}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB6]{\includegraphics[width=\linewidth]{D1-A-3-DataB6.png}\label{fig:image14}}
+			\end{minipage}
+			
+			\vspace{1em}
+			
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB7]{\includegraphics[width=\linewidth]{D1-A-3-DataB7.png}\label{fig:image15}}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.45\textwidth}
+				\subfloat[DataB8]{\includegraphics[width=\linewidth]{D1-A-3-DataB8.png}\label{fig:image16}}
+			\end{minipage}
+			
+			\caption{原始数据质量评定 - 第4部分}
+			\label{fig:images_part4}
+		\end{figure}
+
+		通过对每一组数据进行正态分布拟合、X-Y相关性检验，自相关性检验，以及简化卡方值（相关数据均在图上），我们可以确定每一组数据的独立性和随机性。
+
+		可以看到，大部分的数据都具有很好的随机性和独立性，是随机噪声。
+		
+		但是也有数据并不是保持正态分布，如“DataB1”“DataB5”这两组本底数据的测量。所以，这两组本底以及对应的热噪声测量数据应当删去；Data3 的X 数据列也呈现非正态的分布，但是Y数据列是保持正态分布的，我们可以使用Y数据列进行相关计算。
+
+		这两组数据分别对应了第一组常温的实验数据和第一组低温的实验数据。可能是因为作为常温组和低温组的第一组，未稳定，导致数据分布未保持正态分布。
 
 
-		\vspace{0.05\textwidth} % 两行之间的垂直间距
 
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 7】]
-			观察示波器波形，并给出在某一陡降值下，时间常数为多少个信号周期时，才能观察到稳定的直流输出？提示：注意调节示波器$Y$轴量程以提高测量振幅变化的精度。并结合式(D1-32)讨论。
-		\end{tcolorbox}
-		% 【问题 7】 观察示波器波形，并给出在某一陡降值下，时间常数为多少个信号周期时，才能观察到稳定的直流输出？提示：注意调节示波器$Y$轴量程以提高测量振幅变化的精度。并结合式(D1-32)讨论。
 
-		式(D1-32)为
+
+	\subsection{玻尔兹曼常数的计算}
+
+		在上一步的数据质量评定中，已经计算得到对应的X、Y数据列的标准差，如\cref{tbl:D1-A-2}。
+
+		\begin{table}[htbp]
+			\centering
+			\begin{tblr}{
+			  cells = {c},
+			  vline{1-2,4-5} = {-}{},
+			  hline{1-2,14} = {-}{},
+			}
+			File       & X\_std   & Y\_std   & f/Hz     \\
+			Data2.csv  & 1.54E-07 & 1.51E-07 & 1145  \\
+			Data3.csv  & 1.22E-07 & 1.23E-07 & 11451 \\
+			Data4.csv  & 9.38E-08 & 9.57E-08 & 20486 \\
+			Data6.csv  & 7.34E-08 & 7.14E-08 & 666   \\
+			Data7.csv  & 2.43E-08 & 2.47E-08 & 6666  \\
+			Data8.csv  & 3.38E-08 & 3.43E-08 & 36666 \\
+			DataB2.csv & 2.30E-08 & 2.35E-08 & 1145  \\
+			DataB3.csv & 1.68E-08 & 1.69E-08 & 11451 \\
+			DataB4.csv & 1.63E-08 & 1.58E-08 & 20486 \\
+			DataB6.csv & 1.56E-08 & 1.57E-08 & 666   \\
+			DataB7.csv & 1.57E-08 & 1.55E-08 & 6666  \\
+			DataB8.csv & 1.60E-08 & 1.59E-08 & 36666 
+			\end{tblr}
+			\caption{数据列的标准差}
+			\label{tbl:D1-A-2}
+		\end{table}
+
+		则根据玻尔兹曼常数的计算公式：
 		\[
-			R(t) = \frac{s(t)}{[1 + (\Delta\omega R C)^2]^{\frac{n}{2}}}
+			k_B = \frac{v_{Nx}^2}{4 \times \text{ENBW} \times T \times R}
 		\]
 
-		由式(D1-32)可由以下讨论。
+		\begin{itemize}
+			\item $v_{Nx}^2$ 的计算：
+			
+				\[
+					v_{Nx}^2 = v_{Rx}^2 [1 + (\omega R_{in} C_{in})^2] - v_{Bx}^2
+				\]
+
+				其中$v_{Rx}^2$ 和 $v_{Bx}^2$ 即为我们测量的热噪声的方差（X数据列或者Y数据列均可）；$(\omega R_{in} C_{in})^2$ 项即为输入带宽修正因子，$R_{in} \approx \frac{2}{3} R \ , R = 144 \mathrm{k}\Omega \ , C_{in} = 68 \mathrm{pF}$
+
+
+			\item ENBW 的计算：
+			
+				单分量等效噪声带宽（ENBW）与陡降和时间常数 $\tau$ 存在对应关系，实验中我们使用$\tau = 10 \mathrm{ms} \ , Slope = 18 \mathrm{dB/oct}$
+				\[
+					\Rightarrow \mathrm{ENBW} = \frac{3}{32} / (10 \times 10^{-3}) = 9.375
+				\]
+
+
+
+		\end{itemize}
+
+
+		则可以得到玻尔兹曼常数的计算结果，如\cref{tbl:D1-A-3}，$\eta$ 为与标准值的相对误差：
+
+		由于频率为 36666Hz，66666Hz 的数据明显偏大，可能是引入了其他的误差，将其删去，并绘制出玻尔兹曼常数测量值的散点图，如\cref{fig:D1-A-1}
+
+		\begin{table}[htbp]
+			\centering
+			\begin{tblr}{
+			  cells = {c},
+			  vline{1-2,8} = {-}{},
+			  hline{1,4} = {-}{},
+			}
+			f/Hz   & 1145     & 11451    & 20486    & 6666     & 66666    & 36666    \\
+			$k_B / 10^{23}$  & 1.42 & 1.38 & 1.43 & 1.46 & 2.61 & 1.70 \\
+			$\eta$ & 2.551\%  & -0.262\% & 3.665\%  & 5.892\%  & 89.334\% & 23.234\% 
+			\end{tblr}
+			\caption{玻尔兹曼常数计算结果}
+			\label{tbl:D1-A-3}
+		\end{table}
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{D1-A-3-kB-plotting.png}
+			\caption{$k_B$ 测量值的散点图}
+			\label{fig:D1-A-1}
+		\end{figure}
+
+		进行频率与玻尔兹曼常数测量值的相关性分析，有：
+		\begin{itemize}
+			\item 皮尔逊相关系数：用来衡量 频率 和 $k_B$ 之间的线性关系。
+			
+				计算得到皮尔逊相关系数为 $-5.4600 \times 10^{-2}$，
+			\item 斯皮尔曼相关系数：适用于非线性或不满足正态分布的数据。
+				计算得到斯皮尔曼相关系数为 0。
+		\end{itemize}
+
+		即，经输入带宽修正后的噪声谱密度符合热噪声的频谱特征，与频率无关。
+
+		若噪声谱密度符合热噪声的频谱特征，与频率无关，则计算玻尔兹曼常数时，可以选择取不同频率下的测量值的平均值。
+
+
+
+
+	\subsection{误差评定}
+
 
 		\begin{enumerate}
-			\item 滤波器对输入信号的影响体现在分母部分。当信号频率与参考频率不一致时，存在频率偏差 \( \Delta\omega \)，信号 \( R(t) \) 随着频率偏差增大而衰减。
+			\item 由误差传递公式：
+				\[
+					\delta k_B = \sqrt{(\frac{\partial k_B}{\partial T} \delta T)^2 + (\frac{\partial k_B}{\partial R} \delta R)^2}
+				\]
+				可计算有：
+				\begin{align*}
+					\frac{\partial k_B}{\partial T} &= -\frac{v_{Nx}^2}{4 \times \text{ENBW} \times T^2 \times R}  	\\
+					\frac{\partial k_B}{\partial R} &= -\frac{v_{Nx}^2}{4 \times \text{ENBW} \times T \times R^2}	\\
+					% \frac{\partial k_B}{\partial v_{Nx}} &= \frac{2 v_{Nx}}{4 \times \text{ENBW} \times T \times R}
+					% k_B = \frac{v_{Nx}^2}{4 \times \text{ENBW} \times T \times R}
+				\end{align*}
 
-			当$\Delta\omega = 0$时，$R(t) = s(t)$，信号未受衰减。
-			% \[\text{当 } \Delta\omega = 0 \text{ 时，} R(t) = s(t) \text{，即信号未受衰减。}\]
+			\item 考虑测量温度时的B类不确定度：
+				\[
+					\delta T = \frac{0.1 K}{\sqrt{3}}
+				\]
+			
 
-			当$\Delta\omega \neq 0$时，$R(t) = s(t)$，滤波器开始衰减信号。频率偏差越大，衰减越严重。
-			% \[\text{当 } \Delta\omega \neq 0 \text{ 时，滤波器开始衰减信号。频率偏差越大，衰减越严重。}\]
+			\item 考虑测量电阻时的B类不确定度：
+				\[
+					\delta R = \frac{0.1 \Omega}{\sqrt{3}}
+				\]
 
 
-			时间常数 \( \tau = RC \) 越大，带宽越窄，滤波器可以更好地滤除偏离频率的成分，增强信号稳定性。
 
-			\item 滤波器阶数 \( n \) 的影响：
+			\item 将计算得到的 $\delta k_B$ 绘制为y轴的误差棒添加到图中，如\cref{fig:D1-A-2}
+			
 
-			滤波器的阶数 \( n \) 决定了信号幅度随频率偏差 \( \Delta\omega \) 的衰减速度。
-
-			低阶滤波器（n = 1，slope = 6 dB/oct）信号衰减较慢，允许更大的频率偏差；高阶滤波器（n = 4，slope = 24 dB/oct）信号衰减快，频率稍有偏差时信号就会显著衰减。
-			% \[\text{低阶滤波器：} n = 1 \text{（6 dB/oct），信号衰减较慢，允许更大的频率偏差。}\]
-
-			% \[\text{高阶滤波器：} n = 4 \text{（24 dB/oct），信号衰减快，频率稍有偏差时信号就会显著衰减。}\]
-
-			高阶滤波器有助于滤除噪声，使信号更稳定。
-
-			% \item **时间常数与信号稳定性的关系**：
-
-			% 随着时间常数 \( \tau = RC \) 的增大，公式中的项 \( (\Delta\omega R C)^2 \) 也会增大，滤波器能够更有效地抑制偏离中心频率的信号成分，使 \( R(t) \) 越来越稳定。
-
-			% \item **信噪比的影响**：
-
-			% 通过调节滤波器带宽（即时间常数 \( RC \)），可以提高信号的信噪比。带宽越窄，滤波器允许通过的频率范围越小，从而滤除更多的噪声。时间常数越大，带宽越窄，信噪比提高，信号更加稳定。
-
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\textwidth]{D1-A-3-kB-plotting2.png}
+					\caption{$k_B$ 测量值的散点图+误差棒}
+					\label{fig:D1-A-2}
+				\end{figure}
 		\end{enumerate}
 
-		当时间常数设置为为信号周期的5至10个倍数时，能够观察到稳定的直流输出。
+
+		在进行数据计算时，我们选择将 X数据列的方差与 Y数据列的方差做平均，作为热噪声的测量值，由于在第一步我们已经进行了数据的独立性检验，以确保所有数据都是独立的，所以这样的操作不会明显降低随机误差。
 
 		
 
 
-		% \vspace{0.05\textwidth} % 两行之间的垂直间距
-
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 8】]
-			为何在 1 阶（6dB/oct）时还没怎么起滤波效果，而到 4 阶（24dB/oct）时，则可看见明显的效果？
-		\end{tcolorbox}
-		% 【问题 8】为何在 1 阶（6dB/oct）时还没怎么起滤波效果，而到 4 阶（24dB/oct）时，则可看见明显的效果？
-
-		观察\cref{fig:D1-4-1-1}、\cref{fig:D1-4-1-2}、\cref{fig:D1-4-1-3}、\cref{fig:D1-4-1-4}，可以发现，陡降设置的越大，输出波形的幅值越小，滤波效果越明显。
-
-		陡降表示信号在截止频率处的衰减速度，滤波器的阶数越高，陡降越陡，能更有效地去除高频噪声。所以，陡降越陡，滤波器在其截止频率附近的频率选择性就越好，即滤波效果越明显。
 
 
 
+		% \begin{table}[htbp]
+		% 	\centering
+		% 	\begin{tabular}{|c|cc|} 
+		% 	\hline
+		% 	File       & X\_std   & Y\_std    \\ 
+		% 	\hline
+		% 	Data2  & 1.54E-07 & 1.51E-07  \\
+		% 	Data3  & 1.22E-07 & 1.23E-07  \\
+		% 	Data4  & 9.38E-08 & 9.57E-08  \\
+		% 	Data6  & 7.34E-08 & 7.14E-08  \\
+		% 	Data7  & 2.43E-08 & 2.47E-08  \\
+		% 	Data8  & 3.38E-08 & 3.43E-08  \\
+		% 	DataB2 & 2.30E-08 & 2.35E-08  \\
+		% 	DataB3 & 1.68E-08 & 1.69E-08  \\
+		% 	DataB4 & 1.63E-08 & 1.58E-08  \\
+		% 	DataB6 & 1.56E-08 & 1.57E-08  \\
+		% 	DataB7 & 1.57E-08 & 1.55E-08  \\
+		% 	DataB8 & 1.60E-08 & 1.59E-08  \\
+		% 	\hline
+		% 	\end{tabular}
+		% 	\caption{数据列的标准差}
+		% 	\label{tbl:D1-A-2}
+		% \end{table}
 
 
-	\subsubsection*{实验1.8 \quad 强噪声背景下的弱信号检测}
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 12】]
-			如何获得幅值为 0.1mVrms 的正弦波输入信号？
-		\end{tcolorbox}
-		% 【问题 12】如何获得幅值为 0.1mVrms 的正弦波输入信号？
-
-		由于信号发生器最低只能设置 0.7mVrms 的正弦波输入信号，所以需要考虑其他方式获得幅值为 0.1mVrms 的正弦波输入信号。
-
-		可以考虑使用噪声发生器的信号端接口的 -80dB 的衰减开关，通过一个较大的信号经过衰减之后得到所需的信号。
-		\[
-			- 80 \mathrm{dB} = 20 \log \frac{V_{out}}{V_{in}} = 20 \log \frac{0.1 \mathrm{mVrms}}{V_{in}}
-		\]
-		\[
-			\Rightarrow V_{in} = 10000 \times 0.1 \mathrm{mVrms} = 1 \mathrm{Vrms}
-		\]
-
-		即，可以使用信号发生器产生一个 1 Vrms 的正弦波信号，再经过噪声发生器的信号端接口的 -80dB 的衰减，即可得到幅值为 0.1mVrms 的正弦波输入信号。
 
 
-		% \vspace{0.05\textwidth} % 两行之间的垂直间距
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 13】]
-			对低信噪比信号或非周期噪声测量，能否用示波器的“auto”键？若通过手动调节，示波器屏宽（时间轴范围）应为多少个信号周期为宜？
-		\end{tcolorbox}
-		% 【问题 13】对低信噪比信号或非周期噪声测量，能否用示波器的“auto”键？若通过手动调节，示波器屏宽（时间轴范围）应为多少个信号周期为宜？
-
-		示波器的“auto”模式会首先检测输入信号的特征，包括频率、幅度和波形类型，根据信号的周期性，示波器会自动选择合适的时间轴范围，以确保信号在屏幕上完整显示；而非周期信号本身缺乏稳定的重复模式，因此很难通过自动设置来捕捉到完整的信号特征。
-
-		手动调节时，建议设置为 2-5 个周期，因为过少的周期可能导致信号不够稳定，无法有效判断信号特征，而过多的周期则可能导致信号在屏幕上变得拥挤，影响观察效果。
 
 
-		% \vspace{0.05\textwidth} % 两行之间的垂直间距
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 14】]
-			在用示波器观察、测量信号有效值时，请注意屏幕时间轴范围应达到待观测信号完整周期的整数倍；为什么？
-		\end{tcolorbox}
-		% 【问题 14】在用示波器观察、测量信号有效值时，请注意屏幕时间轴范围应达到待观测信号完整周期的整数倍；为什么？
-
-		因为信号有效值的计算基于信号的平方在时间上的平均，即
-		\[
-			u_{rms} = \frac{\int_0^{t} (u(\tau))^2 \mathrm{d\tau}}{t} \approx \frac{\int_0^{nT} (u(\tau))^2 \mathrm{d\tau}}{nT} = \frac{n\int_0^{T} (u(\tau))^2 \mathrm{d\tau}}{nT} = \frac{\int_0^{T} (u(\tau))^2 \mathrm{d\tau}}{T}
-		\]
-
-		其中，“$\approx$”仅在“积分时间$t$远大于周期$T$”，或“积分时间$t$是周期$T$的整数倍”时才成立。
-
-		所以，屏幕时间轴范围应达到待观测信号完整周期的整数倍。
-
-
-		% \vspace{0.05\textwidth} % 两行之间的垂直间距
-
-		\begin{tcolorbox}[colback=yellow!20, colframe=black!75, title=【问题 15】]
-			用锁相放大器测量 $R$ 值时，读数应保留几位有效数字？调节锁相放大器的什么参数设置可以得到？调节锁相放大器的什么参数可以获得稳定的读数。
-		\end{tcolorbox}
-		% 【问题 15】用锁相放大器测量 $R$ 值时，读数应保留几位有效数字？调节锁相放大器的什么参数设置可以得到？调节锁相放大器的什么参数可以获得稳定的读数。
-
-		读数应在取得2-3位稳定示数后，保留2-3位有效数字。通过设置合适的Sensitivity，可以使得有效数字位数显示的尽可能多且保证一定的测量精度。通过设置合适的时间常数和陡降，可以获得稳定的读数。
 
 
 
@@ -1259,12 +906,12 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 
 % 思考题1
 \begin{question}
-	描述用教学实验箱配制不同信噪比信号的原理；实验箱生成的噪声是否为白噪声？
+	样品盒及传输电缆是否会对本底有贡献？ 用实验现象回答; 处于不同环境（如人的触碰、或插入液氮瓶后） 是否对测量产生影响？
 \end{question}
 
-	教学实验箱可以产生有效值恒定的噪声（若设备良好则为100mVrms）；同时，实验箱上配有两个20dB的衰减开关，可以通过不同的开关组合，得到10mVrms、1mVrms的噪声；对于信号发生器，其自生可以产生0.7mVrms--5Vrms的信号，通过实验箱上80dB的衰减开关，最低可以得到70nVrms的信号。通过信号与噪声的不同混合，可以得到信噪比不同的待测信号。
+	样品盒及传输电缆对本底同样有贡献，因为他们同样有电阻，会产生热噪声。
 
-	实验箱生成的是白噪声。因为其在频域下的不同频率的功率谱密度基本相同，没有特殊频率的倾向。
+	在样品插入液氮瓶后，测量的热噪声显著减小，说明不同环境对测量结果有影响，因为热噪声与温度成正比。
 
 
 
@@ -1273,129 +920,32 @@ Y = A_{\text{signal}} \sin(\phi_{\text{signal}} - \phi_{\text{ref}})
 
 % 思考题2
 \begin{question}
-	随着信噪比的改变，信号 $R$ 和相位差$\theta$的测量值会有什么影响？
+	采样时间间隔 $\Delta t$ 约为多少个时间常数时， X意相邻采样读数$X(t)$与 $X(t + \Delta t)$可视为独立无关的？ 如何验证？ 如想缩短测量时间并要求采样读数保持随机噪声特性， 选择时间常数为多长合适？
 \end{question}
 
-	信噪比的计算公式为
-	\[
-		\mathrm{SNR} = 10\log\frac{V_{S,RMS}^2}{R^2 - V_{S,RMS}^2}
-	\]
-	\[
-		\Rightarrow V_{S,RMS}^2 = \frac{1}{10^{-\frac{\mathrm{SNR}}{10}} + 1} R^2
-	\]
+	$\Delta t$应至少为5-10倍的时间常数 $\tau$ 才能保证相邻采样读数的独立性。
 
-	则：
-	\begin{enumerate}
-		\item 当信噪比较高时，测量得到的有效值$R$基本等于信号值$V_{S,RMS}$。
-		\item 信噪比较低时，噪声对有效值的贡献显著，测得的值会高于实际信号有效值，噪声越大偏离越严重。
-	\end{enumerate}
+	若要验证采样点的独立性，可以通过计算采样数据的自相关函数来验证。采集一段时间的连续数据，计算数据序列的自相关函数 $R(t)$ 。检查当时间间隔为 $\Delta t$ 时的自相关值是否接近于 0。如果 $R(\Delta t) \approx 0$，则可以认为间隔为 $\Delta t$ 的采样点之间基本独立无关。
 
-	相位差的测量也会受到噪声的影响，尤其当信噪比降低时，噪声对相位的干扰会显著增加。信号和噪声的相位分别为$\theta_{S}$和$\theta_{N}$，测得的相位差$\theta_{M}$可以表示为信号和噪声的组合结果：
-	\[
-		\tan \theta_{M} = \frac{V_{S,RMS}\sin\theta_{S} + V_{N,RMS}\sin\theta_{N}}{V_{S,RMS}\cos\theta_{S} + V_{N,RMS}\cos\theta_{N}}
-	\]
+	如果希望缩短测量时间，可以适当减少时间常数。选择较小的时间常数可以加快信号的响应速度，使系统在较短时间内达到稳态。
 
-	同样的，当信噪比高时，噪声项的影响较小；当信噪比低时，噪声项会对测量结果产生较大干扰，导致相位测量值不稳定，甚至会发生显著偏差或跳变。相位差测量的不确定性和噪声水平成正比。
-
-
-% 思考题3
-\begin{question}
-	所有的噪声都可以用锁相放大器消除吗？锁相放大器的理论检测极限是多少？受什么限制？
-\end{question}
-
-	锁相放大器通过同步检测原理，可以有效地抑制与信号频率无关的噪声；与之相对的，如果噪声与待测信号的频率接近或相同，锁相放大器可能难以区分并抑制这些噪声。此外，由于锁相放大器依赖信号的相位，若信号的相位受到随机扰动（相位噪声）的影响，锁相放大器的输出也会受到干扰。
-
-	锁相放大器的理论检测极限通常由其最小可测信号决定，即能够在给定信噪比下从噪声中分离出来的最小信号强度。这个极限受以下几个主要因素的限制：
-	\begin{enumerate}
-		\item 输入噪声：锁相放大器的输入放大器本身会引入一定的噪声，通常称为“输入噪声电平”。该噪声电平会限制能够检测到的最小信号。如果输入噪声电平很高，低于此噪声电平的信号将难以检测到。
-		\item 带宽：滤波器带宽越窄，噪声抑制能力越强，但这也可能导致信号响应变慢。理论上，带宽越窄，锁相放大器越能从噪声中分离出微弱的信号。然而，带宽太窄时会导致响应时间过长，因此存在折中。
-		
-		锁相放大器的最小可测信号与带宽 $B$ 的关系通常为：
-		\[
-			S_{min} \propto \frac{N}{\sqrt{B}}
-		\]
-		其中$S_{min}$是最小可测信号，$N$是输入噪声电平，$B$是滤波带宽。
-
-		\item 参考信号的稳定性：锁相放大器的工作依赖于参考信号的频率和相位，如果参考信号不稳定（如存在频率漂移或相位噪声），会影响锁相放大器的检测能力。
-		\item 相位噪声：如果待测信号或参考信号存在相位噪声，锁相放大器的相位测量会不稳定，从而影响信号检测的精度。
-	\end{enumerate}
-
-
-
-
-% 思考题4
-\begin{question}
-	请比较锁相放大器与示波器（经过带通滤波后）测量不同信噪比信号的结果，分析两种测量仪器（方法）的优势与劣势。选择锁相放大器窄带宽的 LPF 可以降低式(D1- 34)中的$n_{\omega_r}$，从而提高测量值的信噪比吗？信噪比的提高与 LPF 带宽有何关系？参考式(D1-10)讨论。
-\end{question}
-
-	锁相放大器和示波器（经过带通滤波后）在测量不同信噪比信号时具有不同的优势与劣势。
-
-	\begin{enumerate}
-
-		\item \textbf{锁相放大器的优势与劣势}
-
-		\textbf{优势}：
-		\begin{itemize}
-			\item 锁相放大器通过相干检测，可以有效提取特定频率的信号，尤其适用于在低信噪比下提取微弱信号。
-			\item 锁相放大器的窄带低通滤波器（LPF）可以极大减少带外噪声，从而提高信号的信噪比（SNR）。
-		\end{itemize}
-
-		\textbf{劣势}：
-		\begin{itemize}
-			\item 锁相放大器的测量频率范围受限于参考信号频率，因此不适用于宽频范围内的信号测量。
-			\item 在非相干噪声较强时，锁相放大器的效果可能不如预期。
-		\end{itemize}
-
-		\item \textbf{示波器（带通滤波后）的优势与劣势}
-
-		\textbf{优势}：
-		\begin{itemize}
-			\item 示波器具有宽频响应能力，能够实时显示并分析多频段的信号。
-			\item 经过带通滤波后，示波器可以减少带外噪声，从而对特定频率信号进行较为准确的测量。
-		\end{itemize}
-
-		\textbf{劣势}：
-		\begin{itemize}
-			\item 即使经过带通滤波，示波器仍可能受到带内噪声的影响，特别是在信号较弱且噪声较强的情况下，信噪比不易得到显著提升。
-			\item 示波器本身没有相干检测的能力，不能有效区分相干噪声和信号。
-		\end{itemize}
-
-		\item \textbf{LPF 带宽与信噪比的关系}
-
-		锁相放大器使用窄带低通滤波器（LPF）确实可以降低公式（D1-34）中的噪声成分 $n_{\omega_r}$，从而提高测量值的信噪比。
-
-		在锁相放大器中，输出信号的噪声功率 $n_{\omega_r}$ 与低通滤波器的带宽 $B$ 成正比，因此信噪比 $\text{SNR}$ 可以通过减小带宽 $B$ 来提高。具体来说，信噪比与带宽的关系可以表示为：
-
-		\[
-		\text{SNR} \propto \frac{1}{B}
-		\]
-
-		因此，锁相放大器选择窄带宽的低通滤波器可以有效提高信噪比。但带宽过窄也会导致响应时间变长，可能影响测量的实时性。
-
-		\item \textbf{结论}
-
-		锁相放大器适用于低信噪比、特定频率的信号提取，而示波器在宽频率信号分析中具有优势。锁相放大器通过减小低通滤波器的带宽可以有效提高信噪比，但也需要在带宽和响应时间之间找到平衡。
-
-	\end{enumerate}
-
+	但需注意，时间常数过小可能导致信号响应变得不稳定或噪声水平增加，因此在实际操作中需要权衡测量精度和时间的要求。
 
 
 
 \clearpage
-\section{D1 \quad 锁相放大器与弱信号测量——【实验1】锁相放大器工作原理、基本参数与基本操作 \quad\heiti 实验总结}
+\section{D1 \quad 电阻热噪声及玻尔兹曼常量测量 \quad\heiti 实验总结}
 
 \subsection{实验分工}
 	\begin{enumerate}
-		\item 戴鹏辉：合作完成实验步骤以及前半部分的实验记录。
-		\item 杨舒云：完成实验预习报告；合作完成实验步骤以及后半部分的实验记录。
+		\item 戴鹏辉：合作完成实验操作部分。
+		\item 杨舒云：合作完成实验操作部分，完成实验方案设计。
 	\end{enumerate}
 
 
 \subsection{实验心得}
 	\begin{enumerate}
-		\item 锁相放大器作为一个工具，要想完全掌握它的使用方法，理解其工作原理是至关重要的。而这次实验我们小组耗费了远超预期的时间，主要原因大概就是对其工作原理理解得不够深入。
-		
-		\item 在下一次的实验“电阻热噪声及玻尔兹曼常量测量”，由于已经累积了这次的经验，相信下次的实验会比较的顺利。
+		\item 这次的实验十分锻炼我们的数据处理以及评定能力。
 		
 		\item 感谢何老师和柳老师在实验中耐心地解答我们的问题。
 
