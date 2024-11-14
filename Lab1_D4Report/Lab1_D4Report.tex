@@ -207,16 +207,16 @@
 	\begin{itemize}
 		\item \textbf{实验样品：}
 
-			本实验测量的标准样品为含有自由基的有机物 DPPH（Di-phenyl-picryl-Hydrazyl），称为二苯基苦酸基联氨，分子式为$ (C_6 H_5)_2 N - NC_6H_2 (NO_2)_3$ ，结构式如图 1 所示。
+			本实验使用的标准样品是DPPH（二苯基苦酸基联氨），其分子式为 $(C_6H_5)_2N - NC_6H_2(NO_2)_3$，含有一个未配对的自由电子。该自由电子只有自旋角动量，未参与轨道角动量，因此可以通过电子自旋共振（ESR）现象进行观察。DPPH中的自由电子不是完全自由的，其g因子的标准值为2.0036，标准线宽为 $2.7 \times 10^{-4} , \text{T}$
 
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.4\textwidth]{D4-1-1.png}
 				\caption{DPPH 的分子结构式}
-				\label{fig:D3-1-1}
+				\label{fig:D4-1-1}
 			\end{figure}
 
-			它的第二个 N 原子少了一个共价键，有一个未配对的“自由电子”，是一个稳定的有机自由基。对于这种自由电子，它只有自旋角动量而没有轨道角动量，所以在实验中能够容易地观察到电子自旋共振现象。由于 DPPH 中的“自由电子”并不是完全自由的，其 g 因子标准值为 2.0036，标准线宽为 $2.7 \times 10^{-4} T$。
+			
 
 		\item \textbf{电子自旋共振（ESR）与核磁共振（NMR）的比较：}
 			
@@ -664,7 +664,7 @@
 			\item 将高斯计探头换成 DPPH 样品。调节双 T 调配器的两臂上的活塞旋钮以检查实验设备是否正常工作。
 			\item 根据共振条件，调节励磁电源使共振磁场在 3300 Gs 左右。
 			\item 首先将示波器调节至直流档，调节双 T 调配器和短路活塞，使得直流电平信号最小（实验中最小电平为40mV）；此时切换至交流档,并打开扫场磁场电源，理论上会观察到共振吸收信号出现。
-			\item 此时再调整励磁电源，使信号均匀出现。扫场磁场的频率为市电 50 Hz，所以应调整至信号出现间隔为 10 ms，一个周期内出现两次信号。
+			\item 此时再调整励磁电源，使信号均匀出现。扫场磁场的频率为市电 50 Hz，所以应调整至信号出现间隔为 10 ms，一个周期内出现两次信号。如\cref{fig:D4-2-1}所示。
 			\item 当调整至信号间隔 10 ms 后，由实验一所得的电压与磁感应强度关系曲线，得到此时的共振磁场大小；旋转频率计，当示波器图像出现跳动后，记录下此时的频率。
 			\item 由共振磁场大小、频率大小，代入公式可计算得到样品的朗德因子大小。
 			\item 测量数据大小见\cref{tbl:D4-1-2}
@@ -688,21 +688,36 @@
 		\end{table}
 			
 
-
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{D4-2-1.jpg}
+			\caption{信号均匀出现的共振吸收信号}
+			\label{fig:D4-2-1}
+		\end{figure}
 
 
 
 
 	\subsubsection{估测 DPPH 样品横向弛豫时间}
 
+		由估算横向弛豫时间的公式$T_2 = \frac{2}{\gamma \Delta B}$可知，估算 $\Delta B$ 是关键。
+
+		具体的实验步骤为：把带有移相器的扫场信号用线接入到示波器 CH1，检测输出的磁共振信号用线接入到示波器 CH2，将示波器切换到 X-Y 扫描模式，合成李萨如图。通过调节扫场相位，使两个共振峰重合。
 		
+		实验中主要使用两种方法估算$\Delta B$。
+		\begin{itemize}
+			\item \textbf{使用李萨如图直接拟合得到$\Delta B$}。
+			
+			\item \textbf{利用共振吸收信号拟合得到半高宽所对应的时间间隔，再根据扫场法原理间接得到半高宽}。
+		\end{itemize}
 
-
-
-
-
-
-
+		扫场磁场的测量方法：
+		\begin{enumerate}
+			\item 注意到，扫场磁场和励磁磁场\textbf{并不是一组线圈}，所以不能通过实验一测得的电压和磁感应强度曲线和示波器CH1通道测量的电压得到扫场磁场的大小。
+			\item 由扫场法原理，当励磁磁场满足共振吸收条件，此时再叠加扫场，每当扫场磁场为零时，会发生共振吸收，即在一个周期内发生两次共振吸收，记录下此时励磁电压的大小；此时将励磁磁场减小，使得扫场的极大值+励磁磁场满足共振吸收条件，即在一个周期内仅发生一次共振吸收，同样记录下此时励磁电压的大小。
+			\item 两次励磁电压之差即对应扫场磁场的大小。
+			\item 同时使用CH1通道的峰峰值建立扫场电压与扫场磁场大小的对应关系。
+		\end{enumerate}
 
 
 
@@ -795,7 +810,7 @@
 			\centering
 			\includegraphics[width=0.7\textwidth]{D4-3-1.png}
 			\caption{励磁电压与磁感应强度拟合拟合关系}
-			\label{fig:D3-3-1}
+			\label{fig:D4-3-1}
 		\end{figure}
 
 
@@ -811,12 +826,35 @@
 					g = \frac{\mu_B \cdot B_0}{f \cdot h}
 				\]
 
-			\item 测量得到的朗德因子结果为 $g = 1.9906$，测量的相对不确定度为 $0.13\%$。（标准值为$g = 2.003$）
+			\item 根据测量结果，计算得到的朗德因子结果为 $g = 1.9906$。
+			
+			\item 下面进行误差分析：
+			
+				朗德因子的标准差由下面公式计算得到：
+				\begin{align*}
+					\sigma_g = \sqrt{(\frac{\partial g}{\partial B_0} \sigma_{B_0})^2 + (\frac{\partial g}{\partial f} \sigma_f)^2} = 0.00128
+				\end{align*}
+				
+				相对不确定度为：
+				\[
+					\eta_1 = \frac{\sigma_g}{g} \times 100 \% = 0.1279 \%
+				\]
+
+				测量值与标准值的相对误差为：
+				\[
+					\eta_2 = \frac{g - g_0}{g_0} \times 100 \% = -0.6215 \%
+				\]
+			
 		\end{enumerate}
 
-		可见，相对不确定度很小？
+		可见，相对不确定度为 $0.1279 \%$，说明测量结果比较精确。但是与标准值比较可以发现，测量结果偏小。由朗德因子计算公式可知，可能的原因为测量的磁感应强度偏小、或测量的微波频率偏大。
 
-		比标准值偏小？
+		\begin{itemize}
+			\item 在实验中，磁感应强度由高斯计来测定。如果高斯计的校准存在偏差（即系统误差），可能导致磁场强度测量结果有较大误差。虽然在实验一测量励磁电压与磁感应强度关系曲线之前，已经对高斯计进行了校准，可能是因为在校准时没有完全屏蔽磁场，或者是高斯计自身有个系统性的偏差。
+			\item 实验中我们使用吸收式频率计测量频率，具体是观察示波器波形是否发生跳动。由于旋转频率计是从示数小向示数大的方向旋转，且人的动作有延迟，所以在观察到波形跳动后旋转才停止，可能导致频率计测量频率偏大。
+		\end{itemize}
+
+		% 比标准值偏小？
 
 
 
@@ -825,8 +863,49 @@
 
 	\subsubsection{估测 DPPH 样品横向弛豫时间}
 
+		将示波器的X-Y-t数据导出后，进行数据清理和规整化。
 		\begin{enumerate}
-			\item 1
+			\item 首先进行周期平均化，绘制李萨如图和时序图，如\cref{fig:D4-3-2}、\cref{fig:D4-3-3}：
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\textwidth]{D4-3-2.png}
+					\caption{李萨如图}
+					\label{fig:D4-3-2}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\textwidth]{D4-3-3.png}
+					\caption{时序图}
+					\label{fig:D4-3-3}
+				\end{figure}
+
+
+			\begin{itemize}
+				\item 首先考虑拟合李萨如图的方法：
+
+					使用洛伦兹曲线拟合：
+					\[
+						f(x) = y_0 - \frac{A}{1 + (\frac{x - x_0}{\Gamma / 2})^2}
+					\]
+
+					得到的拟合结果如\cref{fig:D4-3-4}：
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\textwidth]{D4-3-4.png}
+						\caption{洛伦兹峰拟合李萨如图}
+						\label{fig:D4-3-4}
+					\end{figure}
+
+					得到曲线的全高半宽为 0.65。于是得到$\Delta B = 0.0008566 \mathrm{T}$
+					\[
+						\Rightarrow T_2 = \frac{2}{\gamma \Delta B} = 7.2838 \mathrm{ns}
+					\]
+
+
+				\item 在考虑拟合时序图的方法：
+				
+					
+			\end{itemize}
 		\end{enumerate}
 
 
