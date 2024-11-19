@@ -11,8 +11,10 @@
 \input{Settings} % 导入模板的相关设置
 \usepackage{lipsum}
 \usepackage{enumitem}
-\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{tabularray}  % 绘制表格时可以更加方便添加框线
 \usepackage{longtable}
+% \usepackage{amsmath}	% 可输入左上角标和右上角标
+
 \setlist[enumerate]{label=\textup{(\arabic*)}}
 
 
@@ -111,7 +113,7 @@
 		
 		\hline
 	\end{tabular}
-	\label{tbl:虚拟a粒子能量测量实验的用具}
+	\label{tbl:虚拟alpha粒子能量测量实验的用具}
 \end{table}
 
 
@@ -122,6 +124,123 @@
 % \clearpage
 
 \subsection{原理概述}
+
+	\begin{itemize}
+		\item \textbf{放射性衰变简介：}
+			
+			核辐射也就是原子核从一种结构或者状态转变为另外一个结构或者状态的过程中，释放出来的微观粒子流，主要包括$\alpha$、$\beta$、$\gamma$三种射线。
+
+			\begin{enumerate}
+				\item \textbf{$\alpha$衰变：}发生 $\alpha$ 衰变时，一个 $\alpha$ 粒子将会从原子核中释放，携带着大约 5MeV 的能量，其中的反应过程可以表示为： $^A_Z X \rightarrow ^{A - 4}_{Z - 2} X' + ^4_2He$
+				\item \textbf{$\beta$衰变：}$\beta$衰变是放射性原子核放出电子/正电子和反中微子/中微子的核过程，产生的新核质量数不变，电荷数增加 1，原子序数增加 1，可以表示为： $^A_Z X \rightarrow ^A_{Z + 1} X' + ^{0}_{-1} \beta $
+				\item \textbf{$\gamma$衰变：}$\gamma$衰变是释放出伽马射线的衰变过程，不涉及质量以及电荷的变化， $^A_Z X \rightarrow ^A_Z X' + ^0_0 \gamma$
+				
+
+			\end{enumerate}
+
+		
+
+
+		\item 以 Bi 元素的自发衰变为例，其通过放射出 $\alpha$ 粒子，$^{212}\mathrm{Bi}$ 以不同的几率衰变到 $^{208}\mathrm{Tl}$ 核能级的基态和激发态，再通过放出$\gamma$光子，最后到 $^{208}\mathrm{Tl}$ 的基态（左图）；右图对应地给出了所放射的 $\alpha$ 粒子能谱，可见，衰变到 $^{208}\mathrm{Tl}$ 第一激发态的几率最高，即在对应能量通道探测到的 $\alpha$ 粒子数最多。从右图可见，$\alpha$ 粒子能谱具有分立的、不连续的特征。并且对应于核能级跃迁的能谱线具有宽度，除了测量仪器本身带来的谱仪宽度外，对于不稳定的核，能级寿命有限，从测不准关系（$\Delta t \Delta E \geq \frac{\hbar}{2}$）可知，衰变能谱线会有一宽度。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.9\textwidth]{D5-1-1.png}
+			\caption{Bi 的 $\alpha$ 衰变纲图及对应的能谱图}
+			\label{fig:D5-1-1}
+		\end{figure}
+		
+
+		% \item \textbf{衰金硅面垒半导体探测器的基本工作原理：}
+		
+			% 	衰金硅面垒探测器是基于PN结的半导体探测器。它由一片N型硅和一层薄金层构成，靠近金层的硅表面表现出P型特性，从而在表面形成一个PN结，成为探测粒子的灵敏区。当带电粒子穿过探测器的灵敏区时，会损失能量，\textbf{产生与其能量成正比的电脉冲信号}，经放大并由多道分析器测量脉冲信号按幅度的分别，从而给出带电粒子的能谱。
+				
+			% 	带电粒子在硅中通过电离作用产生电子-空穴对，形成一对空穴所需的能量$W$与半导体材料的特性（例如能隙）有关，与入射粒子类型和能量无关。若灵敏区的厚度大于入射粒子在硅中的射程，则带电粒子的能量 $E$ 全部损失在其中，产生的总电荷量 $Q=(E/W)e$。$E/W$ 即产生的电子空穴对数。
+			
+			% 	在外加偏压下，灵敏区的电场将电子-空穴对全部收集起来，产生的总电荷量与入射粒子能量成比例。电荷灵敏放大器将电荷信号放大为电脉冲，供多道分析器测量其幅度，并确定带电粒子的能谱。
+			
+			% 	当探测器输出回路时间常数>>电子空穴对收集时间时，输出电压脉冲幅度：$V_0 = \frac{Q}{C} = \frac{Q}{C_d + C_i + C'}$，其中 $C_d$ 是探测器结电容， $C_i$ 是前置放大器的输入电容，$C’$是分布电容。
+
+			% 	探测器的结电容与反向偏压相关，因此半导体探测器都采用电荷灵敏前置放大器。其中 $K$ 是放大器的开环增益，$C_f$ 是反馈电容，放大器的等效输入电容为$(1+K) C_f$ 。只要 $KC_f \gg C_f$ 就有：$V_0 = -\frac{K Q}{C_1 + (1 + K)C_f} \approx -\frac{Q}{C_f}$。此时，它的输出信号与输入电荷 Q 成正比。而与探测器的结电容无关。
+				
+			% 	偏压需要适当调整以确保入射粒子能量完全损耗在灵敏区内，同时减小噪声，提高信号幅度。适当的偏压选择有助于提高探测器的能量分辨率，避免因偏压过高而增加漏电流导致分辨率变差。
+
+			% 	探测器灵敏区的厚度 $d_n$ 和结电容 $C_d$ 与探测器偏压 $V$ 的关系如下：
+			% 	\begin{align*}
+			% 		d_n &= 0.5(\rho_n V)^{1/2} (\mu m)	\\
+			% 		C_d &= 2.1 \times 10^4 (\rho_n V)^{1/2} (\mu m F/c m^2)
+			% 	\end{align*}
+			
+			% 	实验中通过测量不同偏压下的α能谱曲线来确定最佳偏压值，以达到最佳的能量分辨率。
+		
+
+
+
+		\item \textbf{$\alpha$ 谱仪的能量刻度和能量分辨率}
+
+			谱仪的能量刻度就是确定 $\alpha$ 粒子能量和脉冲幅度之间的对应关系。脉冲幅度大小以谱线峰位在多道分析器中的道址来表示。$\alpha$ 谱仪系统的能量刻度有两种方法：
+
+			\begin{enumerate}
+				\item 用 $^{239} \mathrm{Pu}$ 和 $^{241} \mathrm{Am}$ 的 $\alpha$ 粒子放射源，已知各核素 $\alpha$ 粒子的能量，测出该能量在多道分析器上所对应的谱峰位道址，作能量对应道址的刻度曲线，并表示为：
+				\[
+					E = G \cdot d + E_0
+				\]
+				其中，$E$ 为 $\alpha$ 粒子能量（keV），$d$ 为对应能谱峰位所在道址（道）。$G$ 是直线斜率（keV/每道），称为能量刻度常数。$E_0$ 是直线截距（keV），它便是由于 $\alpha$ 粒子穿过探测器金层表面所损失的能量。
+
+
+				\item 用一个已知能量的单能 $\alpha$ 源，配合线性良好的精密脉冲发生器来做能量刻度。
+			\end{enumerate}
+
+			$\alpha$ 谱仪的能量分辨率也用能谱的半高宽度 FWHM 表示，以道数表示；还可由谱仪的能量刻度常数转换为能量$\Delta E$，以 keV 表示；还可以用能量展宽的相对百分比表示，即 $\eta = \Delta E/E$。
+			
+			
+
+		\item \textbf{$\alpha$ 粒子的能量损失}
+		
+			$\alpha$ 粒子与电子碰撞，将使原子电离、激发而损失其能量。由于其质量较大，经过多次碰撞才会损失较多能量。每次碰撞基本不发生偏转，因而它通过物质的射程几乎接近直线。带点粒子在吸收体内单位长度的能量损失率，称为线性阻止本领 S:
+			\[
+				S = -\frac{\mathrm{d} E}{\mathrm{d} x}
+			\]
+			把 $S$ 除以吸收体单位体积内的原子数 $N$，称为阻止截面：
+			\[
+				\Sigma (E) = -\frac{1}{N} \frac{\mathrm{d} E}{\mathrm{d} x}
+			\]
+			对非相对论性 $\alpha$ 粒子（v<<c），线性阻止本领用下面式子表示：
+			\[
+				S = -\frac{\mathrm{d} E}{\mathrm{d} x} = \frac{4 \pi z^2 e^4 N Z}{m_0 v^2} \ln\frac{2 m_0 v^2}{I}
+			\]
+			上式中的 $z$ 为入射粒子的电荷数，$Z$ 吸收体的原子序数，$e$ 为电子的电荷，$v$ 为入射粒子的速度，$N$ 为单位体积内的原子数。$I$ 是吸收体中的原子的平均激发能。由于对数项随能量的变化是缓慢的，因此可近似表示为：
+			\[
+				\frac{\mathrm{d} E}{\mathrm{d} x} \propto -\frac{const}{E}
+			\]
+			当 $\alpha$ 粒子穿过厚度为 $\Delta x$ 的薄吸收体后，有$\Delta E = E_1 - E_2 = -\frac{\mathrm{d} E}{\mathrm{d} x}_{\text{平均}} \Delta x$，$(dE/dx)_{\text{平均}}$ 是平均能量$(E_1+E_2)/2$ 的能量损失率，可由上式定出薄膜厚度：
+			\[
+				\Delta x = \frac{\Delta E}{-\frac{\mathrm{d} E}{\mathrm{d} x}_{\text{平均}}} \propto \frac{\Delta E}{-\frac{\mathrm{d} E}{\mathrm{d} x}_{E_1}}
+			\]
+
+		
+			一般来说 $\alpha$ 粒子能量在 1keV-10MeV 之间时，在Al膜中的阻止截面可由以下经验公式确定：
+			\[
+				\Sigma(E) = \frac{A_1 E^{A_2} \{ \frac{A_3}{E/1000} \ln[1 + \frac{A_4}{E/1000} + \frac{A_5 E}{1000}] \} }{A_1 E^{A_2} + \frac{A_3}{E/1000} \ln[1 + \frac{A_4}{E/1000} + \frac{A_5 E}{1000}]}
+			\]
+
+			式中 $A_1,A_2,A_3,A_4,A_5$ 为常数，具体数值见\cref{fig:D5-1-2}。其中 $\alpha$ 粒子能量 E 以 keV 为单位，得到的$\Sigma_e$以 $eV/10^{15}atom·cm^2$ 为单位。对于化合物，它的阻止本领可由布拉格相加规则，将化合物的各组成成分的阻止本领$(dE/dx)_i$ 相加得到，即
+			\[
+				(\frac{d E}{d x})_c = \frac{1}{A_c} \sum Y_i A_i (\frac{d E}{d x})_i
+			\]
+			
+			其中 $Y_i$、$A_i$ 分别为化合物分子中的第 i 种原子数目、原子量，$A_c$（等于$\sum Y_i A_i$）是化合物的分子量。
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{D5-1-2.png}
+				\caption{低能氦粒子组织本领的系数（固体）}
+				\label{fig:D5-1-2}
+			\end{figure}
+
+	\end{itemize}
+
+	
 
 
 	
@@ -136,7 +255,11 @@
 	$^{64}\mathrm{Cu}$ 可以发生 $\alpha$ 粒子衰变吗？为什么呢？
 \end{question}
 
+	发生 $\alpha$ 衰变的原子核一般具有较大的质量数和质子数，这些核通常位于元素周期表的后半部分。$\alpha$ 衰变通过发射一个 $\alpha$ 粒子（即一个 $^4\mathrm{He}$ 核）来减小原子核的质量和质子数，从而达到更稳定的状态。
 
+	对于 $^{64}\mathrm{Cu}$（质量数为 64，质子数为 29）的铜核来说，其质子数和质量数都相对较小，没有足够的核内库仑斥力去触发 $\alpha$ 衰变。相较于重核，轻核在能量上更倾向于通过 $\beta$ 衰变或电子俘获等方式变为更稳定的状态，而不是通过 $\alpha$ 衰变。
+
+	% 因此，由于 $^{64}\mathrm{Cu}$ 的核结构不适合 $\alpha$ 衰变，这种衰变模式在该核中不发生。
 
 
 
@@ -148,6 +271,18 @@
 \end{question}
 
 
+	在同一个放射源的条件下，随着探测器偏压的增加，测得的能谱峰位值一般会向更高的道址移动。其原因如下：
+	
+	\begin{enumerate}
+		\item 电荷收集效率提高：随着偏压的增大，探测器灵敏区中的电场强度增强。这一增强的电场可以更有效地收集 $\alpha$ 粒子激发的电子-空穴对，减少因复合效应（电子和空穴重新结合而未被收集）导致的信号损失。因此，增大偏压可以使探测器输出的脉冲信号幅度更大，对应在能谱中峰位的道址也会增大。
+		\item 结电容减小：较高的反向偏压会导致 PN 结区域的扩展，从而减小探测器的结电容 $C_d$。结电容的减小使得电荷灵敏放大器的输出电压增大，因此脉冲幅度增加，能谱峰位在道址上的位置提高。
+		\item 饱和效应：随着偏压继续增大，能谱峰位会逐渐趋于饱和。这是因为在高偏压下，几乎所有的电子-空穴对都被完全收集，脉冲信号达到最大幅度，再增大偏压对峰位几乎没有影响。
+	\end{enumerate}
+	
+
+	
+
+	
 
 
 	
@@ -160,7 +295,22 @@
 	简述探测器能谱标定的方法以及能量分辨率的计算方法。
 \end{question}
 
+	谱仪的能量刻度就是确定 $\alpha$ 粒子能量和脉冲幅度之间的对应关系。脉冲幅度大小以谱线峰位在多道分析器中的道址来表示。$\alpha$ 谱仪系统的能量刻度有两种方法：
 
+		\begin{enumerate}
+			\item 用 $^{239} \mathrm{Pu}$ 和 $^{241} \mathrm{Am}$ 的 $\alpha$ 粒子放射源，已知各核素 $\alpha$ 粒子的能量，测出该能量在多道分析器上所对应的谱峰位道址，作能量对应道址的刻度曲线，并表示为：
+			\[
+				E = G \cdot d + E_0
+			\]
+			其中，$E$ 为 $\alpha$ 粒子能量（keV），$d$ 为对应能谱峰位所在道址（道）。$G$ 是直线斜率（keV/每道），称为能量刻度常数。$E_0$ 是直线截距（keV），它便是由于 $\alpha$ 粒子穿过探测器金层表面所损失的能量。
+
+
+			\item 用一个已知能量的单能 $\alpha$ 源，配合线性良好的精密脉冲发生器来做能量刻度。
+		\end{enumerate}
+
+		$\alpha$ 谱仪的能量分辨率也用能谱的半高宽度 FWHM 表示，以道数表示；还可由谱仪的能量刻度常数转换为能量$\Delta E$，以 keV 表示；还可以用能量展宽的相对百分比表示，即 $\eta = \Delta E/E$。
+
+	
 
 
 
@@ -173,7 +323,9 @@
 	预估使用 $^{239}\mathrm{Pu}$，$^{241}\mathrm{Am}$ 两种放射源能测量的铝箔和 mylar 膜的厚度大约在什么量级（请用 $g/\mathrm{cm}^2$ 表示箔（膜）的厚度）；为何在计算化合物的截止本领时，只需考虑化合物所含的元素及比例，而无需考虑元素的结合方式（化学键）？
 \end{question}
 
-
+	使用 $^{239}\mathrm{Pu}$ 和 $^{241}\mathrm{Am}$ 两种放射源测量铝箔和 Mylar 膜的厚度大约可以达到 $10^{-4}$到 $10^{-2}$ $g/cm^2$ 的量级。这些放射源发射的 $\alpha$ 粒子能量较高，穿透能力有限，因此只能测量微米级厚度的材料。该厚度范围通常适合薄膜和箔状材料的测量，具体的厚度取决于材料的密度和 $\alpha$ 粒子的能量损失特性。
+	
+	在计算化合物的截止本领（即材料对粒子的阻挡能力）时，只需要考虑化合物中各元素的种类和比例，而不需考虑元素的结合方式（化学键），这是因为化学键的作用力主要表现在原子间的电子分布上，而 $\alpha$ 粒子的能量远高于化学键能量，足以将电子从原子核附近撞离。$\alpha$ 粒子在物质中主要通过库仑作用与原子核及电子相互作用，导致能量损失。因此，化学键对粒子的穿透和能量损失影响极小，物质的宏观性质（如密度和原子组成）才是决定截止本领的关键因素。
 
 
 
@@ -185,7 +337,7 @@
 	（选）实验过程中，若金硅面垒探测器的样品腔不抽真空，会对能量谱产生怎样的影响？
 \end{question}
 
-
+	如果未抽真空，可能会导致谱线的峰位偏移和能量分辨率的下降。这是因为 $\alpha$ 粒子在穿过空气时会发生能量损失，导致入射到探测器灵敏区的粒子能量低于原本的能量值。由于空气中存在的分子对 $\alpha$ 粒子具有阻挡和散射作用，能量损失还会因空气压力的波动而不均匀，从而使能谱的峰位产生漂移、展宽，影响能谱的清晰度和分辨率。
 
 
 
@@ -200,6 +352,9 @@
 	实验前确定探测器最佳工作条件的原理是什么？
 \end{question}
 
+	在实验中，通过调整探测器的偏压，使入射粒子的能量能够完全损失在探测器的灵敏区内，从而确保所有产生的电子-空穴对能够被灵敏区的电场有效收集，这样生成的电荷量 $Q$ 与入射粒子的能量 $E$ 成正比，并由电荷灵敏放大器放大为电脉冲信号。适当的偏压选择可以提高信号的幅度和探测器的能量分辨率。
+
+	探测器的偏压还影响灵敏区的厚度 $d_n$ 和结电容 $C_d$，二者随偏压 $V$ 的增大而增大。当偏压适当时，可以减小结电容 $C_d$，从而减少噪声，提高信噪比；但如果偏压过高，会导致漏电流增大，反而会降低探测器的能量分辨率。因此，通过测量不同偏压下的 $\alpha$ 能谱曲线，选择能量分辨率最佳的偏压作为探测器的最佳工作条件。
 
 
 
@@ -227,7 +382,70 @@
 
 \subsection{实验内容和步骤}
 
+	 \begin{itemize}
+		\item \textbf{对探测器进行能量刻度标定：}
 
+			\begin{enumerate}
+				\item 将多道分析器的道数调整至 1024。
+				\item 测量两种一致能谱的放射源（$^{241}\mathrm{Am}$放射源（5.486MeV）以及$^{239}\mathrm{Pu}$（5.155MeV）），对能量刻度定标（要求峰位计数为 400 左右）。
+				\item 测量结果见\cref{fig:data1}、\cref{fig:data2}
+			\end{enumerate}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{Data1.png}
+				\caption{$^{241}\mathrm{Am}$能谱测量}
+				\label{fig:data1}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{Data2.png}
+				\caption{$^{239}\mathrm{Pu}$能谱测量}
+				\label{fig:data2}
+			\end{figure}
+
+
+			自动寻峰得到的测量结果为：
+			\begin{itemize}
+				\item $^{241}\mathrm{Am}$放射源：峰位：866.30
+				\item $^{239}\mathrm{Pu}$放射源：峰位：836.42
+			\end{itemize}
+
+
+
+
+		\item \textbf{利用 $\alpha$ 粒子能损测量箔和膜的厚度：}
+		
+			\begin{enumerate}
+				\item 测量 $^{241}\mathrm{Am}$ 的 $\alpha$ 粒子通过铝箔及 Mylar 薄膜后的能谱，并计算出其阻止本领和薄膜厚度。
+				\item 测量结果见\cref{fig:data3}、\cref{fig:data4}
+			\end{enumerate}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{Data3.png}
+				\caption{$^{241}\mathrm{Am}$通过Al膜后的能谱}
+				\label{fig:data3}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\linewidth]{Data4.png}
+				\caption{$^{241}\mathrm{Am}$通过Mylar膜后的能谱}
+				\label{fig:data4}
+			\end{figure}
+
+
+			自动寻峰得到的测量结果为：
+			\begin{itemize}
+				\item 通过Al膜后的能谱：峰位：535.18
+				\item 通过Mylar膜后的能谱：峰位：663.30
+			\end{itemize}
+
+
+	 \end{itemize}
 		
 
 
@@ -235,7 +453,7 @@
 
 		
 
-
+	% \clearpage
 	\subsection{实验过程中遇到的问题记录}
 
 		\begin{enumerate}
@@ -290,7 +508,7 @@
 	\hline
 	姓名： & 戴鹏辉 & 学号：& 22344016\\
 	\hline
-    日期：& 2024// & 评分： &\\
+    日期：& 2024/11/12 & 评分： &\\
 	\hline
 	\end{tabularx}
 \end{table}
@@ -300,26 +518,108 @@
 \subsection{实验数据分析}
 
 
-	\subsubsection{实验一 \quad XXXXXXXXXXXXXXXXXXXX}
+	\subsubsection{实验一 \quad 对探测器进行能量刻度标定：}
 
+
+		\begin{enumerate}
+			\item 由测量结果，对探测器进行能量标定，得到结果如\cref{fig:D5-3-1}：
+
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\linewidth]{D5-3-1.png}
+					\caption{对探测器进行能量标定}
+					\label{fig:D5-3-1}
+				\end{figure}
+
+
+			\item 得到拟合结果为：
+				\[
+					E = 0.0111 \cdot d - 4.1106 \ (\mathrm{MeV})
+				\]
+
+		\end{enumerate}
 		
 
 
-	\subsubsection{实验二 \quad XXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+	\subsubsection{实验二 \quad 利用 $\alpha$ 粒子能损测量箔和膜的厚度：}
+
+
+		\begin{itemize}
+			\item \textbf{计算Al膜厚度：}
+
+				\begin{enumerate}
+					\item 通过Al膜后，$\alpha$粒子的能谱探测到的峰位为 535.18.
+					\item 由实验一得到的能量标定曲线，可得到$\alpha$粒子通过Al膜后的能量为
+						\[
+							E = 0.0111 \times 535.18 - 4.1106 \ \mathrm{(MeV)} = 1.8299 \ \mathrm{(MeV)}
+						\]
+
+					\item 由经验公式可得到Al的阻止截面：
+						\[
+							\Sigma(E)_{Al} = 4.58822 \times 10^{-14} (eV/atom \cdot cm^2)
+						\]
+					
+					\item 已知Al的单位体积内的原子数 $N_{Al} = 6.02 \times 10^{22} (atom/cm^3)$
+					\item 则Al的线性阻止本领：
+						\[
+							S_{Al} = -\frac{d E}{d x} = - \Sigma(E)_{Al} \cdot N_{Al} = 4.58822 \times 10^{-14} \times 6.02 \times 10^{22} (eV/cm) = -2.76211 \times 10^{9} (eV/cm) 
+						\]
+
+					\item 则Al膜厚度为：
+						\[
+							\Delta x = \frac{\Delta E}{-\frac{d E}{d x}_{E_1}} = \frac{1.8299 - 5.486 (MeV)}{-2.76211 \times 10^{9} (eV/cm)}  = 1.324 \times 10^{-3} (cm) = 13.24 (\mu m)
+						\]
+					
+				\end{enumerate}
 
 
 
-	\subsubsection{实验三 \quad XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+			\item \textbf{计算Mylar膜厚度：}
+			
+				\begin{enumerate}
+					\item 通过Mylar膜后，$\alpha$粒子的能谱探测到的峰位为 663.30.
+					\item 由实验一得到的能量标定曲线，可得到$\alpha$粒子通过Mylar膜后的能量为
+						\[
+							E = 0.0111 \times 663.30 - 4.1106 \ \mathrm{(MeV)} = 3.2520 \ \mathrm{(MeV)}
+						\]
+
+					\item 由经验公式可得到Mylar中各组分的阻止截面：
+						\begin{align*}
+							\Sigma(E)_{C} = 2.2508 \times 10^{-14} (eV/atom \cdot cm^2)	\\
+							\Sigma(E)_{H} = 1.5685 \times 10^{-15} (eV/atom \cdot cm^2)	\\
+							\Sigma(E)_{O} = 3.2948 \times 10^{-15} (eV/atom \cdot cm^2)	
+						\end{align*}
+
+					
+					% \item 已知Al的单位体积内的原子数 $N_{Al} = 6.02 \times 10^{22} (atom/cm^3)$
+					\item 则Mylar的线性阻止本领：
+						\[
+							S_{Mylar} = -\frac{d E}{d x} = \frac{1}{A_c} \sum Y_i A_i (\frac{d E}{d x})_i = -5.7439 \times 10^{7} (eV/cm)
+						\]
+
+					\item 则Mylar膜厚度为：
+						\[
+							\Delta x = \frac{\Delta E}{-\frac{d E}{d x}_{E_1}} = \frac{3.2520 - 5.486 (MeV)}{-5.7439 \times 10^{7} (eV/cm)}  = 0.003544
+							(cm) = 35.44 (\mu m)
+						\]
+					
+				\end{enumerate}
 
 
 
 
-	\subsubsection{实验四 \quad XXXXXXXXXXXXXXXXXXXXXXXXX}
+
+
+
+
+		\end{itemize}
+
+
 
 
 		
 
-	
+\clearpage
 \subsection{实验后思考题}
 
 % 思考题1
