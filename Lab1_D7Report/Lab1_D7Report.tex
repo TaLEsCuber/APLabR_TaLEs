@@ -1,0 +1,733 @@
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+% ----------------------------------------------------
+%   中山大学物理与天文学院本科实验报告模板
+%   作者：Huanyu Shi，2019级
+%   知乎：https://www.zhihu.com/people/za-ran-zhu-fu-liu-xing
+%   Github：https://github.com/huanyushi/SYSU-SPA-Labreport-Template
+%   Last update : 2023.4.10
+% ----------------------------------------------------
+
+\input{Settings} % 导入模板的相关设置
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{longtable}
+\setlist[enumerate]{label=\textup{(\arabic*)}}
+
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+\begin{document}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{
+		|X|X|X|X
+		|X|X|X|X|}
+	\hline
+	\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+	\hline
+	\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	\hline
+	日期：& 2024/11/20 & 教师签名：& \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\begin{center}
+	\LARGE D7 \quad CCD 原理与应用
+\end{center}
+
+\textbf{【实验报告注意事项】}
+\begin{enumerate}
+	\item 实验报告由三部分组成：
+	\begin{enumerate}
+		\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+	    \item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+	    \item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+	\end{enumerate}
+	\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+	% \item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\item 实验安全注意事项
+		\begin{enumerate}[label=\roman*.]
+			\item 要爱护实验仪器和示波器、计算机等实验设备，不允许将其它不相关的仪器在未经许可的情况下与实验仪进行连接。
+			\item 所有与本实验仪相关的线缆如电源线、示波器地线、计算机 USB 数据连接线等必须在断电的情况下连接良好，严禁带电插拔所有线缆。
+			\item 所有实验设备应当在确定所有地线良好连接后方可开机上电。
+			\item 一旦发生意外事故或者实验出现异常现象时，应当立即切断实验设备电源，并如实向指导教师汇报情况。故障排除之后方可继续实验。
+			\item 使用彩色线阵 CCD 多功能实验仪之前，应仔细阅读本手册的 “软件使用说明”。所有需要利用测量片夹的实验，安放测量片夹时应注意安放方向和位置：从 CCD 方向观看，测量片夹上的字母应正向向上；做“利用彩色线阵 CCD 进行振动测量实验”和“利用彩色线阵 CCD 进行图像扫描实验”实验时，测量片夹应安放在远离光源的片夹夹具，其它实验，应安放在靠近光源的片夹夹具上。空白片夹用于自行设计实验内容。
+		\end{enumerate}
+\end{enumerate}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\setcounter{section}{0}
+\section{D7 \quad CCD 原理与应用 \quad\heiti 预习报告}
+	
+\subsection{实验目的}
+\begin{enumerate}
+	\item 了解 CCD 的构造，工作原理和应用。
+	\item 掌握二相线阵 CCD 和隔行转移面阵 CCD 的驱动脉冲波形及其特性测量，并理解各驱动脉冲在电路中的作用和电荷转移过程。
+	\item 掌握线阵 CCD 和面阵 CCD 非接触测量物体尺寸和角位置的基本原理和方法，并能自主设计符合特定要求的测量方案。
+	\item 熟悉 CCD 图像数据采集软件的基本操作，掌握图像数据采集和初步的图像处理技术如点运算、彩色图像分解、颜色识别等。
+	
+\end{enumerate}
+
+\subsection{仪器用具}
+
+
+% \begin{table}[htbp]
+% 	\centering
+% 	\renewcommand\arraystretch{1.6}
+% 	% \setlength{\tabcolsep}{10mm}
+% 	\caption{$\gamma$ 能谱测量实验用具}
+% 	\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+% 		\hline
+% 		编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+% 		\hline
+% 		1	&	实验机箱 	& 1 &  	\\
+
+% 		2	&	90mm 导轨 	& 1 & RL-POR01，90m 宽，30m 高，600mm 长	 \\
+		
+% 		3	&	90mm 滑块 & 3 & RL-RC01，120mm 宽，40mm 长	 	\\
+		
+% 		4	&	90mm 旋转滑块	& 1 &  RL-RC02-R，120mm 宽，65mm 长	\\
+
+% 		5	&	调节套筒	& 1 &  RL-PH01，L51mm	\\
+
+% 		6	&	调节套筒	& 3 &  RL-PH02，L76mm	\\
+
+% 		7	&	支杆	& 1 &  RL-PO02，L51mm，双头阳螺纹	\\
+
+% 		8	&	支杆	& 3 &  RL-PO02，L76mm，双头阳螺纹	\\
+
+% 		9	&	激光管夹持器	& 1 &  RL-LH01，Φ25~Φ50mm，V 型	\\
+
+% 		10	&	光纤准直镜	& 1 &  RL-CL11，通光 Ф1mm，接口FC/PC	\\
+
+% 		11	&	光纤准直镜	& 1 &  RL-CL51，通光 Ф30mm，接口 FC/PC	\\
+
+% 		12	&	相机防尘盖	& 1 &  C 接口	\\
+
+% 		13	&	光纤耦合半导体激光器	& 1 &  650nm，2mW，功率可调	\\
+
+% 		14	&	电源线	& 1 &  三相电源线，220V	\\
+
+% 		15	&	DC 电源线	& 1 &  双头 DC 插头	\\
+
+% 		16	&	USB 线	& 1 &  A 公口转 A 公口	\\
+
+% 		17	&	USB 线	& 1 &  A-B 口，CMOS 相机用	\\
+
+% 		18	&	面阵 CCD 组件	& 1 &  RL-CC01，C 接口，集成测试端子，USB 端口输出	\\
+
+% 		19	&	线阵 CCD 组	& 1 &  RL-CC02，M52 接口，USB 输出	\\
+
+% 		20	&	BNC-2mm 信号测试线	& 1 &  1 头 BNC，另外 2 头是 2mm 标准插头，可多对接，L=1.2m	\\
+
+% 		21	&	被测工件	& 1 &  两种直径测试标准件 Φ10，Φ12	\\
+
+% 		22	&	软件光盘	& 1 &  CCD 实验线阵部分	\\
+
+% 		23	&	透镜/发射镜支架	& 1 &  JT-JJ01，Φ45 内孔，可装 Φ20，Φ25.4，Φ30，Φ40mm 的镜片	\\
+
+% 		24	&	镜圈	& 1 &  JT-JQ40，外径 Φ45mm，装 Φ40mm 镜片	\\
+
+% 		25	&	磁性表座	& 1 &  RL-MB01，外形 61x51x55mm，吸力 45kg	\\
+
+% 		26	&	高亮度 LED 照明光源	& 1 &  RL-LED01-W，白色	\\
+
+% 		27	&	白屏（带刻度）	& 1 &  DS0101，外形 210x150x2mm,单面带一维刻度	\\
+
+% 		28	&	加强铝反射镜	& 1 &  MIR0101，Φ40x4mm，装在透镜/反射镜座	\\
+
+% 		29	&	钢尺	& 1 &  500mm	\\
+
+% 		30	&	LED 可调电源	& 1 &  RL-AP01，外形 85x100mm，220V 输入，9V 输出	\\
+
+% 		31	&	干版夹	& 1 &  JT-GB01，外形 60x26x24mm	\\
+
+% 		32	&	变焦镜头	& 1 &  EV0410MC.HR，1/2”，f4~12mm，F1.6	\\
+
+% 		33	&	H 型被测物	& 1 &  和白屏夹至干板夹正面	\\
+
+% 		\hline
+% 	\end{tabular}
+% 	\label{tbl:gamma 能谱测量实验用具}
+% \end{table}
+
+\begin{longtable}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+	\caption{$\gamma$ 能谱测量实验用具}\\
+	\hline
+	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+	\hline
+	\endfirsthead
+
+	\multicolumn{4}{c}%
+	{续上页} \\
+	\hline
+	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+	\hline
+	\endhead
+
+	\hline \multicolumn{4}{r}{继续下页} \\
+	\endfoot
+
+	\hline
+	\endlastfoot
+
+	1 & 实验机箱 & 1 &  \\
+	2 & 90mm 导轨 & 1 & RL-POR01，90mm 宽，30mm 高，600mm 长 \\
+	3 & 90mm 滑块 & 3 & RL-RC01，120mm 宽，40mm 长 \\
+	4 & 90mm 旋转滑块 & 1 & RL-RC02-R，120mm 宽，65mm 长 \\
+	5 & 调节套筒 & 1 & RL-PH01，L51mm \\
+	6 & 调节套筒 & 3 & RL-PH02，L76mm \\
+	7 & 支杆 & 1 & RL-PO02，L51mm，双头阳螺纹 \\
+	8 & 支杆 & 3 & RL-PO02，L76mm，双头阳螺纹 \\
+	9 & 激光管夹持器 & 1 & RL-LH01，Φ25~Φ50mm，V 型 \\
+	10 & 光纤准直镜 & 1 & RL-CL11，通光 Φ1mm，接口FC/PC \\
+	11 & 光纤准直镜 & 1 & RL-CL51，通光 Φ30mm，接口 FC/PC \\
+	12 & 相机防尘盖 & 1 & C 接口 \\
+	13 & 光纤耦合半导体激光器 & 1 & 650nm，2mW，功率可调 \\
+	14 & 电源线 & 1 & 三相电源线，220V \\
+	15 & DC 电源线 & 1 & 双头 DC 插头 \\
+	16 & USB 线 & 1 & A 公口转 A 公口 \\
+	17 & USB 线 & 1 & A-B 口，CMOS 相机用 \\
+	18 & 面阵 CCD 组件 & 1 & RL-CC01，C 接口，集成测试端子，USB 端口输出 \\
+	19 & 线阵 CCD 组 & 1 & RL-CC02，M52 接口，USB 输出 \\
+	20 & BNC-2mm 信号测试线 & 1 & 1 头 BNC，另外 2 头是 2mm 标准插头，可多对接，L=1.2m \\
+	21 & 被测工件 & 1 & 两种直径测试标准件 Φ10，Φ12 \\
+	22 & 软件光盘 & 1 & CCD 实验线阵部分 \\
+	23 & 透镜/发射镜支架 & 1 & JT-JJ01，Φ45 内孔，可装 Φ20，Φ25.4，Φ30，Φ40mm 的镜片 \\
+	24 & 镜圈 & 1 & JT-JQ40，外径 Φ45mm，装 Φ40mm 镜片 \\
+	25 & 磁性表座 & 1 & RL-MB01，外形 61x51x55mm，吸力 45kg \\
+	26 & 高亮度 LED 照明光源 & 1 & RL-LED01-W，白色 \\
+	27 & 白屏（带刻度） & 1 & DS0101，外形 210x150x2mm,单面带一维刻度 \\
+	28 & 加强铝反射镜 & 1 & MIR0101，Φ40x4mm，装在透镜/反射镜座 \\
+	29 & 钢尺 & 1 & 500mm \\
+	30 & LED 可调电源 & 1 & RL-AP01，外形 85x100mm，220V 输入，9V 输出 \\
+	31 & 干版夹 & 1 & JT-GB01，外形 60x26x24mm \\
+	32 & 变焦镜头 & 1 & EV0410MC.HR，1/2”，f4~12mm，F1.6 \\
+	33 & H 型被测物 & 1 & 和白屏夹至干板夹正面 \\
+\end{longtable}
+
+
+
+
+% \clearpage
+
+\subsection{原理概述}
+
+	
+
+
+	
+
+
+
+
+\subsection{实验前思考题}
+
+% 思考题1
+\begin{question}
+	MOS 电容器工作原理是什么？
+\end{question}
+
+
+
+	
+
+
+
+
+
+% 思考题2
+\begin{question}
+	光电转换的物理原理是什么？
+\end{question}
+
+	
+
+
+
+	
+
+
+
+
+% 思考题3
+\begin{question}
+	CCD 驱动脉冲是如何实现信号电荷转移和输运的？
+\end{question}
+
+	
+
+
+
+
+
+
+
+
+% 思考题4
+\begin{question}
+	请解释转移脉冲 SH 在线阵 CCD 中的作用？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题5
+\begin{question}
+	解释为什么修改驱动频率和积分时间会导致线阵 CCD 相机输出信号产生影响？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题6
+\begin{question}
+	如果输入到线阵 CCD 光敏面上的光太强或积分时间太长，使 CCD 器件工作在饱和状态，此时线阵 CCD 输出信号有何特点？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题7
+\begin{question}
+	相机与反射镜距离的变化会有什么样的影响？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题8
+\begin{question}
+	如果被测物体尺寸宽度太大，超过了线阵 CCD 相机测量范围，有什么方法可以改善实验中的光路呢？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题9
+\begin{question}
+	如果图像为全黑或全白，则对应的灰度值应该是多少？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题10
+\begin{question}
+	为什么直方图均衡化能有效增强图像?
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题11
+\begin{question}
+	白色的图片在各个不同的通道灰度值有什么特点？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% 思考题12
+\begin{question}
+	如果被测物体较厚，还能用上述光路测量么？
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级 \\
+	\hline
+	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	\hline
+	室温：& 26℃ & 实验地点： & A402 \\
+	\hline
+	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	\hline
+	实验时间：& 2024/11/22& 教师签名：&\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D7 \quad CCD 原理与应用 \quad\heiti 实验记录}
+
+\subsection{实验内容和步骤}
+
+	\subsubsection{线阵 CCD 驱动及其特性测量}
+		
+
+
+
+
+
+
+
+
+
+
+	\subsubsection{利用线阵 CCD 测量工件直径和角位置}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\subsubsection{面阵 CCD 驱动及特性测量（选做）}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\subsubsection{面阵 CCD 图像采集、运算和颜色处理}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\subsubsection{利用面阵 CCD 测量工件二维尺寸}
+
+
+
+		
+
+
+\subsection{实验过程中遇到的问题记录}
+
+	\begin{enumerate}
+		\item 
+			
+	\end{enumerate}
+
+
+
+\subsection{实验数据记录}
+
+	见\cref{fig:data}
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	% 第一行的三张图片
+	% 	\subfloat[原始数据1]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-1.jpg}\label{fig:data1}}
+	% 	\quad
+	% 	\subfloat[原始数据2]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-2.jpg}\label{fig:data2}}
+	% 	\quad
+	% 	\subfloat[原始数据3]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-3.jpg}\label{fig:data3}}
+	% 	\newline
+	% 	% 第二行的两张图片
+	% 	\subfloat[原始数据4]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-4.jpg}\label{fig:data4}}
+	% 	\quad
+	% 	\subfloat[原始数据5]
+	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-5.jpg}\label{fig:data5}}
+	% 	\caption{原始数据}
+	% 	\label{fig:data}
+	% \end{figure}
+	
+
+
+
+%\subsection{原始数据记录}
+
+
+% \clearpage
+
+	
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名： & 戴鹏辉 & 学号：& 22344016\\
+	\hline
+    日期：& 2024// & 评分： &\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D6 \quad $\gamma$ 能谱测量实验 \quad\heiti 分析与讨论}
+
+\subsection{实验数据分析}
+
+
+	\subsubsection{实验一 \quad 对探测器进行能量刻度标定：}
+
+		\begin{enumerate}
+			\item 使用三个已知能量的峰位进行能量刻度标定：
+				\begin{itemize}
+					\item $^{137}\mathrm{Cs}$放射源：主峰峰位：431，对应能量：0.662MeV
+					\item $^{60}\mathrm{Co}$放射源：主峰1峰位：865，对应能量：1.332MeV
+					\item $^{60}\mathrm{Co}$放射源：主峰2峰位：771，对应能量：1.173MeV
+				\end{itemize}
+
+			\item 由测量结果，对探测器进行能量标定，得到结果如\cref{fig:D6-3-1}：
+				
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\linewidth]{D6-3-1.png}
+					\caption{对探测器进行能量标定}
+					\label{fig:D6-3-1}
+				\end{figure}
+
+
+			\item 得到拟合结果为：
+			\[
+				E = 0.0015 \cdot d - 0.0005 \ (\mathrm{Me V})
+			\]
+
+		\end{enumerate}
+
+
+	\subsubsection{实验二 \quad 计算$^{137}\mathrm{Cs}$的康普顿散射峰和背散射峰能量与测量值的相对误差}
+
+		\begin{enumerate}
+			\item 理论计算得到：
+				\begin{itemize}
+					\item 康普顿散射峰能量：$E_{max} = 0.47765 \ \mathrm{(MeV)}$
+					\item 康普顿背散射峰能量：$E_b = E_{\gamma} - E_{max} = 0.18345 \ \mathrm{(MeV)}$
+				\end{itemize}
+
+			\item 实验测量得到：
+				\begin{enumerate}
+					\item 康普顿散射峰峰位：289 $\Rightarrow E'_{max} = 0.0015 \times 289 - 0.0005 \ \mathrm{(MeV)} = 0.433 \ \mathrm{(MeV)}$
+					\item 康普顿背散射峰峰位：141 $\Rightarrow E'_b = 0.0015 \times 141 - 0.0005 \ \mathrm{(MeV)} = 0.211 \ \mathrm{(MeV)}$
+				\end{enumerate}
+
+			\item 实验值与理论值的相对误差为：
+				\begin{enumerate}
+					\item $\eta_{E_{max}} = \frac{0.433 - 0.47765}{0.47765} \times 100 \% =  -9.35 \% $
+					\item $\eta_{E_b} = \frac{0.211 - 0.18345}{0.18345} \times 100 \% = 15.02 \% $
+				\end{enumerate}
+		\end{enumerate}
+
+
+
+
+
+	\subsubsection{实验三 \quad 估算多道分析仪能量分辨率}
+
+
+
+
+	% \subsubsection{实验四 \quad XXXXXXXXXXXXXXXXXXXXXXX}
+
+
+		
+
+	
+\subsection{实验后思考题}
+
+% 思考题1
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+	
+% 思考题2
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+
+
+
+
+
+
+
+% 思考题3
+\begin{question}
+	XXXXXXXXXXXXXXXXXXXXXX
+\end{question}
+
+
+
+\clearpage
+\section{D6 \quad $\gamma$ 能谱测量实验 \quad\heiti 实验总结}
+
+	\subsection{实验分工}
+
+		
+
+
+	\subsection{实验心得}
+
+	
+
+	
+	
+
+
+\end{document}
