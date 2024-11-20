@@ -317,11 +317,35 @@
 
 
 		\item \textbf{估算能量分辨率：}
+		
+			由\cref{fig:Data1-主峰}可得，内置软件的计算结果为：
+
+			\begin{itemize}
+				\item 峰位：420.33
+				\item 半高宽：45.34
+				\item 半高宽/峰位：10.79\%
+			\end{itemize}
+
+			但是由于肉眼可见的寻峰有误，这个结果肯定也是有误的。我们将在后面的数据分析中解决这个问题。
 			
-			\begin{enumerate}
-				\item $^{137}\mathrm{Cs}$放射源：主峰峰位：431
-				\item $^{137}\mathrm{Cs}$放射源：主峰峰位半高宽：44.61
-			\end{enumerate}
+			% 对所得到的能谱进行寻峰、并获取全高半宽，得到结果如\cref{fig:D6-3-2}：
+			
+			% \begin{figure}[htbp]
+			% 	\centering
+			% 	\includegraphics[width=0.7\linewidth]{D6-3-2.png}
+			% 	\caption{$^{137}\mathrm{Cs}$主峰与全高半宽}
+			% 	\label{fig:D6-3-2}
+			% \end{figure}
+
+			% \begin{enumerate}
+			% 	\item $^{137}\mathrm{Cs}$放射源：主峰峰位：432.0
+			% 	\item $^{137}\mathrm{Cs}$放射源：主峰峰位半高宽：47.28
+			% \end{enumerate}
+
+			% 于是可计算多道分析仪能量分辨率：
+			% \begin{align*}
+			% 	\eta = \frac{47.28 \times }{}
+			% \end{align*}
 
 	\end{itemize}
 		
@@ -335,7 +359,8 @@
 	\subsection{实验过程中遇到的问题记录}
 
 		\begin{enumerate}
-			\item 
+			\item 实验中测量$^{60}\mathrm{Co}$的能谱图时，发现两个主峰非常不明显。可能的原因是“模拟软件的板卡数据有误”，但是主峰的位置是正确的，不影响数据分析。
+			\item 由于软件内置的寻峰算法效果较差，肉眼可见的寻峰有误，所以只能进行手动寻峰，人工读数；在半高宽的测量值，人工读数也不可靠，只能通过后期的数据分析解决。
 				
 		\end{enumerate}
 
@@ -343,7 +368,14 @@
 
 \subsection{实验数据记录}
 
-	见\cref{fig:data}
+	见\cref{fig:Data}
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\linewidth]{Data-gamma.jpg}
+		\caption{原始数据记录}
+		\label{fig:Data}
+	\end{figure}
 
 	% \begin{figure}[htbp]
 	% 	\centering
@@ -386,7 +418,7 @@
 	\hline
 	姓名： & 戴鹏辉 & 学号：& 22344016\\
 	\hline
-    日期：& 2024// & 评分： &\\
+    日期：& 2024/11/15 & 评分： &\\
 	\hline
 	\end{tabularx}
 \end{table}
@@ -401,7 +433,7 @@
 		\begin{enumerate}
 			\item 使用三个已知能量的峰位进行能量刻度标定：
 				\begin{itemize}
-					\item $^{137}\mathrm{Cs}$放射源：主峰峰位：431，对应能量：0.622MeV
+					\item $^{137}\mathrm{Cs}$放射源：主峰峰位：431，对应能量：0.662MeV
 					\item $^{60}\mathrm{Co}$放射源：主峰1峰位：865，对应能量：1.332MeV
 					\item $^{60}\mathrm{Co}$放射源：主峰2峰位：771，对应能量：1.173MeV
 				\end{itemize}
@@ -426,14 +458,53 @@
 
 	\subsubsection{实验二 \quad 计算$^{137}\mathrm{Cs}$的康普顿散射峰和背散射峰能量与测量值的相对误差}
 
+		\begin{enumerate}
+			\item 理论计算得到：
+				\begin{itemize}
+					\item 康普顿散射峰能量：$E_{max} = 0.47765 \ \mathrm{(MeV)}$
+					\item 康普顿背散射峰能量：$E_b = E_{\gamma} - E_{max} = 0.18345 \ \mathrm{(MeV)}$
+				\end{itemize}
+
+			\item 实验测量得到：
+				\begin{enumerate}
+					\item 康普顿散射峰峰位：289 $\Rightarrow E'_{max} = 0.0015 \times 289 - 0.0005 \ \mathrm{(MeV)} = 0.433 \ \mathrm{(MeV)}$
+					\item 康普顿背散射峰峰位：141 $\Rightarrow E'_b = 0.0015 \times 141 - 0.0005 \ \mathrm{(MeV)} = 0.211 \ \mathrm{(MeV)}$
+				\end{enumerate}
+
+			\item 实验值与理论值的相对误差为：
+				\begin{enumerate}
+					\item $\eta_{E_{max}} = \frac{0.433 - 0.47765}{0.47765} \times 100 \% =  -9.35 \% $
+					\item $\eta_{E_b} = \frac{0.211 - 0.18345}{0.18345} \times 100 \% = 15.02 \% $
+				\end{enumerate}
+		\end{enumerate}
 
 
-	\subsubsection{实验三 \quad XXXXXXXXXXXXXXXXXXXXX}
 
 
 
+	\subsubsection{实验三 \quad 估算多道分析仪能量分辨率}
 
-	\subsubsection{实验四 \quad XXXXXXXXXXXXXXXXXXXXXXX}
+		对测量得到的能谱图进行寻峰以及半高宽测量，结果如\cref{fig:D6-3-2}：
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\linewidth]{D6-3-2.png}
+			\caption{$^{137}\mathrm{Cs}$主峰与全高半宽}
+			\label{fig:D6-3-2}
+		\end{figure}
+
+		\begin{enumerate}
+			\item $^{137}\mathrm{Cs}$放射源：主峰峰位：432.0
+			\item $^{137}\mathrm{Cs}$放射源：主峰峰位半高宽：47.28
+		\end{enumerate}
+
+		于是可计算多道分析仪能量分辨率：
+		\begin{align*}
+			\eta = \frac{47.28 \times 0.0015 - 0.0005 \ \mathrm{(MeV)}}{432.0 \times 0.0015 - 0.0005 \ \mathrm{(MeV)}} \times 100 \% = 10.876 \%
+		\end{align*}
+
+
+	% \subsubsection{实验四 \quad XXXXXXXXXXXXXXXXXXXXXXX}
 
 
 		
