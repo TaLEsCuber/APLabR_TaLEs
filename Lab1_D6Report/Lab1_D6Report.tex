@@ -430,12 +430,39 @@
 
 	\subsubsection{实验一 \quad 对探测器进行能量刻度标定：}
 
+		由于软件内置的寻峰算法效果较差，我们重新使用了自己的寻峰算法，对数据进行了如下处理：
+		\begin{itemize}
+			\item 使用 Savitzky-Golay 滤波器对数据进行平滑，以减少噪声对主峰检测的影响。
+			\item 使用 scipy. signal. find\_peaks 函数找到信号中的所有峰值，并确定主峰（最高的峰值）。
+			\item 计算主峰的半高宽。
+			\item 结果如\cref{fig:D6-3-2}、\cref{fig:D6-3-3}：
+		\end{itemize}
+
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\linewidth]{D6-3-2.png}
+			\caption{$^{137}\mathrm{Cs}$主峰与全高半宽}
+			\label{fig:D6-3-2}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\linewidth]{D6-3-3.png}
+			\caption{$^{60}\mathrm{Co}$滤波后的寻峰结果}
+			\label{fig:D6-3-3}
+		\end{figure}
+
+
+
+
+
 		\begin{enumerate}
 			\item 使用三个已知能量的峰位进行能量刻度标定：
 				\begin{itemize}
-					\item $^{137}\mathrm{Cs}$放射源：主峰峰位：431，对应能量：0.662MeV
-					\item $^{60}\mathrm{Co}$放射源：主峰1峰位：865，对应能量：1.332MeV
-					\item $^{60}\mathrm{Co}$放射源：主峰2峰位：771，对应能量：1.173MeV
+					\item $^{137}\mathrm{Cs}$放射源：主峰峰位：432.0，对应能量：0.662MeV
+					\item $^{60}\mathrm{Co}$放射源：主峰1峰位：858，对应能量：1.332MeV
+					\item $^{60}\mathrm{Co}$放射源：主峰2峰位：755，对应能量：1.173MeV
 				\end{itemize}
 
 			\item 由测量结果，对探测器进行能量标定，得到结果如\cref{fig:D6-3-1}：
@@ -450,7 +477,7 @@
 
 			\item 得到拟合结果为：
 			\[
-				E = 0.0015 \cdot d - 0.0005 \ (\mathrm{Me V})
+				E = 0.0016 \cdot d - 0.0180 \ (\mathrm{Me V})
 			\]
 
 		\end{enumerate}
@@ -467,14 +494,14 @@
 
 			\item 实验测量得到：
 				\begin{enumerate}
-					\item 康普顿散射峰峰位：289 $\Rightarrow E'_{max} = 0.0015 \times 289 - 0.0005 \ \mathrm{(MeV)} = 0.433 \ \mathrm{(MeV)}$
-					\item 康普顿背散射峰峰位：141 $\Rightarrow E'_b = 0.0015 \times 141 - 0.0005 \ \mathrm{(MeV)} = 0.211 \ \mathrm{(MeV)}$
+					\item 康普顿散射峰峰位：289 $\Rightarrow E'_{max} = 0.0016 \times 289 - 0.0180 \ \mathrm{(MeV)} = 0.4444 \ \mathrm{(MeV)}$
+					\item 康普顿背散射峰峰位：141 $\Rightarrow E'_b = 0.0016 \times 141 - 0.0180 \ \mathrm{(MeV)} = 0.2076 \ \mathrm{(MeV)}$
 				\end{enumerate}
 
 			\item 实验值与理论值的相对误差为：
 				\begin{enumerate}
-					\item $\eta_{E_{max}} = \frac{0.433 - 0.47765}{0.47765} \times 100 \% =  -9.35 \% $
-					\item $\eta_{E_b} = \frac{0.211 - 0.18345}{0.18345} \times 100 \% = 15.02 \% $
+					\item $\eta_{E_{max}} = \frac{0.4444 - 0.47765}{0.47765} \times 100 \% =  -6.961 \% $
+					\item $\eta_{E_b} = \frac{0.2076 - 0.18345}{0.18345} \times 100 \% = 13.164 \% $
 				\end{enumerate}
 		\end{enumerate}
 
@@ -484,14 +511,7 @@
 
 	\subsubsection{实验三 \quad 估算多道分析仪能量分辨率}
 
-		对测量得到的能谱图进行寻峰以及半高宽测量，结果如\cref{fig:D6-3-2}：
-
-		\begin{figure}[htbp]
-			\centering
-			\includegraphics[width=0.7\linewidth]{D6-3-2.png}
-			\caption{$^{137}\mathrm{Cs}$主峰与全高半宽}
-			\label{fig:D6-3-2}
-		\end{figure}
+		由\cref{fig:D6-3-2}，有：
 
 		\begin{enumerate}
 			\item $^{137}\mathrm{Cs}$放射源：主峰峰位：432.0
