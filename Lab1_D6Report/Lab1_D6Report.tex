@@ -44,7 +44,7 @@
 	\hline
 	专业：& 物理学 &年级：& 2022级\\
 	\hline
-	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	姓名：& 戴鹏辉 \& 杨舒云  & 学号： & 2344016 \& 22344020 \\
 	\hline
 	日期：& 2024/11/5 & 教师签名：& \\
 	\hline
@@ -121,8 +121,64 @@
 
 	伽马射线是一种波长极短（小于 0.2 \AA）的高能电磁波，具有显著的粒子特性、极高的能量和极强的穿透能力。伽马射线的来源包括粒子碰撞、正反粒子湮灭、能级跃迁和韧致辐射等过程。
 
-
 	
+	\begin{enumerate}
+		\item \textbf{伽马射线与物质的相互作用：}
+
+			\begin{itemize}
+				\item \textbf{光电效应：}
+				
+					当能量$E_{\gamma}$ 的入射 $\gamma$ 光子与物质中原子的束缚电子相互作用时，光子可以把全部能量转移给某个束缚电子，使电子脱离原子束缚而发射出去，光子本身消失，发射出去的电子称为光电子，这种过程称为光电效应。发射出光电子的动能
+					\[
+						E_e = E_{\gamma} - B_i
+					\]
+					$B_i$ 为束缚电子所在壳层的结合能。
+		
+		
+				\item \textbf{康普顿效应：}
+				
+					$\gamma$ 光子与自由静止的电子发生碰撞，而将一部分能量转移给电子，使电子成为反冲电子，$\gamma$ 光子被散射改变了原来的能量和方向，反冲电子的动能为：
+					\[
+						E_e = \frac{E_{\gamma}^2 (1 - \cos\theta)}{m_0 c^2 + E_{\gamma}(1 - \cos\theta)} = \frac{E_{\gamma}}{1 + \frac{m_0 c^2}{E_{\gamma} (1 - \cos\theta)}}
+					\]
+					$m_0 c^2$ 为电子静止质量，角度 $\theta$ 是 $\gamma$ 光子的散射角。当$\theta = 180^\circ$ 时，反冲电子的动能有最大值：
+					\[
+						E_{e,max} = \frac{E_\gamma}{1 + \frac{m_0 c^2}{2 E_\gamma}}
+					\]
+					这说明康普顿效应产生的反冲电子的能量有一上限最大值，称为康普顿边界。
+					
+					反冲电子以角度 $\varphi$ 出射，则$\varphi$ 和 $\theta$ 存在关系：
+					\[
+						\cot\varphi = (1 + \frac{E_{\gamma}}{m_0 c^2})\tan\frac{\theta}{2}
+					\]
+		
+		
+		
+				\item \textbf{电子对效应：}
+		
+					当 $\gamma$ 光子能量大于 $2 m_0 c^2$ 时，$\gamma$ 光子从原子核旁边经过并受到核的库仑场作用，可能转化为一个正电子和一个负电子，称为电子对效应。此时光子能量可表示为两个电子的动能与静止能量之和：
+					\[
+						E_\gamma = E_e^+ + E_e^- + 2 m_0 c^2
+					\]
+		
+		
+		
+		
+		
+		
+			\end{itemize}
+
+		\item \textbf{谱仪的能量刻度和分辨率：}
+			
+			应用 $\gamma$ 谱仪测定未知射线能谱时，必须先用已知能量的核素能谱来标定 $\gamma$ 谱仪。由于能量与各峰位道址是线性的：$E = k \cdot d + b$，因此能量刻度就是设法得到 $k$ 和 $b$。
+
+			$\gamma$ 能谱仪的一个重要指标是能量分辨率。定义谱仪能量分辨率：
+			\[
+				\eta = \frac{FWHM}{E_\gamma} \times 100 \%
+			\]
+			其中 FWHM(Full Width Half Maximum)表示选定能谱峰的半高全宽，$E_\gamma$为与谱峰对应的$\gamma$光子能量，$\eta$表示闪烁谱仪在测量能量时能够分辨两条靠近的谱线的本领。
+			
+	\end{enumerate}
 
 
 
@@ -134,49 +190,50 @@
 	简述 $\gamma$ 光子与物质的相互作用类型，及其产生的次级粒子与原入射光子的能量关系。
 \end{question}
 
-	\begin{itemize}
-		\item \textbf{光电效应：}
+	% \begin{itemize}
+	% 	\item \textbf{光电效应：}
 		
-			当能量$E_{\gamma}$ 的入射 $\gamma$ 光子与物质中原子的束缚电子相互作用时，光子可以把全部能量转移给某个束缚电子，使电子脱离原子束缚而发射出去，光子本身消失，发射出去的电子称为光电子，这种过程称为光电效应。发射出光电子的动能
-			\[
-				E_e = E_{\gamma} - B_i
-			\]
-			$B_i$ 为束缚电子所在壳层的结合能。
+	% 		当能量$E_{\gamma}$ 的入射 $\gamma$ 光子与物质中原子的束缚电子相互作用时，光子可以把全部能量转移给某个束缚电子，使电子脱离原子束缚而发射出去，光子本身消失，发射出去的电子称为光电子，这种过程称为光电效应。发射出光电子的动能
+	% 		\[
+	% 			E_e = E_{\gamma} - B_i
+	% 		\]
+	% 		$B_i$ 为束缚电子所在壳层的结合能。
 
 
-		\item \textbf{康普顿效应：}
+	% 	\item \textbf{康普顿效应：}
 		
-			$\gamma$ 光子与自由静止的电子发生碰撞，而将一部分能量转移给电子，使电子成为反冲电子，$\gamma$ 光子被散射改变了原来的能量和方向，反冲电子的动能为：
-			\[
-				E_e = \frac{E_{\gamma}^2 (1 - \cos\theta)}{m_0 c^2 + E_{\gamma}(1 - \cos\theta)} = \frac{E_{\gamma}}{1 + \frac{m_0 c^2}{E_{\gamma} (1 - \cos\theta)}}
-			\]
-			$m_0 c^2$ 为电子静止质量，角度 $\theta$ 是 $\gamma$ 光子的散射角。当$\theta = 180^\circ$ 时，反冲电子的动能有最大值：
-			\[
-				E_{e,max} = \frac{E_\gamma}{1 + \frac{m_0 c^2}{2 E_\gamma}}
-			\]
-			这说明康普顿效应产生的反冲电子的能量有一上限最大值，称为康普顿边界。
+	% 		$\gamma$ 光子与自由静止的电子发生碰撞，而将一部分能量转移给电子，使电子成为反冲电子，$\gamma$ 光子被散射改变了原来的能量和方向，反冲电子的动能为：
+	% 		\[
+	% 			E_e = \frac{E_{\gamma}^2 (1 - \cos\theta)}{m_0 c^2 + E_{\gamma}(1 - \cos\theta)} = \frac{E_{\gamma}}{1 + \frac{m_0 c^2}{E_{\gamma} (1 - \cos\theta)}}
+	% 		\]
+	% 		$m_0 c^2$ 为电子静止质量，角度 $\theta$ 是 $\gamma$ 光子的散射角。当$\theta = 180^\circ$ 时，反冲电子的动能有最大值：
+	% 		\[
+	% 			E_{e,max} = \frac{E_\gamma}{1 + \frac{m_0 c^2}{2 E_\gamma}}
+	% 		\]
+	% 		这说明康普顿效应产生的反冲电子的能量有一上限最大值，称为康普顿边界。
 			
-			反冲电子以角度 $\varphi$ 出射，则$\varphi$ 和 $\theta$ 存在关系：
-			\[
-				\cot\varphi = (1 + \frac{E_{\gamma}}{m_0 c^2})\tan\frac{\theta}{2}
-			\]
+	% 		反冲电子以角度 $\varphi$ 出射，则$\varphi$ 和 $\theta$ 存在关系：
+	% 		\[
+	% 			\cot\varphi = (1 + \frac{E_{\gamma}}{m_0 c^2})\tan\frac{\theta}{2}
+	% 		\]
 
 
 
-		\item \textbf{电子对效应：}
+	% 	\item \textbf{电子对效应：}
 
-			当 $\gamma$ 光子能量大于 $2 m_0 c^2$ 时，$\gamma$ 光子从原子核旁边经过并受到核的库仑场作用，可能转化为一个正电子和一个负电子，称为电子对效应。此时光子能量可表示为两个电子的动能与静止能量之和：
-			\[
-				E_\gamma = E_e^+ + E_e^- + 2 m_0 c^2
-			\]
-
-
+	% 		当 $\gamma$ 光子能量大于 $2 m_0 c^2$ 时，$\gamma$ 光子从原子核旁边经过并受到核的库仑场作用，可能转化为一个正电子和一个负电子，称为电子对效应。此时光子能量可表示为两个电子的动能与静止能量之和：
+	% 		\[
+	% 			E_\gamma = E_e^+ + E_e^- + 2 m_0 c^2
+	% 		\]
 
 
 
 
-	\end{itemize}
 
+
+	% \end{itemize}
+
+	详见上述实验原理部分。
 	
 
 
@@ -262,11 +319,11 @@
 	\hline
 	专业：& 物理学 &年级：& 2022级 \\
 	\hline
-	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	姓名：& 戴鹏辉 \& 杨舒云 & 学号：& 22344016 \& 22344020 \\
 	\hline
-	室温：& 26℃ & 实验地点： & A413 \\
+	室温：& 26℃ & 实验地点： & A404 \\
 	\hline
-	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	学生签名：& 见附件 & 评分： &\\
 	\hline
 	实验时间：& 2024/10/31& 教师签名：&\\
 	\hline
@@ -416,7 +473,7 @@
 	\hline
 	专业：& 物理学 &年级：& 2022级\\
 	\hline
-	姓名： & 戴鹏辉 & 学号：& 22344016\\
+	姓名： & 戴鹏辉 \& 杨舒云 & 学号：& 22344016 \& 22344020\\
 	\hline
     日期：& 2024/11/15 & 评分： &\\
 	\hline
@@ -428,7 +485,7 @@
 \subsection{实验数据分析}
 
 
-	\subsubsection{实验一 \quad 对探测器进行能量刻度标定：}
+	\subsubsection{对探测器进行能量刻度标定：}
 
 		由于软件内置的寻峰算法效果较差，我们重新使用了自己的寻峰算法，对数据进行了如下处理：
 		\begin{itemize}
@@ -483,7 +540,7 @@
 		\end{enumerate}
 
 
-	\subsubsection{实验二 \quad 计算$^{137}\mathrm{Cs}$的康普顿散射峰和背散射峰能量与测量值的相对误差}
+	\subsubsection{计算$^{137}\mathrm{Cs}$的康普顿散射峰和背散射峰能量与测量值的相对误差}
 
 		\begin{enumerate}
 			\item 理论计算得到：
@@ -503,13 +560,18 @@
 					\item $\eta_{E_{max}} = \frac{0.4444 - 0.47765}{0.47765} \times 100 \% =  -6.961 \% $
 					\item $\eta_{E_b} = \frac{0.2076 - 0.18345}{0.18345} \times 100 \% = 13.164 \% $
 				\end{enumerate}
+
+			
+			\item 可以看到，康普顿散射峰与背散射峰的实验值与理论值之间的相对误差均在15 \% 之内。误差的来源可能是“康普顿散射峰与背散射峰的实验时的道址数”不准确，这两个峰并不在能谱的极大值位置，所以难以使用寻峰函数直接寻找，只能手动读数，导致误差较大。 
+
+
 		\end{enumerate}
 
 
 
 
 
-	\subsubsection{实验三 \quad 估算多道分析仪能量分辨率}
+	\subsubsection{估算多道分析仪能量分辨率}
 
 		由\cref{fig:D6-3-2}，有：
 
@@ -520,7 +582,7 @@
 
 		于是可计算多道分析仪能量分辨率：
 		\begin{align*}
-			\eta = \frac{47.28 \times 0.0015 - 0.0005 \ \mathrm{(MeV)}}{432.0 \times 0.0015 - 0.0005 \ \mathrm{(MeV)}} \times 100 \% = 10.876 \%
+			\eta = \frac{47.28 \times 0.0016 - 0.0180 \ \mathrm{(MeV)}}{432.0 \times 0.0016 - 0.0180 \ \mathrm{(MeV)}} \times 100 \% = 8.563 \%
 		\end{align*}
 
 
@@ -530,32 +592,24 @@
 		
 
 	
-\subsection{实验后思考题}
+% \subsection{实验后思考题}
 
-% 思考题1
-\begin{question}
-	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-\end{question}
+% % 思考题1
+% \begin{question}
+% 	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+% \end{question}
 
 	
-% 思考题2
-\begin{question}
-	XXXXXXXXXXXXXXXXXXXXXX
-\end{question}
+% % 思考题2
+% \begin{question}
+% 	XXXXXXXXXXXXXXXXXXXXXX
+% \end{question}
 
 
-
-
-
-
-
-
-
-
-% 思考题3
-\begin{question}
-	XXXXXXXXXXXXXXXXXXXXXX
-\end{question}
+% % 思考题3
+% \begin{question}
+% 	XXXXXXXXXXXXXXXXXXXXXX
+% \end{question}
 
 
 
@@ -564,10 +618,35 @@
 
 	\subsection{实验分工}
 
+		本实验由戴鹏辉和杨舒云两人合作完成
+		\begin{enumerate}
+			\item 戴鹏辉完成实验操作部分和实验报告撰写部分。
+			\item 杨舒云完成实验数据分析与处理部分。
+		\end{enumerate}
+	
 		
 
 
-	\subsection{实验心得}
+	% \subsection{实验心得}
+
+	\subsection{Attachment}
+	% The arrangement of the experimental bench desktop is shown in %\cref{}.
+
+	个人签名见 \cref{fig:name1} 、 \cref{fig:name2}.
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{name.png}
+		\caption{signature1}
+		\label{fig:name1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.35\textwidth]{name-TaLEs.jpg}
+		\caption{signature2}
+		\label{fig:name2}
+	\end{figure}
 
 	
 

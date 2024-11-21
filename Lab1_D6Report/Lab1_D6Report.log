@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  21 NOV 2024 09:09
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  21 NOV 2024 14:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1258,8 +1258,6 @@ Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=t
 Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1272,6 +1270,8 @@ Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=t
 Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no γ (U+03B3) in font [lmroman10-regular]:mapping=tex-text;!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1280,34 +1280,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [6]
-File: ./images/name-TaLEs.jpg Graphic file (type bmp)
-<./images/name-TaLEs.jpg>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 333.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 333.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 333.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 333.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 276.
+(hyperref)                replaced by space on input line 333.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 276.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 276.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 276.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 276.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 276.
+(hyperref)                removing `\heiti' on input line 333.
 
 File: ./images/Data1-主峰.png Graphic file (type bmp)
 <./images/Data1-主峰.png>
@@ -1345,33 +1342,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 426.
+(hyperref)                replaced by space on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 426.
+(hyperref)                removing `math shift' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 426.
+(hyperref)                removing `\gamma' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 426.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 426.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 426.
+(hyperref)                removing `math shift' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 431.
+(hyperref)                replaced by space on input line 483.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 483.
 
 File: ./images/D6-3-2.png Graphic file (type bmp)
 <./images/D6-3-2.png>
@@ -1392,20 +1384,15 @@ File: ./images/D6-3-1.png Graphic file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 486.
+(hyperref)                removing `math shift' on input line 543.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `superscript' on input line 543.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 486.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 543.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1415,11 +1402,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [11]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 512.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1431,29 +1413,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 563.
+(hyperref)                replaced by space on input line 617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 563.
+(hyperref)                removing `math shift' on input line 617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 563.
+(hyperref)                removing `\gamma' on input line 617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 563.
+(hyperref)                removing `math shift' on input line 617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 563.
+(hyperref)                replaced by space on input line 617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 563.
+(hyperref)                removing `\heiti' on input line 617.
 
+File: ./images/name.png Graphic file (type bmp)
+<./images/name.png>
+File: ./images/name-TaLEs.jpg Graphic file (type bmp)
+<./images/name-TaLEs.jpg>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1473,13 +1459,13 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Lab1_D6Report.out' has not changed.
-(rerunfilecheck)             Checksum: 1AC28497EAC998E331122E2BA3A932F3;2578.
+(rerunfilecheck)             Checksum: 4B9BE260A1DFDA7865C79C71E2B3C5F5;2370.
  ) 
 Here is how much of TeX's memory you used:
- 39605 strings out of 474773
- 862200 string characters out of 5761289
- 1957842 words of memory out of 5000000
- 61146 multiletter control sequences out of 15000+600000
+ 39617 strings out of 474773
+ 862429 string characters out of 5761289
+ 1955842 words of memory out of 5000000
+ 61157 multiletter control sequences out of 15000+600000
  568490 words of font info for 105 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,14n,116p,449b,964s stack positions out of 10000i,1000n,20000p,200000b,200000s
