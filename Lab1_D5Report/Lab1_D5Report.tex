@@ -387,7 +387,7 @@
 
 			\begin{enumerate}
 				\item 将多道分析器的道数调整至 1024。
-				\item 测量两种一致能谱的放射源（$^{241}\mathrm{Am}$放射源（5.486MeV）以及$^{239}\mathrm{Pu}$（5.155MeV）），对能量刻度定标（要求峰位计数为 400 左右）。
+				\item 测量两种放射源的能谱（$^{241}\mathrm{Am}$放射源（5.486MeV）以及$^{239}\mathrm{Pu}$（5.155MeV）），对能量刻度定标（要求峰位计数为 400 左右）。
 				\item 测量结果见\cref{fig:data1}、\cref{fig:data2}
 			\end{enumerate}
 
@@ -457,7 +457,7 @@
 	\subsection{实验过程中遇到的问题记录}
 
 		\begin{enumerate}
-			\item 
+			\item 可以看到由于软件内置的寻峰算法有误，寻峰的结果较差，我们将在后续的数据处理中解决这个问题。
 				
 		\end{enumerate}
 
@@ -527,6 +527,32 @@
 
 	\subsubsection{实验一 \quad 对探测器进行能量刻度标定：}
 
+		由于软件内置的寻峰算法效果较差，我们重新使用了自己的寻峰算法，对数据进行了如下处理：
+		\begin{itemize}
+			\item 使用 Savitzky-Golay 滤波器对数据进行平滑，以减少噪声对主峰检测的影响。
+			\item 使用 scipy. signal. find\_peaks 函数找到信号中的所有峰值，并确定主峰（最高的峰值）。
+			\item 计算主峰的半高宽。
+			\item 结果如\cref{fig:D5-3-2}、\cref{fig:D5-3-3}：
+			\item 数据处理后的结果为：
+				\begin{enumerate}
+					\item $^{241}\mathrm{Am}$放射源：峰位：866.30(由于寻峰算法未成功寻峰，使用手动读数的结果)
+					\item $^{239}\mathrm{Pu}$放射源：峰位：831
+				\end{enumerate}
+		\end{itemize}
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\linewidth]{D5-3-2.png}
+			\caption{$^{241}\mathrm{Am}$能谱滤波处理+寻峰}
+			\label{fig:D5-3-2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\linewidth]{D5-3-3.png}
+			\caption{$^{239}\mathrm{Pu}$能谱滤波处理+寻峰}
+			\label{fig:D5-3-3}
+		\end{figure}
 
 		\begin{enumerate}
 			\item 由测量结果，对探测器进行能量标定，得到结果如\cref{fig:D5-3-1}：
@@ -541,7 +567,7 @@
 
 			\item 得到拟合结果为：
 				\[
-					E = 0.0111 \cdot d - 4.1106 \ (\mathrm{MeV})
+					E = 0.0094 \cdot d - 2.6371 \ (\mathrm{MeV})
 				\]
 
 		\end{enumerate}
@@ -554,27 +580,42 @@
 		\begin{itemize}
 			\item \textbf{计算Al膜厚度：}
 
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\linewidth]{D5-3-4.png}
+					\caption{$^{241}\mathrm{Am}$能谱通过Al膜后的滤波处理+寻峰}
+					\label{fig:D5-3-4}
+				\end{figure}
+
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\linewidth]{D5-3-5.png}
+					\caption{$^{241}\mathrm{Am}$能谱通过Mylar膜后的滤波处理+寻峰}
+					\label{fig:D5-3-5}
+				\end{figure}
+
+
 				\begin{enumerate}
-					\item 通过Al膜后，$\alpha$粒子的能谱探测到的峰位为 535.18.
+					\item 由\cref{fig:D5-3-4}，通过Al膜后，$\alpha$粒子的能谱探测到的峰位为 540.
 					\item 由实验一得到的能量标定曲线，可得到$\alpha$粒子通过Al膜后的能量为
 						\[
-							E = 0.0111 \times 535.18 - 4.1106 \ \mathrm{(MeV)} = 1.8299 \ \mathrm{(MeV)}
+							E = 0.0094 \times 540 - 2.6371 \ \mathrm{(MeV)} = 2.4264 \ \mathrm{(MeV)}
 						\]
 
 					\item 由经验公式可得到Al的阻止截面：
 						\[
-							\Sigma(E)_{Al} = 4.58822 \times 10^{-14} (eV/atom \cdot cm^2)
+							\Sigma(E)_{Al} = 4.0464 \times 10^{-14} (eV/atom \cdot cm^2)
 						\]
 					
 					\item 已知Al的单位体积内的原子数 $N_{Al} = 6.02 \times 10^{22} (atom/cm^3)$
 					\item 则Al的线性阻止本领：
 						\[
-							S_{Al} = -\frac{d E}{d x} = - \Sigma(E)_{Al} \cdot N_{Al} = 4.58822 \times 10^{-14} \times 6.02 \times 10^{22} (eV/cm) = -2.76211 \times 10^{9} (eV/cm) 
+							S_{Al} = -\frac{d E}{d x} = - \Sigma(E)_{Al} \cdot N_{Al} = 4.0464 \times 10^{-14} \times 6.02 \times 10^{22} (eV/cm) = -2.44 \times 10^{9} (eV/cm) 
 						\]
 
 					\item 则Al膜厚度为：
 						\[
-							\Delta x = \frac{\Delta E}{-\frac{d E}{d x}_{E_1}} = \frac{1.8299 - 5.486 (MeV)}{-2.76211 \times 10^{9} (eV/cm)}  = 1.324 \times 10^{-3} (cm) = 13.24 (\mu m)
+							\Delta x = \frac{\Delta E}{-\frac{d E}{d x}_{E_1}} = \frac{2.4264 - 5.486 (MeV)}{-2.44 \times 10^{9} (eV/cm)}  = 1.26 \times 10^{-3} (cm) = 12.6 (\mu m)
 						\]
 					
 				\end{enumerate}
@@ -584,30 +625,29 @@
 			\item \textbf{计算Mylar膜厚度：}
 			
 				\begin{enumerate}
-					\item 通过Mylar膜后，$\alpha$粒子的能谱探测到的峰位为 663.30.
+					\item 由\cref{fig:D5-3-5}，通过Mylar膜后，$\alpha$粒子的能谱探测到的峰位为 665.
 					\item 由实验一得到的能量标定曲线，可得到$\alpha$粒子通过Mylar膜后的能量为
 						\[
-							E = 0.0111 \times 663.30 - 4.1106 \ \mathrm{(MeV)} = 3.2520 \ \mathrm{(MeV)}
+							E = 0.0094 \times 665 - 2.6371 \ \mathrm{(MeV)} = 3.5985 \ \mathrm{(MeV)}
 						\]
 
 					\item 由经验公式可得到Mylar中各组分的阻止截面：
 						\begin{align*}
-							\Sigma(E)_{C} = 2.2508 \times 10^{-14} (eV/atom \cdot cm^2)	\\
-							\Sigma(E)_{H} = 1.5685 \times 10^{-15} (eV/atom \cdot cm^2)	\\
-							\Sigma(E)_{O} = 3.2948 \times 10^{-15} (eV/atom \cdot cm^2)	
+							\Sigma(E)_{C} = 2.1093 \times 10^{-14} (eV/atom \cdot cm^2)	\\
+							\Sigma(E)_{H} = 1.6384 \times 10^{-15} (eV/atom \cdot cm^2)	\\
+							\Sigma(E)_{O} = 3.4834 \times 10^{-15} (eV/atom \cdot cm^2)	
 						\end{align*}
 
 					
 					% \item 已知Al的单位体积内的原子数 $N_{Al} = 6.02 \times 10^{22} (atom/cm^3)$
 					\item 则Mylar的线性阻止本领：
 						\[
-							S_{Mylar} = -\frac{d E}{d x} = \frac{1}{A_c} \sum Y_i A_i (\frac{d E}{d x})_i = -5.7439 \times 10^{7} (eV/cm)
+							S_{Mylar} = -\frac{d E}{d x} = \frac{1}{A_c} \sum Y_i A_i (\frac{d E}{d x})_i = -5.97 \times 10^{8} (eV/cm)
 						\]
 
 					\item 则Mylar膜厚度为：
 						\[
-							\Delta x = \frac{\Delta E}{-\frac{d E}{d x}_{E_1}} = \frac{3.2520 - 5.486 (MeV)}{-5.7439 \times 10^{7} (eV/cm)}  = 0.003544
-							(cm) = 35.44 (\mu m)
+							\Delta x = \frac{\Delta E}{-\frac{d E}{d x}_{E_1}} = \frac{3.5985 - 5.486 (MeV)}{-5.97 \times 10^{8} (eV/cm)}  = 0.003161 (cm) = 31.61 (\mu m)
 						\]
 					
 				\end{enumerate}
