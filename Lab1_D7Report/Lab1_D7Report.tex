@@ -44,7 +44,7 @@
 	\hline
 	专业：& 物理学 &年级：& 2022级\\
 	\hline
-	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	姓名：& 戴鹏辉 \& 杨舒云  & 学号： & 2344016 \& 22344020 \\
 	\hline
 	日期：& 2024/11/20 & 教师签名：& \\
 	\hline
@@ -176,7 +176,7 @@
 % \end{table}
 
 \begin{longtable}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
-	\caption{$\gamma$ 能谱测量实验用具}\\
+	\caption{CCD 原理与应用实验仪器用具}\\
 	\hline
 	编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
 	\hline
@@ -237,9 +237,61 @@
 
 \subsection{原理概述}
 
+	CCD（Charged Coupled Device）起源于爱因斯坦的光电效应理论，是一种能够将光学信号转换为电信号的电荷耦合器件。
+
+	CCD 主要有线阵列和面阵列两种基本类型，各有不同的工作原理与特性。
+	\begin{itemize}
+		\item 线阵 CCD 通常用于自动化生产过程或生产线上用作在线非接触光电检测设备，主要检测物体的尺寸、运动速度、加速度、运动规律、位置、面形、粗糙度、变形量、光学特性变化、条码信息和其他应用。
+		\item 面阵 CCD 的优点是可以获取二维图像信息，广泛应用于面积、形状、尺寸、位置、甚至温度等的测量。
+	\end{itemize}
+
+	CCD 主要由感光部分（光敏单元）、转移存储（移位寄存器）和移位输出控制等部分组成。光敏单元由光电二极管或MOS/CMOS阵列构成，能够存储电荷，当光线照射时产生电子-空穴对并存储在单元中。存储的电荷在积分时间后转移到MOS结构的移位寄存器，该寄存器通过时钟脉冲信号控制电荷的定向转移。最终，信号电荷被输出到放大器，经过放大、滤波和模数转换后得到图像数据。
+
+	实验中使用东芝 TCD1208AP \textbf{二相线阵} CCD 芯片 和 索尼 ICX409AK \textbf{面阵} CCD 芯片。
+	\begin{itemize}
+		\item \textbf{二相线阵 CCD 芯片：}
+
+			其工作时主要由四路时序脉冲控制：SH，Φ1，Φ2 和 RS。其中 SH 是转移栅脉冲，Φ1，Φ2 是模拟转移寄存器驱动脉冲，RS 是复位脉冲。当 SH 高电平来到时，Φ1 为高电平，Φ2 为低电平（Φ1，Φ2 相互为互补时序脉冲）。
+
+		\item \textbf{面阵 CCD 芯片：}
+
+			在场消隐期间，V1~V4 及 H1、H2 上所加的脉冲均属于均衡脉冲，V1、V2 为正脉冲，使光积分电极完成光积分。在场消隐期间，V1 和 V3 的正脉冲完成信号由光积分区向垂直移位寄存器转移。
+	\end{itemize}
+
+
+
+	\textbf{驱动脉冲与积分时间关系：}
+
+		
+		CCD的输出信号由\textbf{驱动频率}和\textbf{积分时间}共同决定。驱动频率影响信号频率，积分时间影响帧速率。电荷转移时间限制了驱动脉冲频率的上限，若驱动频率过高导致电荷转移跟不上，转移效率会下降。积分时间是光敏单元感光时间，决定了信号电荷的感光和传输完成。
+
+
+
+	\vspace{5mm}
+	\textbf{投影成像测量法与角位置测量法：}
+
+		
+		投影成像测量法适用于测量与CCD传感面尺寸相当的物体尺寸，通过计算CCD上阴影宽度来获得被测物体尺寸，测量精度受平行光准直性和CCD像元尺寸影响，需要算法修正和尺寸标定以提高准确性。
+
+		角位置测量法利用CCD传感器进行非接触式测量，通过光学换算将CCD像素尺寸转换为反射镜旋转角位置，实现高精度、高可靠性的静态和动态小角度测量。测角系统工作原理涉及反射镜转动量转换为激光光束角度变化，CCD完成光电转换并输出与光电荷量成正比的电压信号，经过滤波、放大处理后，通过A/D转换和USB接口传输至计算机，上位机软件计算出转动角度量，实现角位置测量功能。
 	
 
 
+	\textbf{图像处理方法：}
+
+		\begin{itemize}
+			\item \textbf{二值化：}
+			
+				二值化处理是将图像和背景分离成二值（0,1）的方法，适用于不要求图像灰度的系统，以提高处理速度和降低成本。
+				通过光学系统将被测物体成像在CCD光敏像元上，利用CCD视频信号中图像尺寸边界处的电平变化，通过二值化处理将图像尺寸部分与背景部分分离成二值电平。
+
+				% 二值化处理方法包括固定阈值法、浮动阈值法和微分法等，其中固定阈值法通过硬件实现，通过电压比较器将CCD视频信号与可调电平阈值进行比较，输出二值化方波信号。
+
+				% 调节阈值电压可以改变方波脉冲的宽度，从而获得方波脉冲宽度与被测物体直径的精确关系。
+			\item \textbf{点运算：}
+			
+				点运算是数字图像处理中的基础技术，它通过灰度变换函数（GST）对输入图像的每个像素点进行处理，以生成输出图像。这种处理包括灰度的线性变换，可以调整图像的对比度和亮度；灰度的阈值变换，用于将图像转换为黑白二值图像；灰度的窗口变换，保持特定灰度范围内的值不变，而将范围外的值设置为0或255；灰度拉伸变换，通过设定转折点实现分段线性变换；以及灰度均衡变换，通过调整使图像的灰度分布更加均匀，提高图像的整体对比度。
+		\end{itemize}
 	
 
 
@@ -252,7 +304,7 @@
 	MOS 电容器工作原理是什么？
 \end{question}
 
-
+	MOS电容器的工作原理基于金属-氧化物-半导体结构，其中金属栅极和半导体衬底通过中间的氧化物绝缘层隔开，通过在栅极施加电压来控制半导体表面的电荷分布，形成不同的工作模式，包括堆积、耗尽和反型，从而实现电荷的存储和转移。
 
 	
 
@@ -265,7 +317,7 @@
 	光电转换的物理原理是什么？
 \end{question}
 
-	
+	光电转换的物理原理基于光电效应，即当光子与物质相互作用时，如果光子的能量大于物质中电子的束缚能，光子可以被物质吸收，导致电子从物质中释放出来，从而将光能转换为电能，这一过程在光电探测器、太阳能电池等设备中得到应用。
 
 
 
@@ -279,7 +331,7 @@
 	CCD 驱动脉冲是如何实现信号电荷转移和输运的？
 \end{question}
 
-	
+	CCD驱动脉冲实现信号电荷转移和输运的过程涉及时钟脉冲对CCD各电极的控制。在CCD中，电极被分为几组，称为相，每组电极施加相同的时钟驱动脉冲。这些驱动脉冲按一定规律变化，使得电极下的电荷包沿半导体表面按一定方向移动。CCD正常工作所需的相数由其内部结构决定，例如三相CCD需要三相时钟脉冲来实现电荷的逐单元转移。电荷转移时，通过改变相邻电极上的电压，形成势阱和势垒，使得电荷从一个电极转移到另一个电极。当电压设置使得相邻电极的势阱深度相同时，电荷会在两个电极下均匀分布，随后通过调整电压使电荷完全转移到下一个电极，实现电荷的有序转移。这种电荷耦合的过程使得CCD能够将光敏单元收集的信号电荷按特定顺序输出，完成信号电荷的转移和输运。
 
 
 
@@ -293,7 +345,7 @@
 	请解释转移脉冲 SH 在线阵 CCD 中的作用？
 \end{question}
 
-
+	转移脉冲SH在线阵CCD中的作用是沟通或阻隔光敏单元（PD）和电荷耦合器件（CCD）之间的电荷转移，并控制光积分时间。当SH脉冲为高电平时，它使得光敏单元和垂直寄存器之间的势阱沟通，允许光敏单元中的信号电荷转移到垂直寄存器中。当SH脉冲由高变低时，它形成的浅势阱将光敏单元和垂直寄存器下的势阱隔离开，从而结束电荷的转移过程。这样，存储栅的势阱进入光积分状态，而模拟移位寄存器将在其他驱动脉冲的作用下驱动信号电荷向左转移，最后信号经由输出端输出。简而言之，SH脉冲是控制电荷从一个区域转移到另一个区域的关键信号，对于CCD中信号电荷的采集和转移至关重要。
 
 
 
@@ -309,7 +361,7 @@
 	解释为什么修改驱动频率和积分时间会导致线阵 CCD 相机输出信号产生影响？
 \end{question}
 
-
+	修改驱动频率和积分时间会导致线阵CCD相机输出信号产生影响，原因在于这两个参数直接影响了CCD的电荷转移和光积分过程。驱动频率决定了CCD中电荷转移的速率，即电荷从一个像素转移到下一个像素的速度。当驱动频率改变时，电荷转移的周期也会随之变化，这会影响到每个像素的积分时间，即电荷在像素中积累的时间。积分时间是决定CCD感光时间的关键参数，它决定了光子在像素上积累电荷的时间长度。积分时间的增加会导致更多的光子被收集，从而增加输出信号的幅度；相反，积分时间的减少会导致较少的光子被收集，从而减少输出信号的幅度。因此，调整驱动频率和积分时间可以改变CCD的曝光特性和输出信号的强弱，这对于图像的亮度、对比度和噪声水平都有重要影响。
 
 
 
@@ -326,7 +378,7 @@
 	如果输入到线阵 CCD 光敏面上的光太强或积分时间太长，使 CCD 器件工作在饱和状态，此时线阵 CCD 输出信号有何特点？
 \end{question}
 
-
+	当输入到线阵CCD光敏面上的光太强或积分时间太长，导致CCD器件工作在饱和状态时，线阵CCD输出信号的幅度会达到其最大值，即饱和输出电压。这是因为CCD的光敏单元在积分时间内积累的电荷量超过了其能够存储的最大电荷量，导致无法再增加输出信号的幅度，输出信号的波形会失真，表现为信号电荷混杂，无法区分。在这种情况下，CCD的动态范围被超出，无法准确反映被测物体的光强分布，因此，为了避免信号失真，应适当调整光照强度或积分时间，确保CCD工作在非饱和状态。
 
 
 
@@ -385,7 +437,7 @@
 	如果图像为全黑或全白，则对应的灰度值应该是多少？
 \end{question}
 
-
+	对于一个全黑的图像，其对应的灰度值是0；而对于一个全白的图像，其对应的灰度值应该是255（在8位图像中）。在8位灰度图像中，灰度值的范围是从0到255，其中0代表黑色，255代表白色，中间的值代表不同级别的灰色。
 
 
 
@@ -405,7 +457,7 @@
 	为什么直方图均衡化能有效增强图像?
 \end{question}
 
-
+	它通过调整图像的灰度分布，使得像素值在整个灰度范围内更加均匀地分布。这种方法扩大了图像的动态范围，增强了图像的整体对比度，使得图像中的细节更加清晰可见。具体来说，直方图均衡化对图像中占比大的灰度级进行展宽，而对占比小的灰度级进行压缩，从而增大了图像的对比度。此外，直方图均衡化通过非线性拉伸，重新分配图像像素值，使得原本集中的像素值分布到所有可取值的范围，这样图像就既有明亮也有灰暗的部分，对比度和亮度得到了改善。因此，在人眼视觉里，经过直方图均衡化的图像会比没有经过处理的图像更加清晰。简而言之，直方图均衡化通过使图像的直方图分布更加均匀，有效地增强了图像的视觉效果和对比度。
 
 
 
@@ -465,13 +517,13 @@
 	\hline
 	专业：& 物理学 &年级：& 2022级 \\
 	\hline
-	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	姓名：& 戴鹏辉 \& 杨舒云 & 学号：& 22344016 \& 22344020 \\
 	\hline
 	室温：& 26℃ & 实验地点： & A402 \\
 	\hline
-	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	学生签名：& 见附件 & 评分： &\\
 	\hline
-	实验时间：& 2024/11/22& 教师签名：&\\
+	实验时间：& 2024/11/22 & 教师签名：&\\
 	\hline
 	\end{tabularx}
 \end{table}
@@ -482,7 +534,499 @@
 
 	\subsubsection{线阵 CCD 驱动及其特性测量}
 		
+		\begin{enumerate}
+			\item 用USB连接线将线阵相机连接到计算机，并打开计算机电源，确保CCD相机已开始正常工作。
+			\item 打开半导体激光器，将激光功率调整至最小，让激光照射到线阵 CCD 相机；且确保CCD工作在非饱和状态。
+			\item 用示波器分别观察转移脉冲 SH 信号（如\cref{fig:SH1}、\cref{fig:SH2}所示）和复位信号 RS（如\cref{fig:RS1}、\cref{fig:RS2}所示）。
+			\item 用示波器同时观察 Φ1，Φ2 信号（如\cref{fig:Phi1-Phi2}所示）。
+			\item 用示波器观察线阵 CCD 相机在光照和遮挡不同情况下的波形（如\cref{fig:有光照}、\cref{fig:无光照}所示）。
+		\end{enumerate}
 
+			% \begin{figure}[htbp]
+			% 	\centering
+			% 	\includegraphics[width=0.7\linewidth]{Data1-主峰.png}
+			% 	\caption{$^{137}\mathrm{Cs}$的能谱图}
+			% 	\label{fig:Data1-主峰}
+			% \end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\begin{minipage}[b]{0.45\textwidth}
+				  \includegraphics[width=\textwidth]{D7-2-1-SH1.png}
+				  \caption{SH信号的单个脉冲}
+				  \label{fig:SH1}
+				\end{minipage}
+				\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+				\begin{minipage}[b]{0.45\textwidth}
+				  \includegraphics[width=\textwidth]{D7-2-1-SH2.png}
+				  \caption{多个SH脉冲信号}
+				  \label{fig:SH2}
+				\end{minipage}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\begin{minipage}[b]{0.45\textwidth}
+				  \includegraphics[width=\textwidth]{D7-2-2-RS1.png}
+				  \caption{RS信号的单个脉冲}
+				  \label{fig:RS1}
+				\end{minipage}
+				\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+				\begin{minipage}[b]{0.45\textwidth}
+				  \includegraphics[width=\textwidth]{D7-2-2-RS2.png}
+				  \caption{多个RS脉冲信号}
+				  \label{fig:RS2}
+				\end{minipage}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\linewidth]{D7-2-3-Phi1-Phi2.png}
+				\caption{线阵CCD的Φ1-Φ2信号}
+				\label{fig:Phi1-Phi2}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\begin{minipage}[b]{0.45\textwidth}
+				  \includegraphics[width=\textwidth]{D7-2-4-有光照.png}
+				  \caption{有光照下CCD的输出}
+				  \label{fig:有光照}
+				\end{minipage}
+				\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+				\begin{minipage}[b]{0.45\textwidth}
+				  \includegraphics[width=\textwidth]{D7-2-4-无光照.png}
+				  \caption{无光照下CCD的输出}
+				  \label{fig:无光照}
+				\end{minipage}
+			\end{figure}
+
+
+
+
+
+
+
+	\subsubsection{利用线阵 CCD 测量工件直径和角位置}
+
+		\begin{itemize}
+			\item \textbf{测量工件直径}
+
+
+				\begin{enumerate}
+					\item 打开线阵CCD相机测试软件，在物体输入文本框中输入用游标卡尺测量的标准块的宽度。
+					\item 点击采集按钮，开始采集图像，在图形显示区使用红色和蓝色辅助线来采集标准块的像素宽度，以此进行标定。
+					\item 将标准块替换为被测物体，并使用上述方法多次测量其宽度，分析误差。测量结果如\cref{tbl:物体宽度测量数据}所示。
+				\end{enumerate}
+		
+		
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[width=0.5\linewidth]{D7-2-5-标准块标定.png}
+						\caption{对标准块进行标定}
+						\label{fig:标准块标定}
+					\end{figure}
+		
+					\begin{table}[htbp]
+						\centering
+						\begin{tblr}{
+						cells = {c},
+						vline{1-2,8-9} = {-}{},
+						hline{1-2,4} = {-}{},
+						}
+						测量次数     & 1     & 2     & 3     & 4     & 5     & 6     & 游标卡尺结果 \\
+						物体1宽度/mm & 11.90 & 11.93 & 11.86 & 11.90 & 11.86 & 11.88 & 11.94  \\
+						物体2宽度/mm & 9.97  & 9.93  & 10.00 & 9.91  & 9.95  & 9.95  & 9.98   
+						\end{tblr}
+						\caption{物体宽度测量数据}
+						\label{tbl:物体宽度测量数据}
+					\end{table}
+
+			\item \textbf{测量工件角位置}
+			
+				\begin{enumerate}
+					\item 按\cref{fig:工件角位置测量光路图}所示摆放原件。
+					\item 手动调节反射镜角度，得到光斑移动像素宽度，乘以像素大小 14μm，得到光斑移动的实际距离，以此得到反射镜转动角度。
+					\item 测量结果如\cref{tbl:工件角位置测量值}所示。
+				\end{enumerate}
+
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.5\linewidth]{D7-2-5-角位置测量光路图.png}
+					\caption{工件角位置测量光路图}
+					\label{fig:工件角位置测量光路图}
+				\end{figure}
+
+				\begin{table}[htbp]
+					\centering
+					\begin{tblr}{
+					  cells = {c},
+					  cell{1}{1} = {r=2}{},
+					  cell{1}{2} = {c=2}{},
+					  cell{1}{4} = {c=2}{},
+					  vlines,
+					  hline{1,3,6} = {-}{},
+					  hline{2} = {2-5}{},
+					}
+					编号 & 位置1  &       & 位置2  &        \\
+					   & 角度起点/° & 像素起点  & 角度终点/° & 像素终点   \\
+					1  & 212  & 290.6 & 210  & 1415.9 \\
+					2  & 212  & 462.9 & 208  & 1997.5 \\
+					3  & 212  & 91.4  & 208  & 1885.1 
+					\end{tblr}
+					\caption{工件角位置测量值}
+					\label{tbl:工件角位置测量值}
+				\end{table}
+
+		\end{itemize}
+
+
+
+
+
+
+
+
+
+	\subsubsection{面阵 CCD 驱动及特性测量}
+
+		\begin{enumerate}
+			\item 将面阵CCD相机通过USB2.0接口连接至计算机，确保其正常工作。
+			\item 示波器的CH1和CH2扫描线调整至适当位置，设置CH1为同步输入。使用CH1探头测量内部控制脉冲SUBCK，并仔细调节使之同步稳定。使用CH2探头分别观测V1、V2、V3、V4脉冲，并画出这些脉冲的波形图，分析它们的相位关系。（如\cref{fig:SUBCK-V1}、\cref{fig:SUBCK-V2}、\cref{fig:SUBCK-V3}、\cref{fig:SUBCK-V4}、\cref{fig:SUBCK放大}所示。）
+			\item 使用CH1探头测量V1脉冲，使用CH2探头分别测量V2、V3、V4脉冲，并记录这四个脉冲的波形图。（如\cref{fig:V1-V2}、\cref{fig:V1-V3}、\cref{fig:V1-V4}所示。）
+			\item 使用CH1、CH2探头分别测量H1、H2脉冲。（如\cref{fig:H1-H2多个周期}、\cref{fig:H1-H2少个周期}所示。）
+			
+		\end{enumerate}
+
+
+
+
+		% \begin{figure}[htbp]
+		% 	\centering
+		% 	\includegraphics[width=0.5\linewidth]{D7-2-3-Phi1-Phi2.png}
+		% 	\caption{线阵CCD的Φ1-Φ2信号}
+		% 	\label{fig:Phi1-Phi2}
+		% \end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-5-Subck_V1.png}
+			  \caption{SUBCK-V1}
+			  \label{fig:SUBCK-V1}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-5-Subck_V2.png}
+			  \caption{SUBCK-V2}
+			  \label{fig:SUBCK-V2}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-5-Subck_V3.png}
+			  \caption{SUBCK-V3}
+			  \label{fig:SUBCK-V3}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-5-Subck_V4.png}
+			  \caption{SUBCK-V4}
+			  \label{fig:SUBCK-V4}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-5-Subck_放大.png}
+			  \caption{SUBCK脉冲}
+			  \label{fig:SUBCK放大}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-6-V1-V2.png}
+			  \caption{V1-V2}
+			  \label{fig:V1-V2}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-6-V1-V3.png}
+			  \caption{V1-V3}
+			  \label{fig:V1-V3}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-6-V1-V4.png}
+			  \caption{V1-V4}
+			  \label{fig:V1-V4}
+			\end{minipage}
+		\end{figure}
+
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-7-H1-H2-多周期.png}
+			  \caption{H1-H2多个周期}
+			  \label{fig:H1-H2多个周期}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-7-H1-H2-少周期.png}
+			  \caption{H1-H2少周期}
+			  \label{fig:H1-H2少个周期}
+			\end{minipage}
+		\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\subsubsection{面阵 CCD 图像采集、运算和颜色处理}
+
+		\begin{enumerate}
+			\item 点击初始化按钮“初始化”，间隔两秒，点击设备搜索按钮“设置搜索”，点击开始捕获按钮“开始捕获”采集图像，待图像稳定清晰后按下停止捕获按钮“调制捕获”，采集到一帧图像。
+			\item 查看图片某一行数据，并思考图像明暗和灰度值之间的关系，分析图像边沿位置的灰度值特点。（如\cref{fig:图像明暗与灰度值的关系}所示。）
+			\item 点击灰度直方图按钮“灰度”，在弹出的对话框中，先点击“显示原图”，再点击“显示灰度直方图”，查看图像直方图分布。用同样的方法对图像进行灰度线性变换，灰度阈值变换、灰度拉伸变换和灰度均衡变换。（如\cref{fig:图像明暗与灰度值的关系}、\cref{fig:灰度直方图}、\cref{fig:图像灰度线性变换}、\cref{fig:图像灰度拉伸变换}、\cref{fig:图像灰度阈值变换1}、\cref{fig:图像灰度阈值变换2}、\cref{fig:图像灰度均衡变换1}、\cref{fig:图像灰度均衡变换直方图}。）
+			\item 点击奇偶场分开显示，按照前面实验的要求采集一副清晰的三原色标准卡奇偶场相片，点击色彩还原按钮“色彩还原”获得一副彩色图像。显示图片不同通道的图像，并分析哪种颜色在哪个通道灰度值比较大。
+		\end{enumerate}
+
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-查看某一行数据.png}
+			  \caption{图像明暗与灰度值的关系}
+			  \label{fig:图像明暗与灰度值的关系}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-显示灰度直方图.png}
+			  \caption{灰度直方图}
+			  \label{fig:灰度直方图}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-灰度线性变换.png}
+			  \caption{图像灰度线性变换}
+			  \label{fig:图像灰度线性变换}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-灰度拉伸变换.png}
+			  \caption{图像灰度拉伸变换}
+			  \label{fig:图像灰度拉伸变换}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-灰度阈值变换1.png}
+			  \caption{图像灰度阈值变换1}
+			  \label{fig:图像灰度阈值变换1}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-灰度阈值变换2.png}
+			  \caption{图像灰度阈值变换2}
+			  \label{fig:图像灰度阈值变换2}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-灰度均衡变换1.png}
+			  \caption{图像灰度均衡变换1}
+			  \label{fig:图像灰度均衡变换1}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-8-灰度均衡变换直方图.png}
+			  \caption{图像灰度均衡变换直方图}
+			  \label{fig:图像灰度均衡变换直方图}
+			\end{minipage}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-9-奇偶场分开显示.png}
+			  \caption{图像奇偶场分开显示}
+			  \label{fig:图像奇偶场分开显示}
+			\end{minipage}
+			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+			\begin{minipage}[b]{0.45\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-9-色彩重建.png}
+			  \caption{图像色彩重建}
+			  \label{fig:图像色彩重建}
+			\end{minipage}
+		\end{figure}
+
+		% \begin{figure}[htbp]
+		% 	\centering
+		% 	\begin{minipage}[b]{0.45\textwidth}
+		% 	  \includegraphics[width=\textwidth]{D7-2-9-奇偶场分开显示.png}
+		% 	  \caption{图像奇偶场分开显示}
+		% 	  \label{fig:图像奇偶场分开显示}
+		% 	\end{minipage}
+		% 	\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
+		% 	\begin{minipage}[b]{0.45\textwidth}
+		% 	  \includegraphics[width=\textwidth]{D7-2-9-色彩重建.png}
+		% 	  \caption{图像色彩重建}
+		% 	  \label{fig:图像色彩重建}
+		% 	\end{minipage}
+		% \end{figure}
+
+
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}[b]{0.3\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-9-R通道.png}
+			  \caption{图像R通道}
+			  \label{fig:图像R通道}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b]{0.3\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-9-G通道.png}
+			  \caption{图像G通道}
+			  \label{fig:图像G通道}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b]{0.3\textwidth}
+			  \includegraphics[width=\textwidth]{D7-2-9-B通道.png}
+			  \caption{图像B通道}
+			  \label{fig:图像B通道}
+			\end{minipage}
+		  \end{figure}
+		  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\subsubsection{利用面阵 CCD 测量工件二维尺寸}
+
+		\begin{enumerate}
+			\item 点击相机标定按钮“相机标定”，对本系统进行标定，使像素和物体尺寸建立映射关系。
+			\item 标定完成后，测量工件的圆半径、两圆心间距、平行线平行距离，多次测量并分析误差。
+			\item 测量结果如\cref{tbl:工件二维尺寸测量结果}所示。
+		\end{enumerate}
+
+		\begin{table}[htbp]
+			\centering
+			\begin{tblr}{
+			  cells = {c},
+			  vline{1-2,8-9} = {-}{},
+			  hline{1-2,5} = {-}{},
+			}
+			测量次数      & 1      & 2      & 3      & 4      & 5      & 6      & 游标卡尺结果 \\
+			圆半径/mm    & 2.788  & 2.786  & 2.820  & 2.827  & 2.805  & 2.820  & 2.80   \\
+			两圆圆心间距/mm & 18.167 & 18.161 & 18.161 & 18.161 & 18.055 & 18.161 & 18.04  \\
+			平行线间距/mm  & 9.156  & 9.166  & 9.140  & 9.141  & 9.156  & 9.152  & 9.00   
+			\end{tblr}
+			\caption{工件二维尺寸测量结果}
+			\label{tbl:工件二维尺寸测量结果}
+		\end{table}
+		
+
+
+\subsection{实验过程中遇到的问题记录}
+
+	\begin{enumerate}
+		\item 由于实验桌的1mm准直镜损坏，实验时我们需要借用其他小组的准直镜。
+		\item 在测量工件角位置时，由于刻度盘上的分度值最小为 2°，所以测量的误差较大。
+		\item 在测量二维工件尺寸时，由于标定方式的缺陷，测量结果的误差也较大。
+			
+	\end{enumerate}
+
+
+
+\subsection{实验数据记录}
+
+	见\cref{fig:data}
+
+	\begin{figure}[htbp]
+		\centering
+		% 第一行的三张图片
+		\subfloat[原始数据1]
+		{\includegraphics[width=0.3\textwidth]{D7-Data-1.jpg}\label{fig:data1}}
+		\quad
+		\subfloat[原始数据2]
+		{\includegraphics[width=0.3\textwidth]{D7-Data-2.jpg}\label{fig:data2}}
+		\quad
+		\subfloat[原始数据3]
+		{\includegraphics[width=0.3\textwidth]{D7-Data-3.jpg}\label{fig:data3}}
+		% \newline
+		% % 第二行的两张图片
+		% \subfloat[原始数据4]
+		% {\includegraphics[width=0.3\textwidth]{D3-OriginalData-4.jpg}\label{fig:data4}}
+		% \quad
+		% \subfloat[原始数据5]
+		% {\includegraphics[width=0.3\textwidth]{D3-OriginalData-5.jpg}\label{fig:data5}}
+		\caption{原始数据}
+		\label{fig:data}
+	\end{figure}
+	
+
+
+
+%\subsection{原始数据记录}
+
+
+% \clearpage
+
+	
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名： & 戴鹏辉 \& 杨舒云 & 学号：& 22344016 \& 22344020\\
+	\hline
+    日期：& 2024/12/1 & 评分： &\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D7 \quad CCD 原理与应用 \quad\heiti 分析与讨论}
+
+\subsection{实验数据分析}
+
+
+	\subsubsection{线阵 CCD 驱动及其特性测量}
+		
+		
 
 
 
@@ -494,6 +1038,38 @@
 
 	\subsubsection{利用线阵 CCD 测量工件直径和角位置}
 
+		\begin{itemize}
+			\item \textbf{测量工件直径：}
+
+				\begin{enumerate}
+					\item 由\cref{tbl:物体宽度测量数据}中的数据，计算测量结果并进行误差分析。
+						\begin{align*}
+							d_1 = \frac{1}{n}\sum_{i}^{n}d_i = 11.8883 \mathrm{mm}	\\
+							\sigma_{d_1} = \sqrt{\frac{1}{n-1} \sum_{i}^{n}(d_i - d_1)^2} = 0.0271 \mathrm{mm}	\\
+							d_2 = \frac{1}{n}\sum_{i}^{n}d_i = 9.9517 \mathrm{mm}	\\
+							\sigma_{d_2} = \sqrt{\frac{1}{n-1} \sum_{i}^{n}(d_i - d_2)^2} = 0.0313 \mathrm{mm}	\\
+							\Rightarrow d_1 = 11.89 \pm 0.08 \mathrm{mm}	\\
+							\Rightarrow d_2 = 9.95 \pm 0.09 \mathrm{mm}
+						\end{align*}
+
+					\item 可以看到，测量结果的标准差较小，说明测量结果具有较好的稳定性；但是较游标卡尺的测量结果，CCD相机的测量结果明显偏小，说明可能是标定得不够精确引入了较大的误差。
+				\end{enumerate}
+
+			\item \textbf{测量工件角位置：}
+			
+				\begin{enumerate}
+					\item 使用如下公式可计算得到角位移的大小：
+
+						\begin{align*}
+							\theta = \frac{(x_f - x_i) \times 14 \mu m}{24 cm \times \pi} \times 180°	\\
+							\Rightarrow \theta_1 = 3.76°	\\
+							\theta_2 = 5.13°	\\
+							\theta_3 = 6.00°	
+						\end{align*}
+
+					\item 可以看到，CCD相机的测量结果较刻度盘的读数结果，有较大的偏差。一个明显的原因是，刻度盘的分度值最小是2°，读数本身就有较大误差。
+				\end{enumerate}
+		\end{itemize}
 
 
 
@@ -530,6 +1106,33 @@
 
 	\subsubsection{面阵 CCD 图像采集、运算和颜色处理}
 
+		\begin{itemize}
+			\item \textbf{图像采集：}
+
+				由\cref{fig:图像明暗与灰度值的关系}，可以看到一个像素的灰度值越高，该像素点越亮；灰度值越低，该像素点越暗。
+
+				在左边沿处，灰度值有一个明显的突变，说明这是图像的边沿位置，且灰度值变化越陡峭，说明边沿越清晰。
+
+			\item \textbf{图像运算：}
+			
+				\begin{enumerate}
+					\item 由\cref{fig:灰度直方图}可以看到，大部分像素集中在灰度值较低的区域（接近0），这表明图像中有大量的暗色区域；在高灰度值区域（接近255）几乎没有像素，这表明图像中几乎没有纯白色或接近白色的区域。这意味着图像的对比度较低，或者图像中的白色区域非常少；灰度值中间区域的像素数量相对较少，这意味着图像中中间灰度的过渡区域不多，图像可能缺乏细节或者在中间灰度区域有较少的像素。
+					\item 由\cref{fig:图像灰度线性变换}，图像经过灰度线性变换$f(x) = -x + 255$后，图像的灰度值被反转。原本灰度值较高的像素（较亮的区域）在变换后会变暗，而灰度值较低的像素（较暗的区域）会变亮。线性变换不会改变图像中细节的相对位置和形状，但会影响细节的可见性，如果细节区域的灰度值在变换后变得不明显，那么这些细节可能会变得难以区分。
+					\item 由\cref{fig:图像灰度拉伸变换}，图像经过灰度拉伸变换（$x_1 = 40 \ y_1 = 10 \Rightarrow x_2 = 150 \ y_2 = 230$）后，原始灰度值在 40 到 150 之间的像素将被映射到新的灰度值范围 10 到 230。这可以显著提高图像的对比度，使得原本灰度值相近的像素在变换后具有更大的差异，从而使得图像中的细节更加明显。图像中的特征，如边缘和纹理，也会因为对比度的增强而变得更加明显。
+					\item 由\cref{fig:图像灰度阈值变换1}、\cref{fig:图像灰度阈值变换2}，图像经过灰度阈值变化。灰度阈值变换是一种二值化处理方法，它将图像的灰度值与一个或两个阈值进行比较，根据比较结果将像素值设置为不同的值，通常是0（黑色）或255（白色）。\cref{fig:图像灰度阈值变换1}中，高于阈值的灰度被设置为255，低于阈值的灰度被设置为0；\cref{fig:图像灰度阈值变换2}中，低于低阈值的灰度被设置为0；高于高阈值的灰度被设置为255，介于中间的灰度保持不变。在该过程中，原始图像中的灰度细节可能会丢失，因为所有低于阈值的像素都被设置为黑色，所有高于阈值的像素都被设置为白色；图像中的边缘和轮廓可能会变得更加明显，因为二值化处理会突出灰度值的突变区域。单阈值变换通过一个固定的灰度值将图像简化为二值图像，增强对比度但可能丢失细节，对噪声敏感，适用于背景与前景灰度差异明显的图像；而双阈值变换则通过两个阈值在保留一定灰度细节的同时调整特定灰度范围的对比度，更好地抑制噪声，适用于需要保留灰度细节或背景与前景灰度差异不大的图像。
+					\item 由\cref{fig:图像灰度均衡变换1}、\cref{fig:图像灰度均衡变换直方图}，图像经过灰度均衡变换。其显著提高了图像的对比度，使得原本对比度较低的图像变得更加清晰；图像的直方图会变得更加均匀，灰度值分布从原来的集中分布变为覆盖整个灰度范围；图像中的一些特征会因为均衡变换而变得更加突出，尤其是那些在原始直方图中灰度值分布较窄的特征；图像的动态范围可能会因为均衡变换而增加，使得图像能够展示更多的亮度层次。
+				\end{enumerate}
+
+
+			\item \textbf{图像颜色处理：}
+			
+				\begin{enumerate}
+					\item 如\cref{fig:图像奇偶场分开显示}，"奇偶场分开显示"指的是将视频帧中的奇数场和偶数场单独显示出来；这种交错式的显示方式可以减少运动模糊并提高视频的刷新率，以便进行更精细的调整。
+
+					\item 如\cref{fig:图像R通道}、\cref{fig:图像G通道}、\cref{fig:图像B通道}，为分别显示该图片的不同通道的结果。
+				\end{enumerate}
+		\end{itemize}
+
 
 
 
@@ -551,135 +1154,22 @@
 
 	\subsubsection{利用面阵 CCD 测量工件二维尺寸}
 
+		\begin{itemize}
+			\item 由\cref{tbl:工件二维尺寸测量结果}数据，计算测量结果并进行误差分析。
+				\begin{align*}
+					R_\odot = 2.808 \mathrm{mm}	\\
+					\sigma_{R_\odot} = 0.018 \mathrm{mm} \\
+					d_\odot = 18.144 \mathrm{mm} \\
+					\sigma_{d_\odot} = 0.044 \mathrm{mm} \\
+					d_\parallel = 9.152 \mathrm{mm} \\
+					\sigma_{d_\parallel} = 0.010 \mathrm{mm} \\
+					\Rightarrow R_\odot = 2.808 \pm 0.053 \mathrm{mm} \\
+					d_\odot = 18.144 \pm 0.131 \mathrm{mm} \\
+					d_\parallel = 9.152 \pm 0.030 \mathrm{mm}
+				\end{align*}
 
-
-		
-
-
-\subsection{实验过程中遇到的问题记录}
-
-	\begin{enumerate}
-		\item 
-			
-	\end{enumerate}
-
-
-
-\subsection{实验数据记录}
-
-	见\cref{fig:data}
-
-	% \begin{figure}[htbp]
-	% 	\centering
-	% 	% 第一行的三张图片
-	% 	\subfloat[原始数据1]
-	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-1.jpg}\label{fig:data1}}
-	% 	\quad
-	% 	\subfloat[原始数据2]
-	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-2.jpg}\label{fig:data2}}
-	% 	\quad
-	% 	\subfloat[原始数据3]
-	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-3.jpg}\label{fig:data3}}
-	% 	\newline
-	% 	% 第二行的两张图片
-	% 	\subfloat[原始数据4]
-	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-4.jpg}\label{fig:data4}}
-	% 	\quad
-	% 	\subfloat[原始数据5]
-	% 	{\includegraphics[width=0.3\textwidth]{D3-OriginalData-5.jpg}\label{fig:data5}}
-	% 	\caption{原始数据}
-	% 	\label{fig:data}
-	% \end{figure}
-	
-
-
-
-%\subsection{原始数据记录}
-
-
-% \clearpage
-
-	
-
-\clearpage
-\begin{table}
-	\renewcommand\arraystretch{1.7}
-	\begin{tabularx}{\textwidth}{|X|X|X|X|}
-	\hline
-	专业：& 物理学 &年级：& 2022级\\
-	\hline
-	姓名： & 戴鹏辉 & 学号：& 22344016\\
-	\hline
-    日期：& 2024// & 评分： &\\
-	\hline
-	\end{tabularx}
-\end{table}
-
-\section{D6 \quad $\gamma$ 能谱测量实验 \quad\heiti 分析与讨论}
-
-\subsection{实验数据分析}
-
-
-	\subsubsection{实验一 \quad 对探测器进行能量刻度标定：}
-
-		\begin{enumerate}
-			\item 使用三个已知能量的峰位进行能量刻度标定：
-				\begin{itemize}
-					\item $^{137}\mathrm{Cs}$放射源：主峰峰位：431，对应能量：0.662MeV
-					\item $^{60}\mathrm{Co}$放射源：主峰1峰位：865，对应能量：1.332MeV
-					\item $^{60}\mathrm{Co}$放射源：主峰2峰位：771，对应能量：1.173MeV
-				\end{itemize}
-
-			\item 由测量结果，对探测器进行能量标定，得到结果如\cref{fig:D6-3-1}：
-				
-				\begin{figure}[htbp]
-					\centering
-					\includegraphics[width=0.7\linewidth]{D6-3-1.png}
-					\caption{对探测器进行能量标定}
-					\label{fig:D6-3-1}
-				\end{figure}
-
-
-			\item 得到拟合结果为：
-			\[
-				E = 0.0015 \cdot d - 0.0005 \ (\mathrm{Me V})
-			\]
-
-		\end{enumerate}
-
-
-	\subsubsection{实验二 \quad 计算$^{137}\mathrm{Cs}$的康普顿散射峰和背散射峰能量与测量值的相对误差}
-
-		\begin{enumerate}
-			\item 理论计算得到：
-				\begin{itemize}
-					\item 康普顿散射峰能量：$E_{max} = 0.47765 \ \mathrm{(MeV)}$
-					\item 康普顿背散射峰能量：$E_b = E_{\gamma} - E_{max} = 0.18345 \ \mathrm{(MeV)}$
-				\end{itemize}
-
-			\item 实验测量得到：
-				\begin{enumerate}
-					\item 康普顿散射峰峰位：289 $\Rightarrow E'_{max} = 0.0015 \times 289 - 0.0005 \ \mathrm{(MeV)} = 0.433 \ \mathrm{(MeV)}$
-					\item 康普顿背散射峰峰位：141 $\Rightarrow E'_b = 0.0015 \times 141 - 0.0005 \ \mathrm{(MeV)} = 0.211 \ \mathrm{(MeV)}$
-				\end{enumerate}
-
-			\item 实验值与理论值的相对误差为：
-				\begin{enumerate}
-					\item $\eta_{E_{max}} = \frac{0.433 - 0.47765}{0.47765} \times 100 \% =  -9.35 \% $
-					\item $\eta_{E_b} = \frac{0.211 - 0.18345}{0.18345} \times 100 \% = 15.02 \% $
-				\end{enumerate}
-		\end{enumerate}
-
-
-
-
-
-	\subsubsection{实验三 \quad 估算多道分析仪能量分辨率}
-
-
-
-
-	% \subsubsection{实验四 \quad XXXXXXXXXXXXXXXXXXXXXXX}
+			\item 可以看到，测量得到的标准差较小，说明测量结果具有较好的稳定性；但是较游标卡尺的测量结果，CCD相机的测量结果明显偏大，说明由于标定方法的缺陷，引入了较大的系统误差。
+		\end{itemize}
 
 
 		
@@ -715,7 +1205,7 @@
 
 
 \clearpage
-\section{D6 \quad $\gamma$ 能谱测量实验 \quad\heiti 实验总结}
+\section{D7 \quad CCD 原理与应用 \quad\heiti 实验总结}
 
 	\subsection{实验分工}
 
@@ -723,6 +1213,27 @@
 
 
 	\subsection{实验心得}
+
+
+
+	\subsection{Attachment}
+	% The arrangement of the experimental bench desktop is shown in %\cref{}.
+
+	个人签名见 \cref{fig:name1} 、 \cref{fig:name2}.
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{name.png}
+		\caption{signature1}
+		\label{fig:name1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.35\textwidth]{name-TaLEs.jpg}
+		\caption{signature2}
+		\label{fig:name2}
+	\end{figure}
 
 	
 

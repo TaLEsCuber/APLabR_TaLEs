@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  20 NOV 2024 21:13
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  4 DEC 2024 02:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1257,143 +1257,275 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [6]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 531.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 531.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 531.
+
+File: ./images/D7-2-1-SH1.png Graphic file (type bmp)
+<./images/D7-2-1-SH1.png>
+File: ./images/D7-2-1-SH2.png Graphic file (type bmp)
+<./images/D7-2-1-SH2.png>
+File: ./images/D7-2-2-RS1.png Graphic file (type bmp)
+<./images/D7-2-2-RS1.png>
+File: ./images/D7-2-2-RS2.png Graphic file (type bmp)
+<./images/D7-2-2-RS2.png>
+File: ./images/D7-2-3-Phi1-Phi2.png Graphic file (type bmp)
+<./images/D7-2-3-Phi1-Phi2.png>
+File: ./images/D7-2-4-有光照.png Graphic file (type bmp)
+<./images/D7-2-4-有光照.png>
+File: ./images/D7-2-4-无光照.png Graphic file (type bmp)
+<./images/D7-2-4-无光照.png>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10]
+File: ./images/D7-2-5-标准块标定.png Graphic file (type bmp)
+<./images/D7-2-5-标准块标定.png>
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
+Missing character: There is no μ (U+03BC) in font [lmroman10-regular]:mapping=tex-text;!
+File: ./images/D7-2-5-角位置测量光路图.png Graphic file (type bmp)
+<./images/D7-2-5-角位置测量光路图.png>
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[11]
+File: ./images/D7-2-5-Subck_V1.png Graphic file (type bmp)
+<./images/D7-2-5-Subck_V1.png>
+File: ./images/D7-2-5-Subck_V2.png Graphic file (type bmp)
+<./images/D7-2-5-Subck_V2.png>
+File: ./images/D7-2-5-Subck_V3.png Graphic file (type bmp)
+<./images/D7-2-5-Subck_V3.png>
+File: ./images/D7-2-5-Subck_V4.png Graphic file (type bmp)
+<./images/D7-2-5-Subck_V4.png>
+File: ./images/D7-2-5-Subck_放大.png Graphic file (type bmp)
+<./images/D7-2-5-Subck_放大.png>
+File: ./images/D7-2-6-V1-V2.png Graphic file (type bmp)
+<./images/D7-2-6-V1-V2.png>
+File: ./images/D7-2-6-V1-V3.png Graphic file (type bmp)
+<./images/D7-2-6-V1-V3.png>
+File: ./images/D7-2-6-V1-V4.png Graphic file (type bmp)
+<./images/D7-2-6-V1-V4.png>
+File: ./images/D7-2-7-H1-H2-多周期.png Graphic file (type bmp)
+<./images/D7-2-7-H1-H2-多周期.png>
+File: ./images/D7-2-7-H1-H2-少周期.png Graphic file (type bmp)
+<./images/D7-2-7-H1-H2-少周期.png>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13]
+File: ./images/D7-2-8-查看某一行数据.png Graphic file (type bmp)
+<./images/D7-2-8-查看某一行数据.png>
+File: ./images/D7-2-8-显示灰度直方图.png Graphic file (type bmp)
+<./images/D7-2-8-显示灰度直方图.png>
+File: ./images/D7-2-8-灰度线性变换.png Graphic file (type bmp)
+<./images/D7-2-8-灰度线性变换.png>
+File: ./images/D7-2-8-灰度拉伸变换.png Graphic file (type bmp)
+<./images/D7-2-8-灰度拉伸变换.png>
+File: ./images/D7-2-8-灰度阈值变换1.png Graphic file (type bmp)
+<./images/D7-2-8-灰度阈值变换1.png>
+File: ./images/D7-2-8-灰度阈值变换2.png Graphic file (type bmp)
+<./images/D7-2-8-灰度阈值变换2.png>
+File: ./images/D7-2-8-灰度均衡变换1.png Graphic file (type bmp)
+<./images/D7-2-8-灰度均衡变换1.png>
+File: ./images/D7-2-8-灰度均衡变换直方图.png Graphic file (type bmp)
+<./images/D7-2-8-灰度均衡变换直方图.png>
+File: ./images/D7-2-9-奇偶场分开显示.png Graphic file (type bmp)
+<./images/D7-2-9-奇偶场分开显示.png>
+File: ./images/D7-2-9-色彩重建.png Graphic file (type bmp)
+<./images/D7-2-9-色彩重建.png>
+File: ./images/D7-2-9-R通道.png Graphic file (type bmp)
+<./images/D7-2-9-R通道.png>
+File: ./images/D7-2-9-G通道.png Graphic file (type bmp)
+<./images/D7-2-9-G通道.png>
+File: ./images/D7-2-9-B通道.png Graphic file (type bmp)
+<./images/D7-2-9-B通道.png>
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16]
+File: ./images/D7-Data-1.jpg Graphic file (type bmp)
+<./images/D7-Data-1.jpg>
+File: ./images/D7-Data-2.jpg Graphic file (type bmp)
+<./images/D7-Data-2.jpg>
+File: ./images/D7-Data-3.jpg Graphic file (type bmp)
+<./images/D7-Data-3.jpg>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[17]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 1022.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 1022.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 1022.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[18
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[19]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[20]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 1208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 1208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 1208.
+
+File: ./images/name.png Graphic file (type bmp)
+<./images/name.png>
 File: ./images/name-TaLEs.jpg Graphic file (type bmp)
 <./images/name-TaLEs.jpg>
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 479.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 479.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 479.
-
-
-LaTeX Warning: Reference `fig:data' on page 1 undefined on input line 570.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 618.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 618.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 618.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 618.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 618.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 618.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 623.
-
-File: ./images/D6-3-1.png Graphic file (type bmp)
-<./images/D6-3-1.png>
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 651.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 651.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 651.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 651.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[8
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 677.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[9]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 718.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 718.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 718.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 718.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 718.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 718.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[10
+[21
 
 ] (./Lab1_D7Report.aux)
  ***********
@@ -1404,19 +1536,16 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `Lab1_D7Report.out' has not changed.
-(rerunfilecheck)             Checksum: 791822372C479DA1A30EC2BC895356F3;3599.
+(rerunfilecheck)             Checksum: 4697ADCE481541F90C710AAFB02B01C8;3939.
  ) 
 Here is how much of TeX's memory you used:
- 39566 strings out of 474773
- 862244 string characters out of 5761289
- 1967842 words of memory out of 5000000
- 61112 multiletter control sequences out of 15000+600000
- 568490 words of font info for 105 fonts, out of 8000000 for 9000
+ 40285 strings out of 474773
+ 883964 string characters out of 5761289
+ 1963842 words of memory out of 5000000
+ 61799 multiletter control sequences out of 15000+600000
+ 568975 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,12n,116p,449b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,12n,116p,565b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lab1_D7Report.pdf (10 pages).
+Output written on Lab1_D7Report.pdf (21 pages).
