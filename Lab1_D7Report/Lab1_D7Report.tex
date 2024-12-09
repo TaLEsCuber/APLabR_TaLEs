@@ -395,7 +395,9 @@
 	相机与反射镜距离的变化会有什么样的影响？
 \end{question}
 
+	我们在软件中可以测量的是移动的像素个数，即弧长；相机与反射镜的距离即半径，二者相除即可得到弧度；
 
+	原则上，半径越长，弧度越小，小角近似误差越小。
 
 
 
@@ -414,7 +416,7 @@
 	如果被测物体尺寸宽度太大，超过了线阵 CCD 相机测量范围，有什么方法可以改善实验中的光路呢？
 \end{question}
 
-
+	由于CCD相机中被遮挡的像素数量与物体宽度之间是线性关系，所以我们可以使用一个凸透镜，将超出测量范围的光线重新汇聚至测量范围内。
 
 
 
@@ -476,7 +478,7 @@
 	白色的图片在各个不同的通道灰度值有什么特点？
 \end{question}
 
-
+	由于白色包含所有的像素成分，所以对于一张白色的图片，在RGB色彩模式下的三个通道（红、绿、蓝）中，每个通道的灰度值都会非常高，接近于最大值255。
 
 
 
@@ -498,7 +500,11 @@
 	如果被测物体较厚，还能用上述光路测量么？
 \end{question}
 
+	\begin{itemize}
+		\item 面阵CCD相机在二维平面上捕捉被测物体的投影，对于厚度的测量并不直接。如果物体较厚，其在成像过程中可能会产生阴影或遮挡效应，这会导致测量平面尺寸时出现误差。
 
+		\item 较厚的物体在成像时可能会引起衍射现象，这会导致图像边缘变得模糊，影响细节的清晰度。这种模糊可能会降低测量的准确性，尤其是在需要精确测量边缘或表面特征时。
+	\end{itemize}
 
 
 
@@ -540,6 +546,7 @@
 			\item 用示波器分别观察转移脉冲 SH 信号（如\cref{fig:SH1}、\cref{fig:SH2}所示）和复位信号 RS（如\cref{fig:RS1}、\cref{fig:RS2}所示）。
 			\item 用示波器同时观察 Φ1，Φ2 信号（如\cref{fig:Phi1-Phi2}所示）。
 			\item 用示波器观察线阵 CCD 相机在光照和遮挡不同情况下的波形（如\cref{fig:有光照}、\cref{fig:无光照}所示）。
+			\item 相关测试端子的周期和频率记录如\cref{tbl:线阵CCD的测试端子 SH、RS、Φ1、Φ2 周期和频率记录}所示。
 		\end{enumerate}
 
 			% \begin{figure}[htbp]
@@ -601,6 +608,20 @@
 				\end{minipage}
 			\end{figure}
 
+
+			\begin{table}
+				\centering
+				\begin{tabular}{|c|cccc|} 
+				\hline
+				测试端子    & SH      & RS   & Φ1   & Φ2    \\ 
+				\hline
+				周期（$\mu$s） & 6896.55 & 1.39 & 2.78 & 2.78  \\
+				频率（kHz） & 0.145   & 719  & 360  & 360   \\
+				\hline
+				\end{tabular}
+				\caption{线阵CCD的测试端子 SH、RS、Φ1、Φ2 周期和频率记录}
+				\label{tbl:线阵CCD的测试端子 SH、RS、Φ1、Φ2 周期和频率记录}
+			\end{table}
 
 
 
@@ -742,7 +763,7 @@
 			\centering
 			\begin{minipage}[b]{0.45\textwidth}
 			  \includegraphics[width=\textwidth]{D7-2-5-Subck_放大.png}
-			  \caption{SUBCK脉冲}
+			  \caption{SUBCK脉冲-V1信号}
 			  \label{fig:SUBCK放大}
 			\end{minipage}
 			\hspace{10pt} % 指定间隔为10pt，你可以根据需要调整这个值
@@ -1026,7 +1047,23 @@
 
 	\subsubsection{线阵 CCD 驱动及其特性测量}
 		
-		
+		\begin{enumerate}
+			\item 由\cref{tbl:线阵CCD的测试端子 SH、RS、Φ1、Φ2 周期和频率记录}，可以看到 SH 端子频率为0.145kHz，RS端子频率为719kHz，Φ1与Φ2端子的频率为360kHz。
+				\begin{itemize}
+					\item SH 是转移栅脉冲，负责控制电荷的转移。
+					\item RS 是复位输出级的复位脉冲，用于重置像素点，使其准备接收新的光信号。
+					\item Φ1，Φ2 是模拟转移寄存器驱动脉冲。
+					\item Φ1 和 Φ2 的频率（360 kHz）与 RS 信号的频率（719 kHz）之间约为 1:2 的关系。这种关系保证了复位与电荷转移的配合。
+					\item RS信号频率远高于SH信号，确保了像素点的电荷清零，从而防止上一帧的电荷残留影响当前帧的数据。
+				\end{itemize}
+			\item 由\cref{fig:Phi1-Phi2}可以看到，Φ1和Φ2路的信号之间频率相同，相位相差180°。
+			\item 由\cref{fig:有光照}、\cref{fig:无光照}可以看到，在有光照的情况下，线阵CCD可以正常工作并输出脉冲信号；在无光照的情况下，线阵CCD没有信号输出，只能检测到噪声。
+				\begin{itemize}
+					\item 当有光照时，CCD 的光敏元件（像素）将入射光子转化为电荷。这些电荷的累积形成了光信号，之后通过电荷转移和信号放大被读出。
+					\item 在没有光照的情况下，CCD 的光敏元件不能生成有效的电荷信号，因此输出主要由暗电流和电路噪声组成。这些噪声的大小随机分布，通常表现为低幅值的随机信号，而非与光信号相关的规律性脉冲。
+					\item 在有光照条件下，光信号的强度远高于噪声，信噪比较高，输出信号明显；无光照条件下，只有噪声，信噪比极低，输出信号表现为随机无规律的小幅值变化。
+				\end{itemize}
+		\end{enumerate}
 
 
 
@@ -1083,9 +1120,18 @@
 
 
 
-	\subsubsection{面阵 CCD 驱动及特性测量（选做）}
+	\subsubsection{面阵 CCD 驱动及特性测量}
 
-
+		\begin{enumerate}
+			\item 由\cref{fig:SUBCK-V1}、\cref{fig:SUBCK-V2}、\cref{fig:SUBCK-V3}、\cref{fig:SUBCK-V4}可以看到，V1-V4信号的频率均为15.2kHz，周期均为65.6$\mu $s。V1、V2、V3、V4 脉冲是分时交替的信号，四者之间具有相位差90°。
+			\item 由\cref{fig:H1-H2多个周期}可以看到，H1与H2信号的频率均为14.3MHz，二者相位差为180°。
+			\item V1、V2、V3、V4 脉冲与垂直电荷转移相关；H1、H2 脉冲：与水平电荷转移相关。
+				\begin{itemize}
+					\item V1、V2、V3、V4 是四相驱动信号，每个脉冲驱动不同列中的电荷转移。通过交替的高低电平变化，逐列控制电荷的转移。
+					\item H1 和 H2 是两相驱动信号，控制水平移位寄存器中的电荷移动。两相信号交替为高电平和低电平，提供周期性的电场变化，推动电荷沿水平方向转移。		
+					\item 垂直与水平转移的配合：垂直转移完成后，电荷进入水平寄存器，再通过水平转移传递到输出端，完成信号采集。			
+				\end{itemize}
+		\end{enumerate}
 
 
 
@@ -1129,7 +1175,7 @@
 				\begin{enumerate}
 					\item 如\cref{fig:图像奇偶场分开显示}，"奇偶场分开显示"指的是将视频帧中的奇数场和偶数场单独显示出来；这种交错式的显示方式可以减少运动模糊并提高视频的刷新率，以便进行更精细的调整。
 
-					\item 如\cref{fig:图像R通道}、\cref{fig:图像G通道}、\cref{fig:图像B通道}，为分别显示该图片的不同通道的结果。
+					\item 如\cref{fig:图像R通道}、\cref{fig:图像G通道}、\cref{fig:图像B通道}，为分别显示该图片的不同通道的结果。可以看到，红色在红通道的灰度值比较大，绿色在绿通道的灰度值比较大，蓝色在蓝通道的灰度值比较大。
 				\end{enumerate}
 		\end{itemize}
 
@@ -1175,18 +1221,18 @@
 		
 
 	
-\subsection{实验后思考题}
+% \subsection{实验后思考题}
 
-% 思考题1
-\begin{question}
-	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-\end{question}
+% % 思考题1
+% \begin{question}
+% 	XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+% \end{question}
 
 	
-% 思考题2
-\begin{question}
-	XXXXXXXXXXXXXXXXXXXXXX
-\end{question}
+% % 思考题2
+% \begin{question}
+% 	XXXXXXXXXXXXXXXXXXXXXX
+% \end{question}
 
 
 
@@ -1197,10 +1243,10 @@
 
 
 
-% 思考题3
-\begin{question}
-	XXXXXXXXXXXXXXXXXXXXXX
-\end{question}
+% % 思考题3
+% \begin{question}
+% 	XXXXXXXXXXXXXXXXXXXXXX
+% \end{question}
 
 
 
@@ -1209,10 +1255,15 @@
 
 	\subsection{实验分工}
 
-		
+		本实验由戴鹏辉和杨舒云两人合作完成
+		\begin{enumerate}
+			\item 戴鹏辉完成实验操作部分和实验报告撰写部分。
+			\item 杨舒云完成实验数据分析与处理部分。
+		\end{enumerate}
 
 
-	\subsection{实验心得}
+
+	% \subsection{实验心得}
 
 
 

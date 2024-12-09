@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  4 DEC 2024 02:28
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.20)  5 DEC 2024 00:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1276,16 +1276,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 531.
+(hyperref)                replaced by space on input line 537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 531.
+(hyperref)                replaced by space on input line 537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 531.
+(hyperref)                removing `\heiti' on input line 537.
 
 File: ./images/D7-2-1-SH1.png Graphic file (type bmp)
 <./images/D7-2-1-SH1.png>
@@ -1463,16 +1463,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 1022.
+(hyperref)                replaced by space on input line 1043.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 1022.
+(hyperref)                replaced by space on input line 1043.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 1022.
+(hyperref)                removing `\heiti' on input line 1043.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1501,18 +1501,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [20]
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[21]
+
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 1208.
+(hyperref)                replaced by space on input line 1254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 1208.
+(hyperref)                replaced by space on input line 1254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 1208.
+(hyperref)                removing `\heiti' on input line 1254.
 
 File: ./images/name.png Graphic file (type bmp)
 <./images/name.png>
@@ -1525,7 +1533,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[21
+[22
 
 ] (./Lab1_D7Report.aux)
  ***********
@@ -1537,15 +1545,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Lab1_D7Report.out' has not changed.
-(rerunfilecheck)             Checksum: 4697ADCE481541F90C710AAFB02B01C8;3939.
+(rerunfilecheck)             Checksum: DDA425E2EF1FC905A3EDA8A4761D195F;3711.
  ) 
 Here is how much of TeX's memory you used:
- 40285 strings out of 474773
- 883964 string characters out of 5761289
+ 40264 strings out of 474773
+ 882548 string characters out of 5761289
  1963842 words of memory out of 5000000
- 61799 multiletter control sequences out of 15000+600000
+ 61778 multiletter control sequences out of 15000+600000
  568975 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,12n,116p,565b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lab1_D7Report.pdf (21 pages).
+Output written on Lab1_D7Report.pdf (22 pages).
