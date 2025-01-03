@@ -1,0 +1,857 @@
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+% ----------------------------------------------------
+%   中山大学物理与天文学院本科实验报告模板
+%   作者：Huanyu Shi，2019级
+%   知乎：https://www.zhihu.com/people/za-ran-zhu-fu-liu-xing
+%   Github：https://github.com/huanyushi/SYSU-SPA-Labreport-Template
+%   Last update : 2023.4.10
+% ----------------------------------------------------
+
+\input{Settings} % 导入模板的相关设置
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{longtable}
+\setlist[enumerate]{label=\textup{(\arabic*)}}
+
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+\begin{document}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{
+		|X|X|X|X
+		|X|X|X|X|}
+	\hline
+	\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+	\hline
+	\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名：& 戴鹏辉  & 学号： & 2344016 \\
+	\hline
+	日期：& 2024/12/15 & 教师签名：& \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\begin{center}
+	\LARGE D2 \quad 材料真空兼容性测试和等离子特性研究
+\end{center}
+
+\textbf{【实验报告注意事项】}
+\begin{enumerate}
+	\item 实验报告由三部分组成：
+	\begin{enumerate}
+		\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+	    \item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+	    \item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+	\end{enumerate}
+	\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+	% \item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\item 实验安全注意事项
+		\begin{enumerate}[label=\roman*.]
+			\item 操作前请检查真空腔体是否密封， 检查高压电源开关、 分子泵电源开关是否断开，以及应急按钮是否断开。
+			\item 注意高电压电源使用安全。 （ 高压电源受真空计控制， 实验前请确认真空计是否通电； 通电情况下请勿插拔高压电源后面板高压输出接口， 切勿接触后侧电力控制部分； 实验前请检查高压电源调节旋钮， 务必置零； 实验过程中请勿接触高压电源后面板以及高压电源内侧结构。 ）
+			\item 若实验中用到分子泵， 需机械泵先抽真空压强低于 10 Pa 以下才能开启分子泵电源。
+			\item 若实验中用到四极质谱仪， 开启四极质谱仪时保证真空压强低于 5.0E-2 Pa。
+		\end{enumerate}
+\end{enumerate}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\setcounter{section}{0}
+\section{D2 \quad 材料真空兼容性测试和等离子特性研究 \quad\heiti 预习报告}
+	
+\subsection{实验目的}
+\begin{enumerate}
+	\item 学习基本的真空知识和技术， 掌握真空的获得和测量方法。
+	\item 通过真空气体放电实验， 验证帕邢定律， 了解气体放电基本物理过程。
+	\item 利用光纤光谱仪研究真空气体放电等离子体光谱特性， 获得等离子体基本参数， 了解等离子体物理的基本知识。
+	\item 了解四极质谱仪工作原理， 使用四极质谱仪进行真空系统检漏和气体成分分析。
+	
+\end{enumerate}
+
+\subsection{仪器用具}
+
+
+\begin{table}[htbp]
+	\centering
+	\renewcommand\arraystretch{1.6}
+	% \setlength{\tabcolsep}{10mm}
+	% \caption{$\gamma$ 能谱测量实验用具}
+	\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+		\hline
+		编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+		\hline
+		1 & 上海宜准公司VQP01真空平台 & 1 & 针对帕邢实验、四极质谱实验等实验项目而设计的一台综合实验装置，该装置由真空放电腔体、机械泵、分子泵、高压电源、四极质谱仪、真空计以及击穿电压测量系统等装置构成。 \\
+		
+		\hline
+	\end{tabular}
+	\label{tbl:gamma 能谱测量实验用具}
+\end{table}
+
+
+
+
+% \clearpage
+
+% \subsection{原理概述}
+
+
+
+
+
+\subsection{实验前思考题}
+
+% 思考题1
+\begin{question}
+	真空物理学的研究内容及方法？
+\end{question}
+
+	真空物理学是一门研究真空环境下物质行为和物理现象的学科，其主要内容包括真空的产生与测量、气体动力学、表面物理与薄膜生长、高能粒子与材料的相互作用，以及真空中的量子现象等。研究还涉及真空技术在航天、半导体制造和材料科学中的应用。通过真空泵和真空计等设备，可以实现并测量从低真空到超高真空的不同真空环境，用以研究气体分子运动、材料表面吸附、薄膜沉积以及量子效应等复杂问题。
+
+	研究方法包括实验观测、理论建模和数值模拟，借助扫描隧道显微镜、质谱仪等高精尖仪器探测微观现象，同时利用统计物理和量子力学对结果进行分析。真空物理学作为一门跨学科领域，为现代科学技术的诸多前沿领域提供了基础支持和关键技术保障。
+
+
+
+% 思考题2
+\begin{question}
+	真空的定义？ 理想气体压强公式？ 气体分子的平均自由程？
+\end{question}
+
+	真空是指一个空间内的气体压强低于大气压的状态，通常用压强的大小来描述真空度。根据气体分子的稀疏程度，真空可分为低真空、高真空、超高真空等。理想情况下，真空空间内的气体分子数量无限趋近于零。
+
+	理想气体的压强可以通过状态方程表示：
+	\[
+		p = n k_B T
+	\]
+
+	其中：$n$是分子数密度，$k_B$是玻尔兹曼常数，$T$是热力学温度。
+
+	气体分子的平均自由程指气体分子之间发生两次碰撞的平均距离，用 $\lambda$ 表示。它可以由以下公式给出：
+	\[
+		\lambda = \frac{k_B T}{\sqrt{2} \pi d^2 p}
+	\]
+	 
+	其中：$k_B$是玻尔兹曼常数，$T$是热力学温度，$d$ 是气体分子的直径，$p$ 是气体的压强。
+	
+	平均自由程描述了分子间碰撞的稀疏程度。在高真空环境下，由于气体分子密度极低，平均自由程会显著增大，从而减少分子间的相互作用。
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+% 思考题3
+\begin{question}
+	真空气体放电的基本过程？ 帕邢定律？
+\end{question}
+
+	真空气体放电是指在低压真空中，气体在外电场的作用下发生的导电现象，包括以下几个阶段：
+	
+	\begin{enumerate}
+		\item 外加电场通过热电子发射、光电效应或碰撞电离等机制使气体分子或电极释放自由电子。
+
+		\item 自由电子在电场的作用下被加速。当它们的能量足够高时，与气体分子发生非弹性碰撞，可能导致气体分子电离，产生更多的电子和正离子。这一过程称为碰撞电离。
+	
+		\item 初始电子在连续的电离碰撞中不断增殖，形成电子雪崩，使放电过程迅速增强。
+	
+		\item 当电子和离子之间的相互作用达到动态平衡时，气体放电进入稳定阶段，形成可见的辉光或弧光。
+	\end{enumerate}
+
+
+	帕邢定律描述了在给定气体中，击穿电压（$V_s$）与气体的压强（$p$）和电极间距离（$d$）的乘积（$pd$）之间的关系：
+	\[
+		V_s = \frac{Bpd}{\ln \frac{Apd}{\ln (1 + 1 / \gamma)}}
+	\]
+
+	帕邢曲线呈现出 U 型变化，表明对于某一特定的 $pd$ 值，击穿电压达到最小值。这是由于低压时碰撞频率低，而高压时电子运动的平均自由程变小，导致电离效率下降。
+
+
+
+% 思考题4
+\begin{question}
+	辉光放电的特点？
+\end{question}
+
+	辉光放电是一种气体放电形式，通常发生在低压和中等电场强度条件下，具有以下主要特点：
+
+	\begin{enumerate}
+		\item 辉光放电的电流密度较低，通常在毫安量级；当放电进入稳定辉光阶段后，电压几乎保持不变，与电流无关。
+		\item 辉光放电形成明显的发光区域，这些区域与电极及气体的特性相关，表现为分布特定的亮暗交替区域，如阴极暗区、负辉区和正柱区等。发光是由于气体分子受到高能电子的激发后，返回基态时释放光子形成的。
+		\item 阴极附近的暗区电场最强，电子在此区域被加速，发生碰撞电离；阴极到阳极之间的电势梯度不均匀，各区域电场强度不同，形成独特的电场分布。
+		\item 辉光放电发生在低压（约 $10^{-1} - 10^{-3}$ Torr）条件下。在这样的压强下，气体分子的平均自由程较长，电子可以在两次碰撞之间获得足够的能量用于激发或电离。
+	\end{enumerate}
+
+	
+
+% 思考题5
+\begin{question}
+	等离子体是什么？ 等离子体的基本参数？
+\end{question}
+
+	等离子体（Plasma）是物质的第四态，由大量自由电子、离子、中性粒子和光子组成的准中性气体。它具有集体行为和对外界电磁场的敏感性，是宇宙中最常见的物质形态（如太阳、星际空间中的物质）。等离子体具有高度导电性，并且能够产生复杂的电磁现象。
+	
+	基本参数：
+	\begin{enumerate}
+		\item 电子密度 ($n_e$) 表示单位体积内自由电子的数量。
+		\item 电子温度 ($T_e$ )用以表征自由电子的平均动能。
+			\[
+				T_e = \frac{2}{3} \frac{ \bar{E}}{k_B}
+			\]
+			$\bar{E}$ 是电子平均动能。
+
+		\item 德拜长度 ($\lambda_D$) 表征等离子体中静电屏蔽效应的空间尺度，定义为：
+			\[
+				\lambda_D = \sqrt{\frac{\epsilon_0 k_B T_e}{n_e e^2}}
+			\]
+
+		\item 等离子体频率 ($\omega_P$) 自由电子在离子静电场中的振荡频率，公式为：
+			\[
+				\omega_P = \sqrt{\frac{n_e e^2}{\epsilon_0 m_e}}
+			\]
+
+
+			
+	\end{enumerate}
+
+
+% 思考题6
+\begin{question}
+	四极质谱仪中四极电场特性如何？ 其中离子如何运动?四极质谱仪基本原理与过程 ？
+\end{question}
+
+	四极质谱仪的核心是四极杆电场，它由四根对称排列的电极构成，通过对电极施加直流电压（DC）和射频电压（RF）的叠加产生一个非均匀的动态电场。
+
+	四根杆彼此平行，对称地围绕轴心排列。
+	相对的两根电极具有相同的电压极性，但极性与另一对相对电极相反。
+
+	叠加的电场在直角坐标系下可表示为：
+	\[
+		\Phi(x,y,z) = \frac{U - V \cos(\omega t)}{2 r_0^2} (x^2 - y^2)
+	\]
+	在空间中形成动态的鞍点电势，表现为横向约束和不稳定区域的交替。电场强度随离子在四极杆轴向的位置变化。
+
+	在四极电场中，离子的运动遵循数学上的马丢方程（Mathieu Equations），其解的稳定性决定了离子能否通过四极杆。
+
+	离子在电场中受到直流电压和射频电压的合力作用。通过调整 $U$ 和 $V$ 的比值，不同质量电荷比 (m/z) 的离子会呈现不同的运动轨迹。
+
+
+	只有满足特定稳定条件的离子能通过四极杆，而其余离子会被排除。因此，四极质谱仪可以通过扫描 $U$ 和 $V$ 的参数来选择特定质量的离子。
+
+
+
+
+
+
+% 思考题7
+\begin{question}
+	为什么机械泵先抽真空压强低于 10 Pa 以下才能开启分子泵电源 ?
+\end{question}
+
+	\begin{enumerate}
+		\item 如果压强过高（超过 10 Pa），气体分子之间的碰撞变得频繁，气体流动表现为粘性流，而分子泵只能高效处理分子流。粘性流条件下，分子泵的抽速和效率会显著下降，甚至无法正常工作。
+		\item 分子泵内部叶片以极高的转速（通常超过几万转/分钟）运转，压强过高会增加泵内气体的动量负载，从而导致叶片变形甚至损坏；或引起泵体过热，缩短使用寿命。
+	\end{enumerate}
+
+
+
+% 思考题8
+\begin{question}
+	为什么开启四极质谱仪时保证真空压强低于 $5.0 \times 10^{-2}$ Pa ?
+\end{question}
+	
+	\begin{enumerate}
+		\item 在高真空环境下，气体分子之间的平均自由程大于仪器尺寸（约 1m）。如果压强过高，离子会频繁与气体分子碰撞，导致离子能量损失或运动方向偏离；或电场中离子的轨迹变得不可预测，降低质谱分辨率。
+		\item 在真空不够时，气体分子会对离子源的电子或离子束产生散射和吸收，导致离子化效率下降，影响分析灵敏度；残余气体可能对检测器造成化学污染或电荷中和效应，降低检测效率和寿命。
+		\item 在较高压强下，残余气体可能因四极电场或电子束的高能作用而被激发或电离，引发放电现象。放电会导致电弧损伤四极杆电极或离子源；或仪器过热或运行不稳定。
+	\end{enumerate}
+	
+
+
+% 思考题9
+\begin{question}
+	列举 3 个真空科学与技术应用的实例。
+\end{question}
+
+	\begin{enumerate}
+		\item 在半导体制造中，真空技术被广泛用于工艺过程，如光刻、化学气相沉积（CVD）、物理气相沉积（PVD）、和离子注入等。
+		
+		真空技术
+		提供超高真空环境，减少杂质和气体分子的干扰，保证晶圆的纯净度。
+		控制气相反应的均匀性和精确性，提高薄膜材料的质量。
+
+
+		\item 真空环境模拟是航天技术中的关键环节，用于测试和验证航天器及其组件在太空条件下的性能。
+		
+		其提供了
+		模拟外太空的高真空环境（低于 
+		1
+		0
+		−
+		6
+		 
+		Pa
+		10 
+		−6
+		 Pa），测试卫星、航天器及材料在真空和极端温度下的耐久性。
+		研究空间推进系统中的离子推力器性能。
+
+		\item 在光学、装饰、电子和机械等领域，真空镀膜技术广泛应用于制造功能性薄膜。
+		
+		作用：
+		通过真空蒸镀、溅射、离子镀等工艺，在基底表面沉积高质量薄膜，如抗反射膜、导电膜和耐磨涂层。
+		提供无杂质和均匀性高的膜层结构，提高产品性能。
+
+	\end{enumerate}
+
+
+% 思考题10
+\begin{question}
+	列举 3 个等离子体科学与技术应用的实例。
+\end{question}
+
+	\begin{enumerate}
+		\item 等离子体技术广泛应用于半导体器件制造中的微细加工工艺，如刻蚀硅片中的精密图形。
+		
+		作用：
+		使用等离子体产生的活性粒子（离子、自由基）刻蚀材料表面，实现纳米级分辨率的图形加工。
+		具有高选择性和各向异性的优点，适用于制造高密度电路。
+
+		\item 等离子体是核聚变反应的必要条件，在受控热核聚变研究中起核心作用。
+		
+		作用：
+		通过磁约束（如托卡马克装置）或惯性约束（如激光聚变装置）控制等离子体，实现核聚变反应。
+		探索清洁、高效的能源替代方案。
+
+		\item 在材料表面工程中，等离子体喷涂被用来制备功能性涂层，广泛应用于航空航天和机械制造。
+		
+		作用：
+		高温等离子体使材料熔化并喷涂到基体表面，形成耐高温、耐腐蚀或抗磨损的涂层。
+		用于提高发动机部件、涡轮叶片和机械零件的性能和寿命。
+
+		
+	\end{enumerate}
+
+		
+
+
+
+
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级 \\
+	\hline
+	姓名：& 戴鹏辉 & 学号：& 22344016 \\
+	\hline
+	室温：& 20℃ & 实验地点： & A102 \\
+	\hline
+	学生签名：& \includegraphics[width=0.9in]{name-TaLEs.jpg} & 评分： &\\
+	\hline
+	实验时间：& 2024/12/20 & 教师签名：&\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D2 \quad 材料真空兼容性测试和等离子特性研究 \quad\heiti 实验记录}
+
+\subsection{实验内容和步骤}
+
+	\begin{enumerate}
+		\item \textbf{使用机械泵和分子泵获得高真空}
+		
+			启动机械泵观察记录真空度（真空计压强） 随时间（5 分钟） 的变化。 机械泵先抽真空压强低于 10 Pa 后， 启动分子泵观察记录真空度（ 真空计压强） 随时间的变化， 待分子泵达到额定转速（约需 8 分钟） 后再观察记录（5 分钟） 。
+		
+			停止分子泵观察记录真空度（真空计压强） 随时间的变化（分子泵转速降为零约需 8 分钟） 。 待分子泵完全停止后， 关闭机械泵， 记录真空度（真空计压强） 随时间的变化（5 分钟） 。
+
+			得到的气压随时间变化的图像如\cref{fig:D2-2-1}。
+
+
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{D2-2-1.png}
+				\caption{压强随时间变化关系图}
+				\label{fig:D2-2-1}
+			\end{figure}
+
+
+
+
+
+
+
+		\item \textbf{验证帕邢定律}
+		
+			\begin{enumerate}
+				\item 首先测量电极间隙，为$ d = 60 \text{mm}$
+				\item 启动实验装置，开启机械泵抽真空至 2 - 3 Pa。然后使用可调阀门调整气压至 20 Pa 左右。
+				\item 启动高压电源，电压增至 200V 后缓慢升高至气体发生击穿现象（即电流表有示数），读取并记录击穿电压。重复测量并确保每个气压下至少进行 3 次测量，三次测量偏差不超过 15\%。需要注意的是，击穿后，放电管电压会有明显下降，接近击穿时的电压即为气体击穿电压。
+				\item 每次增加 10Pa，直到气压达到 100Pa。此过程进行 8 次实验。
+				\item 回到 20Pa，每次减少 2Pa，直到气压达到 4Pa，测得 7-8 组数据。
+				\item 得到的数据绘制散点图如\cref{fig:D2-2-3}。
+			\end{enumerate}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{D2-2-3.png}
+				\caption{击穿电压随气压变化关系散点图}
+				\label{fig:D2-2-3}
+			\end{figure}
+
+
+
+
+
+
+
+		\item \textbf{观察气体放电（发光） 现象}
+		
+			向真空管内通入不同的气体，调节气压至 50 - 100 Pa 左右，启动高压电源，升高电压至击穿气体，观察气体放电现象。
+
+			不同气体放电的光谱图如\cref{fig:D2-3-1}、\cref{fig:D2-3-2}、\cref{fig:D2-3-3}。
+
+			可以看到，Ar气放电呈淡紫色（\cref{fig:D2-3-4}），Ne放电呈橘黄色（\cref{fig:D2-3-5}）（He气放电无明显颜色，所以没拍图片）。
+
+			\begin{table}[htbp]
+				\centering
+				\begin{tblr}{
+				  cells = {c},
+				  vline{1-2,5} = {-}{},
+				  hline{1-2,5} = {-}{},
+				}
+				气体 & P/Pa   & U/V   & I/$\mu$A   \\
+				He & 96  & 340 & 200 \\
+				Ar & 44  & 292 & 580 \\
+				Ne & 120 & 317 & 600 
+				\end{tblr}
+				\caption{不同气体观察放电现象的实验条件}
+			\end{table}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{He_1.jpg}
+				\caption{He气光谱图}
+				\label{fig:D2-3-1}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ar_1.jpg}
+				\caption{Ar气光谱图}
+				\label{fig:D2-3-2}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ne_1.jpg}
+				\caption{Ne气光谱图}
+				\label{fig:D2-3-3}
+			\end{figure}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{air_light_spetrum.jpg}
+				\caption{空气光谱图}
+				\label{fig:D2-3-air}
+			\end{figure}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ar_flash.jpg}
+				\caption{Ar气放电现象}
+				\label{fig:D2-3-4}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ne_flash.jpg}
+				\caption{Ne气放电现象}
+				\label{fig:D2-3-5}
+			\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+		\item \textbf{了解四极质谱仪工作原理}
+		
+			\begin{enumerate}
+				\item 按照同样的步骤，打开机械泵，抽真空至 10 Pa 以下后，再打开分子泵。
+				\item 抽真空至 $5 \times 10^{-2} \text{Pa}$ 后，可使用四极质谱仪。
+				\item 可适当的通入不同的气体，如He、Ne、Ar 或者空气，确保气压低于 $5 \times 10^{-2} \text{Pa}$，打开四极质谱仪，对气体成分进行分析。
+				\item 通入不同气体的质谱图见\cref{fig:D2-4-1}、\cref{fig:D2-4-2}、\cref{fig:D2-4-3}、\cref{fig:D2-4-4}。
+			\end{enumerate}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{mass_Ar_1.jpg}
+				\caption{通入Ar气的质谱图}
+				\label{fig:D2-4-1}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{mass_He_2.jpg}
+				\caption{通入He气的质谱图}
+				\label{fig:D2-4-2}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{mass_Ne_2.jpg}
+				\caption{通入Ne气的质谱图}
+				\label{fig:D2-4-3}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{mass_air1.jpg}
+				\caption{通入空气的质谱图}
+				\label{fig:D2-4-4}
+			\end{figure}
+
+
+
+	\end{enumerate}
+		
+
+
+
+
+		
+
+
+	\subsection{实验过程中遇到的问题记录}
+
+		\begin{enumerate}
+			\item 由于在实验过程中实验设备出现了小问题，在刚开始时，我们的真空泵只能维持 $10^{-1}$ Pa 水平的真空；在老师的协助下，我们发现是由于阀门错位导致密封不严。修改后，我们的真空泵最低可以到达 $7.5 \times 10^{-3} $ Pa。
+			\item 在进行实验四时，可能由于部分气体不纯或存在漏气的情况，我们无法得到预期的质谱图。
+				
+		\end{enumerate}
+
+
+
+\subsection{实验数据记录}
+
+	见\cref{fig:data}
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	\includegraphics[width=0.7\linewidth]{D2-OriginalData-1.jpg}
+	% 	\caption{原始数据记录}
+	% 	\label{fig:Data}
+	% \end{figure}
+
+	\begin{figure}[htbp]
+		\centering
+		% 第一行的两张图片
+		\subfloat[原始数据1]
+		{\raisebox{-\height}{\rotatebox{90}{\includegraphics[width=0.55\textwidth]{D2-OriginalData-1.jpg}\label{fig:data1}}}}
+		\quad
+		\subfloat[原始数据2]
+		{\raisebox{\height}{\rotatebox{-90}{\includegraphics[width=0.55\textwidth]{D2-OriginalData-2.jpg}\label{fig:data2}}}}
+		\caption{原始数据}
+		\label{fig:data}
+	\end{figure}
+
+
+
+%\subsection{原始数据记录}
+
+
+% \clearpage
+
+	
+
+\clearpage
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+	\hline
+	专业：& 物理学 &年级：& 2022级\\
+	\hline
+	姓名： & 戴鹏辉 & 学号：& 22344016 \\
+	\hline
+    日期：& 2024/12/31 & 评分： &\\
+	\hline
+	\end{tabularx}
+\end{table}
+
+\section{D2 \quad 材料真空兼容性测试和等离子特性研究 \quad\heiti 分析与讨论}
+
+\subsection{实验数据分析}
+
+	\begin{enumerate}
+		\item \textbf{使用机械泵和分子泵获得高真空}
+		
+			如\cref{fig:D2-2-1}，在开启机械泵后，气压由 $1 \times 10{5} $ Pa 迅速下降。随后稳定在 1 - 10 Pa 附近，这说明机械泵已经达到极限。
+
+			然后我们打开分子泵，最开始是稳定在 $6 \times 10^{-2}$ Pa 附近，因为阀门错位导致密封不严；在问题解决后，气压持续下降，最后稳定在 $7.5 \times 10^{-3}$ Pa附近。
+
+			然后关闭分子泵，可以看到气压缓慢回升至 1 - 10 Pa 附近；随后再关闭机械泵，由于密封性较好，在5min内气压没有明显的变化。
+
+			随后我们测试了该真空泵的极限，其最多能产生 $1.5 \times 10^{-3}$ Pa 的真空。
+
+
+
+
+		\item \textbf{验证帕邢定律}
+		
+			对所测得的原始数据，使用如下的帕邢定律的公式进行拟合，结果如\cref{fig:D2-4-2-1}所示。
+			\[
+				V_s = \frac{Bpd}{\ln \frac{Apd}{\ln (1 + 1 / \gamma)}}
+			\]
+		
+			其中电极间距为60mm。
+
+			可以看到，拟合结果虽然肉眼上有一定的偏差，但是拟合结果的相关系数达到了 $R^2 = 0.974$，可以认为拟合结果较好。
+
+			所以我们可以认为验证了帕邢定律，即击穿电压存在一个极小值，实测值为310V，对应气压为14Pa。
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Paschen's_law_fitting.png}
+				\caption{帕邢定律拟合}
+				\label{fig:D2-4-2-1}
+			\end{figure}
+
+
+
+
+
+		\item \textbf{观察气体放电（发光） 现象}
+		
+			对测量到的不同气体的放电光谱扣除本底后，进行寻峰，结果如\cref{fig:D2-3-3-1}、\cref{fig:D2-3-3-2}、\cref{fig:D2-3-3-3}。
+
+			\begin{enumerate}
+				\item 对于He气的光谱，可以看到有几个较为明显的峰值，501.10nm、587.24nm、667.31nm、706.13nm、727.79nm。
+
+				501.10 nm 对应的是绿光，并且在光谱中强度最高，667.31 nm 对应红光，586.89 nm 是黄光的波长。但是在实验中，我们并没有通过肉眼看到有明显亮光。
+
+				\item 对于Ne气的光谱，有一个非常明显的峰值为584.77nm，属于黄光范围；此外，还有631.81nm，属于橙光范围；639.78nm，属于红光范围。这与肉眼所看到的橘黄色光一致。
+				
+
+				\item 对于Ar气光谱，可以看到750.61nm，763.32nm,811.06nm这几个峰值，都属于红外或近红外波段。
+				
+				\item 空气光谱图如\cref{fig:D2-3-air}所示，这实际上是日光灯管中的汞蒸气通过电流激发产生紫外线，然后这些紫外线被灯管内壁的荧光粉吸收并转换为可见光。
+			\end{enumerate}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{He_light_spectrum.png}
+				\caption{He气光谱图寻峰}
+				\label{fig:D2-3-3-1}
+			\end{figure}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ne_light_spectrum.png}
+				\caption{Ne气光谱图寻峰}
+				\label{fig:D2-3-3-2}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ar_light_spectrum.png}
+				\caption{Ar气光谱图寻峰}
+				\label{fig:D2-3-3-3}
+			\end{figure}
+
+
+
+
+
+
+		\item \textbf{了解四极质谱仪工作原理}
+		
+			对通入不同的气体所得到的质谱图进行寻峰，得到结果如\cref{fig:D2-3-4-1}、\cref{fig:D2-3-4-2}、\cref{fig:D2-3-4-3}、\cref{fig:D2-3-4-4}所示。
+
+			\begin{enumerate}
+				\item 对于He气的质谱图（\cref{fig:D2-3-4-1}），可以看到有一个明显的峰4.20，这对应$\text{He}^+$的成分。此外，图中还有两个小的峰值，即20.60和40.70，这可能对应的是$\text{Ne}^+$和$\text{Ar}^+$气的部分，说明实验所用气体可能不纯；或是之前的气体有残余。
+				\item 对于Ne气的质谱图（\cref{fig:D2-3-4-2}），可以看到除了$\text{Ne}^+$的成分20.60以外，还有其余的峰值，如28.70（对应$\text{N}_2^+$）、32.60（对应$\text{O}_2^+$）和14.30（对应于$\text{N}_2^{2+}$或$\text{N}^+$），说明实验说用的Ne气一定是不纯的；或者是存在漏气的情况。
+				\item 对于Ar气的质谱图（\cref{fig:D2-3-4-3}，可以看到有一个明显的峰40.70（对应于$\text{Ar}^+$），还有几个小的峰值，如20.60（对应于$\text{Ne}^+$）、28.80（对应于$\text{N}_2^+$）。
+				\item 对于空气的质谱图（\cref{fig:D2-3-4-4}），可以看到14.40、16.50、28.70、32.60这几个峰，它们分别对应于$\text{N}_2^{2+}$、$\text{O}_2^{2+}$、$\text{N}_2^+$、$\text{O}_2^+$的成分。
+			\end{enumerate}
+
+
+
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{He_mass_spectrum.png}
+				\caption{He气质谱图寻峰}
+				\label{fig:D2-3-4-1}
+			\end{figure}
+
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ne_mass_spectrum.png}
+				\caption{Ne气质谱图寻峰}
+				\label{fig:D2-3-4-2}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{Ar_mass_spectrum.png}
+				\caption{Ar气质谱图寻峰}
+				\label{fig:D2-3-4-3}
+			\end{figure}
+
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{air_mass_spectrum.png}
+				\caption{空气质谱图寻峰}
+				\label{fig:D2-3-4-4}
+			\end{figure}
+
+
+	\end{enumerate}
+
+
+
+		
+
+	
+\subsection{实验后思考题}
+
+% 思考题1
+\begin{question}
+	真空度（真空计压强） 随时间变化反映了真空系统的什么特性？
+\end{question}
+
+
+	在最初的时间段内，压强快速下降，这说明机械泵能够迅速降低系统内的气体压强至极限值；在机械泵达到极限后，只能通过分子泵来降低体系内的气压值。
+
+	在稳定的极限真空区域内，压强仍然存在升高或波动，这可能与系统的漏气率或内部材料的释气率有关。
+
+	在我们关闭分子泵后，气压缓慢回升至机械泵的极限值，随后再关闭极限泵，气压仍可以保持长时间保持不变，说明机械泵部分的气密性较好，能够保持1-10Pa等级的真空。
+
+	
+% 思考题2
+\begin{question}
+	等离子体光谱反映了等离子体的什么特性？ 能得到等离子体的什么参数？
+\end{question}
+
+	\begin{enumerate}
+		\item 光谱反映了等离子体中的元素组成，通过识别特定的发射线或吸收线，可以确定等离
+		子体中存在的元素种类。
+		\item 通过分析光谱线的相对强度和形状，可以估计等离子体的电子温度。
+		\item 谱的强度可以用来估计等离子体的离子密度。
+	\end{enumerate}
+
+
+% 思考题3
+\begin{question}
+	研究四极电场特性及其中离子运动方程， 深入探讨四极质谱仪工作原理。
+\end{question}
+
+	四极杆电场的电势分布为：
+
+	\[
+		\Phi(x,y,z) = \frac{U - V \cos(\omega t)}{2 r_0^2} (x^2 - y^2)
+	\]
+
+	而离子在四级电场中的运动方程为
+	\begin{equation*}
+		\begin{split}
+			\frac{d^2 x}{d \tau^2} + (a_x - 2 q_x \cos(\omega \tau)) = 0	\\
+			\frac{d^2 y}{d \tau^2} + (a_y - 2 q_y \cos(\omega \tau)) = 0
+		\end{split}
+	\end{equation*}
+
+	其中， $a_x$, $a_y$ 和 $q_x$, $q_y$ 是由电压 $U$ 和 $V$ 以及离子的质荷比 $m/z$ 计算出的参数， $\tau = ωt/2$ 是规格化时间。
+
+	通过调节直流和射频电压的相对值，可以设置特定质荷比的离子在四极杆中稳定传输的条件。这允许特定质荷比的离子通过四极杆，而使其它离子因轨道不稳定而被排除出系统。
+
+
+
+
+% \clearpage
+% \section{D2 \quad 材料真空兼容性测试和等离子特性研究 \quad\heiti 实验总结}
+
+% 	\subsection{实验分工}
+
+% 		本实验由戴鹏辉、杨舒云、朱政鑫三人合作完成
+% 		\begin{enumerate}
+% 			\item 上午的实验操作由朱政鑫同学主力完成；下午的实验操作由杨舒云和戴鹏辉主力完成。
+% 			\item 实验数据整理由朱政鑫主要完成。
+			
+% 		\end{enumerate}
+	
+		
+
+
+	% % \subsection{实验心得}
+
+	% \subsection{Attachment}
+	% % The arrangement of the experimental bench desktop is shown in %\cref{}.
+
+	% 个人签名见 \cref{fig:name1} 、 \cref{fig:name2}.
+
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	\includegraphics[width=0.5\textwidth]{name.png}
+	% 	\caption{signature1}
+	% 	\label{fig:name1}
+	% \end{figure}
+	
+	% \begin{figure}[htbp]
+	% 	\centering
+	% 	\includegraphics[width=0.35\textwidth]{name-TaLEs.jpg}
+	% 	\caption{signature2}
+	% 	\label{fig:name2}
+	% \end{figure}
+
+	
+
+	
+	
+
+
+\end{document}
